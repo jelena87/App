@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>App</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="dist/gridstack.css"/>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.0/jquery-ui.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.5.0/lodash.min.js"></script>
+    <script src="dist/gridstack.js"></script>
+    <script src="dist/gridstack.jQueryUI.js"></script>
+
+    <style type="text/css">
+        body {
+          margin-top: 100px;
+        }
+        .grid-stack {
+          background-color: #fff;
+        }
+        .grid-stack-item-content {
+            color: #fff;
+            text-align: center;
+            background-color: #ddd;
+        }
+
+        .grid-stack .grid-stack {
+            /*margin: 0 -10px;*/
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .grid-stack .grid-stack .grid-stack-item-content {
+            background: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+
+    <!--    <nav role="navigation">
+          <div id="menuToggle">
+            <input type="checkbox" />
+            <span></span>
+            <span></span>
+            <span></span>
+            <ul id="menu">
+              <a href="#"><li>Home</li></a>
+              <a href="#"><li>About</li></a>
+              <a href="#"><li>Info</li></a>
+              <a href="#"><li>Contact</li></a>
+            </ul>
+          </div>
+        </nav>  -->
+            <div class="row">
+                <aside class="col-md-2 left">
+                  <ul class="leftSidebar">
+                    <li>Fields</li>
+                    <li>Fieldgroups</li>
+                    <li>Controls</li>
+                    <li>Depositories</li>
+                  </ul>
+                </aside>
+
+            <div class="col-md-8 grid-stack">
+            <div class="grid-stack-item" data-gs-x="4" data-gs-y="0" data-gs-width="12" data-gs-height="8">
+                <div class="grid-stack-item-content">
+
+                        <div class="grid-stack">
+                            <div class="grid-stack-item" data-gs-x="0" data-gs-y="0" data-gs-width="3" data-gs-height="1"><div class="grid-stack-item-content">1</div></div>
+                            <div class="grid-stack-item" data-gs-x="3" data-gs-y="0" data-gs-width="3" data-gs-height="1"><div class="grid-stack-item-content">2</div></div>
+                            <div class="grid-stack-item" data-gs-x="6" data-gs-y="0" data-gs-width="3" data-gs-height="1"><div class="grid-stack-item-content">3</div></div>
+                            <div class="grid-stack-item" data-gs-x="9" data-gs-y="0" data-gs-width="3" data-gs-height="1"><div class="grid-stack-item-content">4</div></div>
+
+                            <div class="grid-stack-item" data-gs-x="0" data-gs-y="1" data-gs-width="3" data-gs-height="1"><div class="grid-stack-item-content">5</div></div>
+                            <div class="grid-stack-item" data-gs-x="3" data-gs-y="1" data-gs-width="3" data-gs-height="1"><div class="grid-stack-item-content">6</div></div>
+                            <div class="grid-stack-item" data-gs-x="0" data-gs-y="1" data-gs-width="3" data-gs-height="1"><div class="grid-stack-item-content">7</div></div>
+                            <div class="grid-stack-item" data-gs-x="3" data-gs-y="1" data-gs-width="4" data-gs-height="2"><div class="grid-stack-item-content">8</div></div>
+                        </div>
+
+                </div>
+            </div>
+            </div>
+
+                <aside class="col-md-2 right">
+                    <ul class="rightSidebar">
+                      <li>Settings</li>
+                      <li></li>
+                      <li>Translations</li>
+                    </ul>
+                </aside>
+            </div>
+    </div>
+
+
+    <script type="text/javascript">
+        $(function () {
+            var options = {
+            };
+            $('.grid-stack').gridstack(options);
+        });
+    </script>
+</body>
+</html>
