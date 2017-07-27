@@ -10,6 +10,9 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+    crossorigin="anonymous"></script>
+
   </head>
 
   <body>
@@ -22,12 +25,20 @@
             <li>Controls</li>
             <li><button class="dropbtn" onclick="myFunction()">Depositories</a></li>
               <ul id="dropdown-menu" class="dropdown-content">
-                <li><a href="#" draggable="true" ondragstart="drag(event)" width="336" height="69" id="drag1">Block</a></li>
-                <li><a href="#">Container</a></li>
+                <li class="list-group-item">
+                  <div id="drag1" class="drag ui-draggable">
+                    <a href="#">Block</a>
+                  </div>
+                </li>
+                <li class="list-group-item">
+                  <div id="drag2" class="drag ui-draggable">
+                    <a href="#">Block</a>
+                  </div>
+                </li>
               </ul>
           </ul>
         </aside>
-        <div class="col-md-8 grid-form" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <div class="col-md-8 grid-form ui-droppable" id="frame">
 
         </div>
         <aside class="col-md-2">
@@ -56,18 +67,47 @@
         }
       }
     }
-    function allowDrop(ev) {
-    ev.preventDefault();
-    }
+    $(document).ready(function(){
+      var counter = 1;
+      $(".drag").draggable({
+          revert: "invalid",
+          helper: 'clone',
+          cursor: "crosshair",
+          containment: 'frame',
 
-    function drag(ev) {
-        ev.dataTransfer.setData("text", ev.target.id);
-    }
+      });
 
-    function drop(ev) {
-        ev.preventDefault();
-        var data = ev.dataTransfer.getData("text");
-        ev.target.appendChild(document.getElementById(data));
-    }
+      $("#frame").droppable({
+          accept: ".drag",
+          drop: function(event, ui) {
+              var cloned = $(ui.helper).clone();
+              cloned.attr("id", "clonedElem" + counter);
+              var pos = $(ui.helper).offset();
+
+              var draggableOffset = ui.helper.offset(),
+                  droppableOffset = $(this).offset(),
+                  left = draggableOffset.left - droppableOffset.left,
+                  thisTop = draggableOffset.top - droppableOffset.top;
+
+              cloned.css({
+                  "position": "absolute",
+                  "left": left,
+                  "top": thisTop
+              });
+
+              cloned.attr("visible", "true");
+
+              cloned.draggable({
+                  containment: 'parent',
+                  stop:function(ev, ui) {
+                      console.log("aqui");
+                  }
+              });
+              $("#frame").append(cloned);
+              counter++;
+          }
+      });
+    });
     </script>
   </body>
+</html>
