@@ -33,24 +33,37 @@ function removeNode(node) {
 function drop(ev) {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("text");
-    var isLeft = 'drag1' == data || "drag2" == data;
+    //var isLeft = 'drag1' == data || "drag2" == data;
+    var isLeft = data;
     var nodeCopy = document.getElementById(data).cloneNode(true);
     nodeCopy.id = "img" + ev.target.id;
     // clean target space if needed
-    if (isLeft) {
+    if (isLeft == 'drag1') {
         if (ev.target.nodeName == 'IMG') {
             ev.target.parentNode.appendChild(nodeCopy);
             removeNode(ev.target);
         }
         else
-            ev.target.appendChild(nodeCopy);
+            function boldHTML() {
+                var element = document.createElement("div");
+                //element.classList.add("row");
+                element.innerHTML ="<div class='col-md-6 col-xs-12 block'>hey!</div>";
+                return element;
+            }
+            var node = document.createElement("DIV");
+
+            ev.target.appendChild(node);
+            if(node.parentNode.id =='frame'){
+                node.appendChild(boldHTML());
+            }
+
     }
-    else {
-        if (ev.target.nodeName != 'IMG') {
-            removeNode(document.getElementById(data));
-            ev.target.appendChild(nodeCopy);
-        }
-    }
+    // else {
+    //     if (ev.target.nodeName != 'IMG') {
+    //         removeNode(document.getElementById(data));
+    //         ev.target.appendChild(nodeCopy);
+    //     }
+    // }
     ev.stopPropagation();
     return false;
 }
