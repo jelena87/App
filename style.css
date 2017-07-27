@@ -1,0 +1,28 @@
+:root {
+    --red: #FF0000;
+    --white: #FFFFFF;
+    --green: #1abc9c;
+    --grey: #888888;
+}
+.block {
+    background: #f2f2f2;
+    position: relative;
+    padding: 15px;
+    border: 1px solid #ccc;
+}
+.block:not(:first-child) {
+     margin-top: 10px;
+ }
+.blocks {
+    margin-bottom: 0;
+}
+.panel {
+    border-radius: 0;
+}
+
+.row > .panel {
+    background-color: #f2f2f2;
+}
+.builder {
+    padding: 20px;
+}
