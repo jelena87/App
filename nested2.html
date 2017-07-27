@@ -48,13 +48,9 @@
                   <li>Fields</li>
                   <li>Fieldgroups</li>
                   <li>Controls</li>
-                  <li><a class="dropbtn" onclick="myFunction()">Depositories</a></li>
-                    <ul id="dropdown-menu" class="dropdown-content">
-
-                      <li><p  draggable="true" ondragstart="drag(event)" id="drag1">Test 1</p></li>
-                      <li><p  draggable="true" ondragstart="drag(event)" id="drag2">Test 2</p></li>
-
-                    </ul>
+                  <li>Depositories</li>
+                  <li><div class="grid-stack-item" draggable="true" ondragstart="drag(event)" id="drag1" style="background-color: blue;" data-gs-width="12" data-gs-height="8">Block</div></li>
+                  <li><div draggable="true" ondragstart="drag(event)" id="drag2" style="background-color: red;" class="grid-stack-item" data-gs-x="3" data-gs-y="1" data-gs-width="4" data-gs-height="1">Container</div></li>
                 </ul>
               </aside>
 
@@ -62,7 +58,7 @@
             <div class="grid-stack-item" data-gs-x="4" data-gs-y="0" data-gs-width="12" data-gs-height="8">
                 <div class="grid-stack-item-content">
 
-                        <div class="grid-stack">
+                        <div class="grid-stack" ondrop="drop(event)" ondragover="allowDrop(event)">
                             <div class="grid-stack-item" data-gs-x="0" data-gs-y="0" data-gs-width="3" data-gs-height="1"><div class="grid-stack-item-content">1</div></div>
                             <div class="grid-stack-item" data-gs-x="3" data-gs-y="0" data-gs-width="3" data-gs-height="1"><div class="grid-stack-item-content">2</div></div>
                             <div class="grid-stack-item" data-gs-x="6" data-gs-y="0" data-gs-width="3" data-gs-height="1"><div class="grid-stack-item-content">3</div></div>
@@ -71,7 +67,7 @@
                             <div class="grid-stack-item" data-gs-x="0" data-gs-y="1" data-gs-width="3" data-gs-height="1"><div class="grid-stack-item-content">5</div></div>
                             <div class="grid-stack-item" data-gs-x="3" data-gs-y="1" data-gs-width="3" data-gs-height="1"><div class="grid-stack-item-content">6</div></div>
                             <div class="grid-stack-item" data-gs-x="0" data-gs-y="1" data-gs-width="3" data-gs-height="1"><div class="grid-stack-item-content">7</div></div>
-                            <div class="grid-stack-item" data-gs-x="3" data-gs-y="1" data-gs-width="4" data-gs-height="2"><div class="grid-stack-item-content">8</div></div>
+                            <div class="grid-stack-item" data-gs-x="3" data-gs-y="1" data-gs-width="4" data-gs-height="1"><div class="grid-stack-item-content">8</div></div>
                         </div>
 
                 </div>
@@ -88,7 +84,7 @@
             </div>
     </div>
 
-
+<script src="app.js"></script>
     <script type="text/javascript">
         $(function () {
             var options = {
