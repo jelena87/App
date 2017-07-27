@@ -15,13 +15,9 @@ window.onclick = function(event) {
     }
 };
 
-
 function allowDrop(ev) {
     ev.preventDefault();
 }
-
-
-
 function drag(ev) {
     ev.dataTransfer.setData("text", ev.target.id);
 }
@@ -33,48 +29,37 @@ function removeNode(node) {
 function drop(ev) {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("text");
-    //var isLeft = 'drag1' == data || "drag2" == data;
-    var isLeft = data;
-    var nodeCopy = document.getElementById(data).cloneNode(true);
-    nodeCopy.id = "img" + ev.target.id;
-    // clean target space if needed
-    if (isLeft == 'drag1') {
+    var isLeft = 'drag1' === data || "drag2" === data;
 
-            function boldHTML() {
+    if (isLeft) {
+
+            // Function for create elements in grid
+            function BlockHTML(node) {
                 var element = document.createElement("div");
-                //element.classList.add("container");
-                element.innerHTML ="<div id='block' class='container-fluid block'></div>";
-                return element;
+
+                if(node === "block"){
+                    element.classList.add("container-fluid","row");
+                    element.innerHTML ="<div class='block'></div>";
+                    return element;
+                }
+                if(node === "card") {
+                    element.classList.add("cards");
+                    element.innerHTML ="<div class='col-md-4 col-xs-12 card'>hey2!</div>";
+                    return element;
+                }
             }
+
             var node = document.createElement("DIV");
-
             ev.target.appendChild(node);
-            if(node.parentNode.id =='frame'){
-                node.appendChild(boldHTML());
+
+            if(data ==='drag1' && node.parentNode.id ==='frame'){
+                node.appendChild(BlockHTML("block"));
             }
-
-    }
-    if(isLeft == 'drag2') {
-
-            function boldHTML() {
-                var element = document.createElement("div");
-                //element.classList.add("row");
-                element.innerHTML ="<div class='col-md-4 col-xs-12 card'>hey2!</div>";
-                return element;
+            if(data === 'drag2' && node.parentNode.classList.value === 'block'){
+                node.appendChild(BlockHTML("card"));
             }
-        var node = document.createElement("DIV");
-
-        ev.target.appendChild(node);
-        if(node.parentNode.id =='block'){
-            node.appendChild(boldHTML());
-        }
     }
-    // else {
-    //     if (ev.target.nodeName != 'IMG') {
-    //         removeNode(document.getElementById(data));
-    //         ev.target.appendChild(nodeCopy);
-    //     }
-    // }
     ev.stopPropagation();
     return false;
 }
+
