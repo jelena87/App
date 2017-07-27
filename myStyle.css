@@ -1,6 +1,9 @@
 body {
   margin-top: 100px;
 }
+.container-fluid {
+  height: 100%;
+}
 .grid-form {
   background-color: #ddd;
   position: relative;
