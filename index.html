@@ -11,6 +11,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
+
   </head>
 
   <body>
@@ -23,12 +24,14 @@
             <li>Controls</li>
             <li><a class="dropbtn" onclick="myFunction()">Depositories</a></li>
               <ul id="dropdown-menu" class="dropdown-content">
+
                 <li><p  draggable="true" ondragstart="drag(event)" id="drag1">Test 1</p></li>
                 <li><p  draggable="true" ondragstart="drag(event)" id="drag2">Test 2</p></li>
+
               </ul>
           </ul>
         </aside>
-        <div class="col-md-8 grid-form" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <div class="col-md-8 grid-form ui-droppable" id="frame">
 
 
           <div id="divRight">
@@ -48,7 +51,12 @@
       </div>
     </div>
 
+
     <script src="app.js"></script>
   </body>
 
+
+
+  </body>
+</html>
 
