@@ -59,7 +59,7 @@ function drop(ev) {
             function boldHTML() {
                 var element = document.createElement("div");
                 //element.classList.add("row");
-                element.innerHTML ="<div class='col-md-6 col-xs-12 card'>hey2!</div>";
+                element.innerHTML ="<div class='col-md-4 col-xs-12 card'>hey2!</div>";
                 return element;
             }
         var node = document.createElement("DIV");
