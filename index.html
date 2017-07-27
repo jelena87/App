@@ -22,17 +22,15 @@
             <li>Fields</li>
             <li>Fieldgroups</li>
             <li>Controls</li>
-            <li><a class="dropbtn" onclick="myFunction()">Depositories</a></li>
-              <ul id="dropdown-menu" class="dropdown-content">
+            <li>Depositories</li>
+            <li><div draggable="true" ondragstart="drag(event)" id="drag1" style="background-color: blue;">Block</div></li>
+            <li><div draggable="true" ondragstart="drag(event)" id="drag2" style="background-color: red;">Container</div></li>
 
-                <li><p  draggable="true" ondragstart="drag(event)" id="drag1">Test 1</p></li>
-                <li><p  draggable="true" ondragstart="drag(event)" id="drag2">Test 2</p></li>
 
-              </ul>
           </ul>
         </aside>
 
-        <div class="col-md-8 grid-form ui-droppable" id="frame" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <div class="col-md-8 grid-form" id="frame" ondrop="drop(event)" ondragover="allowDrop(event)">
 
 
 
