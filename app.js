@@ -39,15 +39,11 @@ function drop(ev) {
     nodeCopy.id = "img" + ev.target.id;
     // clean target space if needed
     if (isLeft == 'drag1') {
-        if (ev.target.nodeName == 'IMG') {
-            ev.target.parentNode.appendChild(nodeCopy);
-            removeNode(ev.target);
-        }
-        else
+
             function boldHTML() {
                 var element = document.createElement("div");
-                //element.classList.add("row");
-                element.innerHTML ="<div class='col-md-6 col-xs-12 block'>hey!</div>";
+                //element.classList.add("container");
+                element.innerHTML ="<div id='block' class='container-fluid block'></div>";
                 return element;
             }
             var node = document.createElement("DIV");
@@ -57,6 +53,21 @@ function drop(ev) {
                 node.appendChild(boldHTML());
             }
 
+    }
+    if(isLeft == 'drag2') {
+
+            function boldHTML() {
+                var element = document.createElement("div");
+                //element.classList.add("row");
+                element.innerHTML ="<div class='col-md-6 col-xs-12 card'>hey2!</div>";
+                return element;
+            }
+        var node = document.createElement("DIV");
+
+        ev.target.appendChild(node);
+        if(node.parentNode.id =='block'){
+            node.appendChild(boldHTML());
+        }
     }
     // else {
     //     if (ev.target.nodeName != 'IMG') {

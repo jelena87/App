@@ -59,10 +59,17 @@ ul.dropdown-content {
   position: relative;
   padding: 15px;
   border: 1px solid #ccc;
+  height: 250px;
 }
 .block:not(:first-child) {
   margin-top: 10px;
 }
 .blocks {
   margin-bottom: 0;
+}
+.card {
+  background: darkslategray;
+  position: relative;
+  padding: 15px;
+  border: 1px solid #ccc;
 }
