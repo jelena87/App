@@ -7,14 +7,14 @@ body {
 .grid-form {
   background-color: #ddd;
   position: relative;
-  height: 500px;
+  min-height: 500px;
 }
 ul.leftSidebar, ul.rightSidebar, ul.dropdown-content {
   list-style-type: none;
   text-align: center;
 }
 ul.leftSidebar li, ul.rightSidebar li, ul.dropdown-content li {
-  padding: 10px 30px;
+  padding: 10px 10px;
   border: 1px solid #000;
 }
 ul.dropdown-content {
@@ -59,7 +59,9 @@ ul.dropdown-content {
   position: relative;
   padding: 15px;
   border: 1px solid #ccc;
-  height: 250px;
+  min-height: 250px;
+  margin-top: 2%;
+  margin-bottom: 2%;
 }
 .block:not(:first-child) {
   margin-top: 10px;
