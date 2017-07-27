@@ -37,3 +37,17 @@ ul.dropdown-content {
   background-color: #fff;
   border: none;
 }
+/* Vladan */
+#divLeft {
+  height: 400px;
+  float: left;
+}
+
+#divRight {
+  height:400px;
+  float: left;
+}
+
+#div1, #div2 {
+  float:left; width:100px; height:35px; margin:10px;padding:10px;border:1px solid #aaaaaa;
+}
