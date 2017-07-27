@@ -43,14 +43,20 @@
 <body>
     <div class="container-fluid">
             <div class="row">
-                <aside class="col-md-2 left">
-                  <ul class="leftSidebar">
-                    <li>Fields</li>
-                    <li>Fieldgroups</li>
-                    <li>Controls</li>
-                    <li>Depositories</li>
-                  </ul>
-                </aside>
+              <aside class="col-md-2">
+                <ul class="leftSidebar">
+                  <li>Fields</li>
+                  <li>Fieldgroups</li>
+                  <li>Controls</li>
+                  <li><a class="dropbtn" onclick="myFunction()">Depositories</a></li>
+                    <ul id="dropdown-menu" class="dropdown-content">
+
+                      <li><p  draggable="true" ondragstart="drag(event)" id="drag1">Test 1</p></li>
+                      <li><p  draggable="true" ondragstart="drag(event)" id="drag2">Test 2</p></li>
+
+                    </ul>
+                </ul>
+              </aside>
 
             <div class="col-md-8 grid-stack">
             <div class="grid-stack-item" data-gs-x="4" data-gs-y="0" data-gs-width="12" data-gs-height="8">
