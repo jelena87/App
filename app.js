@@ -23,7 +23,7 @@ window.onclick = function(event) {
         var dropdown = document.getElementsByClassName("dropdown-content-two");
         var i;
         for (i = 0; i < dropdown.length; i++) {
-            var openDropdowns = dropdowns[i];
+            var openDropdowns = dropdown[i];
             if (openDropdowns.classList.contains('show')) {
                 openDropdowns.classList.remove('show');
             }
@@ -63,6 +63,7 @@ function drop(ev) {
              element.innerHTML ="<div class='col-md-4 col-xs-12 card'>hey2!</div>";
              return element;
          }
+
     }
     ev.stopPropagation();
     return false;
