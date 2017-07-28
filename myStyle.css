@@ -76,9 +76,10 @@ ul.dropdown-content, ul.dropdown-content-two {
 .blocks {
   margin-bottom: 0;
 }
-.card {
+.cards {
   background: darkslategray;
   position: relative;
   padding: 15px;
+  height:50px;
   border: 1px solid #ccc;
 }

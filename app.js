@@ -45,9 +45,18 @@ function removeNode(node) {
 function drop(ev) {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("text");
-    var isLeft = 'drag1' === data || "drag2" === data;
+    var drag_depo = ['drag1','drag2'];
+    var drag_cont = ['text_box'];
+    var isLeft;
+    if(drag_depo.includes(data)){
+        isLeft = 'depositories';
+    }
+    if(drag_cont.includes(data)) {
+        isLeft = 'controls';
+    }
 
-    if (isLeft) {
+
+    if (isLeft === 'depositories') {
 
         //create elements in grid
         var element = document.createElement("div");
@@ -59,10 +68,34 @@ function drop(ev) {
              return element;
          }
          if(data === 'drag2' && element.parentNode.classList.value === 'block') {
-             element.classList.add("cards");
-             element.innerHTML ="<div class='col-md-4 col-xs-12 card'>hey2!</div>";
+             element.classList.add("cards","col-md-4");
+             //element.innerHTML ="<div class='col-md-4 col-xs-12 card'>hey2!</div>";
              return element;
          }
+
+    }
+    if (isLeft === 'controls'){
+
+        var element = document.createElement("div");
+        ev.target.appendChild(element);
+
+        if(data === 'text_box' && element.parentNode.classList.value === 'cards col-md-4'){
+            element.classList.add("field");
+            element.innerHTML ="<input type='text'>";
+            return element;
+
+        }
+        if(data === 'text_box' && element.parentNode.classList.value === 'block'){
+            element.classList.add("cards","col-md-4");
+            element.innerHTML ="<div class='field'><input type='text'></div>";
+            return element;
+
+        }
+        if(data ==='text_box' && element.parentNode.id ==='frame'){
+            element.classList.add("container-fluid","row");
+            element.innerHTML ="<div class='block'><div class='cards col-md-4'><div class='field'><input type='text'></div></div></div>";
+            return element;
+        }
 
     }
     ev.stopPropagation();
