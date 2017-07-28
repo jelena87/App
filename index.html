@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>App</title>
@@ -12,36 +12,43 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
 
-  </head>
+</head>
 
-  <body>
-    <div class="container-fluid">
-      <div class="row">
+<body>
+<div class="container-fluid">
+    <div class="row">
         <aside class="col-md-2">
-          <ul class="leftSidebar">
-            <li>Fields</li>
-            <li>Fieldgroups</li>
-            <li>Controls</li>
-            <li>Depositories</li>
-            <li><div class="container-fluid" draggable="true" ondragstart="drag(event)" id="drag1" style="background-color: blue;">Block</div></li>
-            <li><div draggable="true" ondragstart="drag(event)" id="drag2" style="background-color: red;" >Container</div></li>
-          </ul>
+            <ul class="leftSidebar">
+                <li>Fields</li>
+                <li>Fieldgroups</li>
+                <li>Controls</li>
+                <li><a class="dropbtn" onclick="myFunction()">Depositories</a></li>
+                <ul id="dropdown-menu" class="dropdown-content">
+
+                    <li><p  draggable="true" ondragstart="drag(event)" id="drag1">Block</p></li>
+                    <li><p  draggable="true" ondragstart="drag(event)" id="drag2">Card</p></li>
+
+                </ul>
+            </ul>
         </aside>
 
-        <div class="col-md-8 grid-form" id="frame" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <div class="col-md-8 grid-form ui-droppable" id="frame" ondrop="drop(event)" ondragover="allowDrop(event)">
+
+
+
 
         </div>
         <aside class="col-md-2">
-          <ul class="rightSidebar">
-            <li>Settings</li>
-            <li>Translations</li>
-          </ul>
+            <ul class="rightSidebar">
+                <li>Settings</li>
+                <li>Translations</li>
+            </ul>
         </aside>
-      </div>
     </div>
+</div>
 
 
-    <script src="app.js"></script>
-  </body>
+<script src="app.js"></script>
+</body>
 
 </html>
