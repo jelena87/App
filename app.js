@@ -72,6 +72,11 @@ function drop(ev) {
              //element.innerHTML ="<div class='col-md-4 col-xs-12 card'>hey2!</div>";
              return element;
          }
+        if(data === 'drag2' && element.parentNode.id ==='frame') {
+            element.classList.add("block");
+            element.innerHTML ="<div class='cards col-md-4'></div>";
+            return element;
+        }
 
     }
     if (isLeft === 'controls'){
@@ -91,7 +96,7 @@ function drop(ev) {
             return element;
 
         }
-        if(data ==='text_box' && element.parentNode.id ==='frame'){
+        if(data === 'text_box' && element.parentNode.id ==='frame'){
             element.classList.add("container-fluid","row");
             element.innerHTML ="<div class='block'><div class='cards col-md-4'><div class='field'><input type='text'></div></div></div>";
             return element;
@@ -101,3 +106,8 @@ function drop(ev) {
     ev.stopPropagation();
     return false;
 }
+
+$("#frame").sortable({
+    axis: "y",
+    items: ".row"
+});
