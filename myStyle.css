@@ -1,5 +1,6 @@
 body {
   margin-top: 100px;
+  margin-bottom: 100px;
 }
 .container-fluid {
   height: 100%;
@@ -7,7 +8,8 @@ body {
 .grid-form {
   background-color: #ddd;
   position: relative;
-  min-height: 500px;
+  min-height: 100vh;
+  overflow-y: scroll;
 }
 ul.leftSidebar, ul.rightSidebar, ul.dropdown-content {
   list-style-type: none;
