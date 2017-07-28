@@ -33,33 +33,21 @@ function drop(ev) {
 
     if (isLeft) {
 
-            // Function for create elements in grid
-            function BlockHTML(node) {
-                var element = document.createElement("div");
+        //create elements in grid
+        var element = document.createElement("div");
+        ev.target.appendChild(element);
 
-                if(node === "block"){
-                    element.classList.add("container-fluid","row");
-                    element.innerHTML ="<div class='block'></div>";
-                    return element;
-                }
-                if(node === "card") {
-                    element.classList.add("cards");
-                    element.innerHTML ="<div class='col-md-4 col-xs-12 card'>hey2!</div>";
-                    return element;
-                }
-            }
-
-            var node = document.createElement("DIV");
-            ev.target.appendChild(node);
-
-            if(data ==='drag1' && node.parentNode.id ==='frame'){
-                node.appendChild(BlockHTML("block"));
-            }
-            if(data === 'drag2' && node.parentNode.classList.value === 'block'){
-                node.appendChild(BlockHTML("card"));
-            }
+         if(data ==='drag1' && element.parentNode.id ==='frame'){
+             element.classList.add("container-fluid","row");
+             element.innerHTML ="<div class='block'></div>";
+             return element;
+         }
+         if(data === 'drag2' && element.parentNode.classList.value === 'block') {
+             element.classList.add("cards");
+             element.innerHTML ="<div class='col-md-4 col-xs-12 card'>hey2!</div>";
+             return element;
+         }
     }
     ev.stopPropagation();
     return false;
 }
-
