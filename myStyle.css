@@ -11,15 +11,15 @@ body {
   min-height: 100vh;
   overflow-y: scroll;
 }
-ul.leftSidebar, ul.rightSidebar, ul.dropdown-content {
+ul.leftSidebar, ul.rightSidebar, ul.dropdown-content, ul.dropdown-content-two {
   list-style-type: none;
   text-align: center;
 }
-ul.leftSidebar li, ul.rightSidebar li, ul.dropdown-content li {
+ul.leftSidebar li, ul.rightSidebar li, ul.dropdown-content li, ul.dropdown-content-two li {
   padding: 10px 10px;
   border: 1px solid #000;
 }
-ul.dropdown-content {
+ul.dropdown-content, ul.dropdown-content-two {
   padding-left: 0;
   display: none;
 }
@@ -39,8 +39,13 @@ ul.dropdown-content {
   color: #000;
 }
 .dropbtn {
-  background-color: #fff;
   border: none;
+}
+.activeLink {
+  background-color: #ddd;
+}
+.activeLink a {
+  color: #000;
 }
 /* Vladan */
 #divLeft {
