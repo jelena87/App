@@ -14,6 +14,22 @@ window.onclick = function(event) {
         }
     }
 };
+function myFunctionTwo() {
+    document.getElementById("dropdown-menu-two").classList.toggle("show");
+}
+window.onclick = function(event) {
+    if (!event.target.matches('.dropbtn-two')) {
+
+        var dropdown = document.getElementsByClassName("dropdown-content-two");
+        var i;
+        for (i = 0; i < dropdown.length; i++) {
+            var openDropdowns = dropdowns[i];
+            if (openDropdowns.classList.contains('show')) {
+                openDropdowns.classList.remove('show');
+            }
+        }
+    }
+};
 
 function allowDrop(ev) {
     ev.preventDefault();
