@@ -72,6 +72,11 @@ function drop(ev) {
              //element.innerHTML ="<div class='col-md-4 col-xs-12 card'>hey2!</div>";
              return element;
          }
+        if(data === 'drag2' && element.parentNode.id ==='frame') {
+            element.classList.add("block");
+            element.innerHTML ="<div class='cards col-md-4'></div>";
+            return element;
+        }
 
     }
     if (isLeft === 'controls'){
