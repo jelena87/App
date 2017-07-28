@@ -96,7 +96,7 @@ function drop(ev) {
             return element;
 
         }
-        if(data ==='text_box' && element.parentNode.id ==='frame'){
+        if(data === 'text_box' && element.parentNode.id ==='frame'){
             element.classList.add("container-fluid","row");
             element.innerHTML ="<div class='block'><div class='cards col-md-4'><div class='field'><input type='text'></div></div></div>";
             return element;
@@ -106,3 +106,8 @@ function drop(ev) {
     ev.stopPropagation();
     return false;
 }
+
+$("#frame").sortable({
+    axis: "y",
+    items: ".row"
+});
