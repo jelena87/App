@@ -70,6 +70,7 @@ function drop(ev) {
          else if(data === 'drag2' && element.parentNode.classList.value === 'block') {
              element.classList.add("cards","col-md-4");
              //element.innerHTML ="<div class='col-md-4 col-xs-12 card'>hey2!</div>";
+             // element.draggable();
              return element;
          }
         else if(data === 'drag2' && element.parentNode.id ==='frame') {
@@ -137,8 +138,7 @@ function drop(ev) {
                 template = label;
                 break;
         }
-        console.log(template);
-        //Textbox
+
         if( element.parentNode.classList.value === 'cards col-md-4'){
             element.classList.add("field");
             element.innerHTML = template;
@@ -169,3 +169,20 @@ $("#frame").sortable({
     axis: "y",
     items: ".row"
 });
+
+// $( ".cards" ).mousedown(function() {
+//     alert( "Handler for .mousedown() called." );
+// });
+$('#frame').on('mousedown','.block',function(){
+    $(this).sortable({
+        // axis: "x",
+        items:".cards"
+    })
+});
+
+
+// $(".block").sortable({
+//
+//     connectWith: ".block"
+// }).disableSelection();
+
