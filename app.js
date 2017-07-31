@@ -182,8 +182,16 @@ $('#frame').on('mousedown','.block',function(){
 });
 
 
-$(".block").sortable({
+// $(".block").sortable({
+//
+//     connectWith: ".block"
+// }).disableSelection();
 
-    connectWith: ".block"
-}).disableSelection();
+
+
+
+// $(".block").sortable({
+//
+//     connectWith: ".block"
+// }).disableSelection();
 
