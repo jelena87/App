@@ -170,19 +170,20 @@ $("#frame").sortable({
     items: ".row"
 });
 
-// $( ".cards" ).mousedown(function() {
-//     alert( "Handler for .mousedown() called." );
-// });
+
 $('#frame').on('mousedown','.block',function(){
-    $(this).sortable({
-        // axis: "x",
-        items:".cards"
-    })
+
+        $( ".cards" ).draggable({
+            containment: "parent"
+        });
+        $( ".field" ).draggable({
+            containment: "parent"
+        });
 });
 
 
-// $(".block").sortable({
-//
-//     connectWith: ".block"
-// }).disableSelection();
+$(".block").sortable({
+
+    connectWith: ".block"
+}).disableSelection();
 
