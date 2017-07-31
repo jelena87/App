@@ -48,25 +48,13 @@ ul.dropdown-content, ul.dropdown-content-two {
   color: #000;
 }
 /* Vladan */
-#divLeft {
-  height: 400px;
-  float: left;
-}
 
-#divRight {
-  height:400px;
-  float: left;
-}
-
-#div1, #div2 {
-  float:left; width:100px; height:35px; margin:10px;padding:10px;border:1px solid #aaaaaa;
-}
 .block {
   background: #f2f2f2;
   position: relative;
   padding: 15px;
   border: 1px solid #ccc;
-  height: 500px;
+  min-height: 250px;
   margin-top: 2%;
   margin-bottom: 2%;
 }
@@ -83,3 +71,4 @@ ul.dropdown-content, ul.dropdown-content-two {
   min-height:50px;
   border: 1px solid #ccc;
 }
+textarea { resize: vertical; }
