@@ -170,19 +170,15 @@ $("#frame").sortable({
     items: ".row"
 });
 
-// $( ".cards" ).mousedown(function() {
-//     alert( "Handler for .mousedown() called." );
-// });
+
 $('#frame').on('mousedown','.block',function(){
-    // $(this).sortable({
-    //     // axis: "x",
-    //     items:".cards"
-    // });
-    $( function() {
+
         $( ".cards" ).draggable({
-  containment: "parent"
-});
-    } );
+            containment: "parent"
+        });
+        $( ".field" ).draggable({
+            containment: "parent"
+        });
 });
 
 
@@ -190,3 +186,12 @@ $('#frame').on('mousedown','.block',function(){
 //
 //     connectWith: ".block"
 // }).disableSelection();
+
+
+
+
+// $(".block").sortable({
+//
+//     connectWith: ".block"
+// }).disableSelection();
+
