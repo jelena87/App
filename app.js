@@ -174,10 +174,15 @@ $("#frame").sortable({
 //     alert( "Handler for .mousedown() called." );
 // });
 $('#frame').on('mousedown','.block',function(){
-    $(this).sortable({
-        // axis: "x",
-        items:".cards"
-    })
+    // $(this).sortable({
+    //     // axis: "x",
+    //     items:".cards"
+    // });
+    $( function() {
+        $( ".cards" ).draggable({
+  containment: "parent"
+});
+    } );
 });
 
 
@@ -185,4 +190,3 @@ $('#frame').on('mousedown','.block',function(){
 //
 //     connectWith: ".block"
 // }).disableSelection();
-
