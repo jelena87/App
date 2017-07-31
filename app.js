@@ -137,8 +137,7 @@ function drop(ev) {
                 template = label;
                 break;
         }
-        console.log(template);
-        //Textbox
+
         if( element.parentNode.classList.value === 'cards col-md-4'){
             element.classList.add("field");
             element.innerHTML = template;

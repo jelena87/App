@@ -55,7 +55,8 @@ ul.dropdown-content, ul.dropdown-content-two {
   position: relative;
   padding: 15px;
   border: 1px solid #ccc;
-  min-height: 250px;
+  min-height: 500px;
+  overflow-y: auto;
   margin-top: 2%;
   margin-bottom: 2%;
 }
