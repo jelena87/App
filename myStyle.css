@@ -14,6 +14,7 @@ body {
 ul.leftSidebar, ul.rightSidebar, ul.dropdown-content, ul.dropdown-content-two {
   list-style-type: none;
   text-align: center;
+  padding-left: 0;
 }
 ul.leftSidebar li, ul.rightSidebar li, ul.dropdown-content li, ul.dropdown-content-two li {
   padding: 10px 10px;
@@ -71,4 +72,10 @@ ul.dropdown-content, ul.dropdown-content-two {
   min-height:50px;
   border: 1px solid #ccc;
 }
+
 textarea { resize: vertical; }
+
+.visible {
+  display: block;
+}
+

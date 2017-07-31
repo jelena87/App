@@ -169,7 +169,3 @@ $("#frame").sortable({
     axis: "y",
     items: ".row"
 });
-$(".container-fluid").sortable({
-    axis: "x",
-    items: ".block"
-});
