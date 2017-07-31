@@ -61,7 +61,7 @@ function drop(ev) {
         ev.target.appendChild(element);
 
          if(data ==='drag1' && element.parentNode.id ==='frame'){
-             element.classList.add("container-fluid","row");
+
              element.innerHTML =`<div class="grid-stack-item" data-gs-x="4" data-gs-y="0" data-gs-width="12" data-gs-height="8" id="drop">
                  <div class="grid-stack-item-content">
 
