@@ -84,3 +84,6 @@ ul.dropdown-content, ul.dropdown-content-two {
   min-height:50px;
   border: 1px solid #ccc;
 }
+.visible {
+  display: block;
+}

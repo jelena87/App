@@ -71,7 +71,7 @@
               </aside>
 
             <div class="col-md-8 grid-stack" ondrop="drop(event)" ondragover="allowDrop(event)" id="frame">
-            <div class="grid-stack-item" data-gs-x="4" data-gs-y="0" data-gs-width="12" data-gs-height="8">
+            <div class="grid-stack-item" data-gs-x="4" data-gs-y="0" data-gs-width="12" data-gs-height="8" id="drop" style="display:none;">
                 <div class="grid-stack-item-content">
 
                         <div class="grid-stack">
@@ -88,7 +88,7 @@
 
                 </div>
             </div>
-            <div class="grid-stack-item" data-gs-x="4" data-gs-y="0" data-gs-width="12" data-gs-height="8">
+            <div class="grid-stack-item" data-gs-x="4" data-gs-y="0" data-gs-width="12" data-gs-height="8" style="display:none;">
                 <div class="grid-stack-item-content">
 
                         <div class="grid-stack">
@@ -118,9 +118,9 @@
     </div>
     <script src="gridstack.js"></script>
     <script src="gridstack.jQueryUI.js"></script>
-    <script src="app.js">
+    <script src="nested.js">
     </script>
-<script src="app.js"></script>
+
     <script type="text/javascript">
         $(function () {
             var options = {
