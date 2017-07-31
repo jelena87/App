@@ -61,24 +61,22 @@ function drop(ev) {
         ev.target.appendChild(element);
 
          if(data ==='drag1' && element.parentNode.id ==='frame'){
+             element.classList.add("container-fluid","row");
+             element.innerHTML =`<div class='block'><div class="grid-stack-item-content">
 
-             element.innerHTML =`<div class="grid-stack-item" data-gs-x="4" data-gs-y="0" data-gs-width="12" data-gs-height="8" id="drop">
-                 <div class="grid-stack-item-content">
+                     <div class="grid-stack">
+                         <div class="grid-stack-item" data-gs-x="0" data-gs-y="0" data-gs-width="3" data-gs-height="1"><div class="grid-stack-item-content">1</div></div>
+                         <div class="grid-stack-item" data-gs-x="3" data-gs-y="0" data-gs-width="3" data-gs-height="1"><div class="grid-stack-item-content">2</div></div>
+                         <div class="grid-stack-item" data-gs-x="6" data-gs-y="0" data-gs-width="3" data-gs-height="1"><div class="grid-stack-item-content">3</div></div>
+                         <div class="grid-stack-item" data-gs-x="9" data-gs-y="0" data-gs-width="3" data-gs-height="1"><div class="grid-stack-item-content">4</div></div>
 
-                         <div class="grid-stack">
-                             <div class="grid-stack-item" data-gs-x="0" data-gs-y="0" data-gs-width="3" data-gs-height="1"><div class="grid-stack-item-content">1</div></div>
-                             <div class="grid-stack-item" data-gs-x="3" data-gs-y="0" data-gs-width="3" data-gs-height="1"><div class="grid-stack-item-content">2</div></div>
-                             <div class="grid-stack-item" data-gs-x="6" data-gs-y="0" data-gs-width="3" data-gs-height="1"><div class="grid-stack-item-content">3</div></div>
-                             <div class="grid-stack-item" data-gs-x="9" data-gs-y="0" data-gs-width="3" data-gs-height="1"><div class="grid-stack-item-content">4</div></div>
+                         <div class="grid-stack-item" data-gs-x="0" data-gs-y="1" data-gs-width="3" data-gs-height="1"><div class="grid-stack-item-content">5</div></div>
+                         <div class="grid-stack-item" data-gs-x="3" data-gs-y="1" data-gs-width="3" data-gs-height="1"><div class="grid-stack-item-content">6</div></div>
+                         <div class="grid-stack-item" data-gs-x="0" data-gs-y="1" data-gs-width="3" data-gs-height="1"><div class="grid-stack-item-content">7</div></div>
+                         <div class="grid-stack-item" data-gs-x="3" data-gs-y="1" data-gs-width="4" data-gs-height="1"><div class="grid-stack-item-content">8</div></div>
+                     </div>
 
-                             <div class="grid-stack-item" data-gs-x="0" data-gs-y="1" data-gs-width="3" data-gs-height="1"><div class="grid-stack-item-content">5</div></div>
-                             <div class="grid-stack-item" data-gs-x="3" data-gs-y="1" data-gs-width="3" data-gs-height="1"><div class="grid-stack-item-content">6</div></div>
-                             <div class="grid-stack-item" data-gs-x="0" data-gs-y="1" data-gs-width="3" data-gs-height="1"><div class="grid-stack-item-content">7</div></div>
-                             <div class="grid-stack-item" data-gs-x="3" data-gs-y="1" data-gs-width="4" data-gs-height="1"><div class="grid-stack-item-content">8</div></div>
-                         </div>
-
-                 </div>
-             </div>`;
+             </div></div>`;
              return element;
          }
          if(data === 'drag2' && element.parentNode.classList.value === 'block') {
