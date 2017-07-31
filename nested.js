@@ -65,15 +65,15 @@ function drop(ev) {
              element.innerHTML =`<div class='block'><div class="grid-stack-item-content">
 
                      <div class="grid-stack">
-                         <div class="grid-stack-item" data-gs-x="0" data-gs-y="0" data-gs-width="3" data-gs-height="1"><div class="grid-stack-item-content">1</div></div>
-                         <div class="grid-stack-item" data-gs-x="3" data-gs-y="0" data-gs-width="3" data-gs-height="1"><div class="grid-stack-item-content">2</div></div>
-                         <div class="grid-stack-item" data-gs-x="6" data-gs-y="0" data-gs-width="3" data-gs-height="1"><div class="grid-stack-item-content">3</div></div>
-                         <div class="grid-stack-item" data-gs-x="9" data-gs-y="0" data-gs-width="3" data-gs-height="1"><div class="grid-stack-item-content">4</div></div>
+                         <div class="grid-stack-item" data-gs-x="0" data-gs-y="0" data-gs-width="4" data-gs-height="1"><div class="grid-stack-item-content">1</div></div>
+                         <div class="grid-stack-item" data-gs-x="4" data-gs-y="0" data-gs-width="4" data-gs-height="1"><div class="grid-stack-item-content">2</div></div>
+                         <div class="grid-stack-item" data-gs-x="8" data-gs-y="0" data-gs-width="4" data-gs-height="1"><div class="grid-stack-item-content">3</div></div>
+                         <div class="grid-stack-item" data-gs-x="0" data-gs-y="1" data-gs-width="4" data-gs-height="1"><div class="grid-stack-item-content">4</div></div>
 
-                         <div class="grid-stack-item" data-gs-x="0" data-gs-y="1" data-gs-width="3" data-gs-height="1"><div class="grid-stack-item-content">5</div></div>
-                         <div class="grid-stack-item" data-gs-x="3" data-gs-y="1" data-gs-width="3" data-gs-height="1"><div class="grid-stack-item-content">6</div></div>
-                         <div class="grid-stack-item" data-gs-x="0" data-gs-y="1" data-gs-width="3" data-gs-height="1"><div class="grid-stack-item-content">7</div></div>
-                         <div class="grid-stack-item" data-gs-x="3" data-gs-y="1" data-gs-width="4" data-gs-height="1"><div class="grid-stack-item-content">8</div></div>
+                         <div class="grid-stack-item" data-gs-x="4" data-gs-y="1" data-gs-width="4" data-gs-height="1"><div class="grid-stack-item-content">5</div></div>
+                         <div class="grid-stack-item" data-gs-x="8" data-gs-y="1" data-gs-width="4" data-gs-height="1"><div class="grid-stack-item-content">6</div></div>
+                         <div class="grid-stack-item" data-gs-x="0" data-gs-y="2" data-gs-width="4" data-gs-height="1"><div class="grid-stack-item-content">7</div></div>
+                         <div class="grid-stack-item" data-gs-x="4" data-gs-y="2" data-gs-width="4" data-gs-height="1"><div class="grid-stack-item-content">8</div></div>
                      </div>
 
              </div></div>`;
@@ -118,3 +118,12 @@ function drop(ev) {
     ev.stopPropagation();
     return false;
 }
+$('#frame').on('mousedown','.block',function(){
+
+        $( ".cards" ).draggable({
+            containment: "parent"
+        });
+        $( ".field" ).draggable({
+            containment: "parent"
+        });
+});
