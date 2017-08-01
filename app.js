@@ -115,24 +115,38 @@ function drop(ev) {
 
         //Create templates
 
-        var text_box =
-            "<label for='text_box'>Text</label>" +
-            "<input  type='text'>";
 
-        var text_area ="<div>" +
+        var text_box = "<div class='items-fields'>" +
+            "<label for='text_box'>Text</label>" +
+            "<input  type='text'>" +
+            "<div class='right'>" +
+            "<span class='glyphicon glyphicon-pencil'></span>" +
+            "<span class='glyphicon glyphicon-remove'></span></div>" +
+            "</div>";
+
+        var text_area ="<div class='items-fields'>" +
             "<label for='textarea'>Textarea</label>" +
             "<textarea class='textarea'></textarea>" +
+            "<div class='right'>" +
+            "<span class='glyphicon glyphicon-pencil'></span>" +
+            "<span class='glyphicon glyphicon-remove'></span></div>" +
             "</div>";
         var html_editor="";
 
-        var check_box = "<div>" +
+        var check_box = "<div class='items-fields'>" +
             "<input type='checkbox'/>" +
             "<label for='test'>Red</label>" +
+            "<div class='right'>" +
+            "<span class='glyphicon glyphicon-pencil'></span>" +
+            "<span class='glyphicon glyphicon-remove'></span></div>" +
             "</div>";
-        var datapicker = "<div>" +
+        var datapicker = "<div class='items-fields'>" +
             "<input type='date' class='datepicker'>" +
+            "<div class='right'>" +
+            "<span class='glyphicon glyphicon-pencil'></span>" +
+            "<span class='glyphicon glyphicon-remove'></span></div>" +
             "</div>";
-        var dropdown = "<div class='dropdown'>"+
+        var dropdown = "<div class='dropdown items-fields'>"+
             "<button class='btn btn-info dropdown-toggle' type='button' data-toggle='dropdown'>Dropdown Example"+
             "<span class='caret'></span></button>"+
             "<ul class='dropdown-menu'>" +
@@ -140,16 +154,26 @@ function drop(ev) {
             "<li><a href='#'>CSS</a></li>" +
             "<li><a href='#'>JavaScript</a></li>" +
             "</ul>" +
+            "<div class='right'>" +
+            "<span class='glyphicon glyphicon-pencil'></span>" +
+            "<span class='glyphicon glyphicon-remove'></span></div>" +
             "</div>";
 
-        var radiobutton="<div>" +
+        var radiobutton="<div class='items-fields'>" +
             "<input name='group' type='radio'/>"+
             "<label for='test'>Red</label>" +
+            "<div class='right'>" +
+            "<span class='glyphicon glyphicon-pencil'></span>" +
+            "<span class='glyphicon glyphicon-remove'></span></div>" +
             "</div>";
         var lookup="";
         var grid="";
-        var label="<div>" +
+        var label="<div class='items-fields'>" +
+
             "<label>Label</label>" +
+            "<div class='right'>" +
+            "<span class='glyphicon glyphicon-pencil'></span>" +
+            "<span class='glyphicon glyphicon-remove'></span></div>" +
             "</div>";
 
 
