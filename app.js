@@ -30,6 +30,22 @@ window.onclick = function(event) {
         }
     }
 };
+function myFunctionThree() {
+    document.getElementById("dropdown-menu-three").classList.toggle("show");
+}
+window.onclick = function(event) {
+    if (!event.target.matches('.dropbtn-three')) {
+
+        var dropdown2 = document.getElementsByClassName("dropdown-content-three");
+        var i;
+        for (i = 0; i < dropdown2.length; i++) {
+            var openDropdown2 = dropdown2[i];
+            if (openDropdown2.classList.contains('show')) {
+                openDropdown2.classList.remove('show');
+            }
+        }
+    }
+};
 
 function allowDrop(ev) {
     ev.preventDefault();
@@ -89,16 +105,40 @@ function drop(ev) {
         ev.target.appendChild(element);
 
         //Create templates
-        var text_box = "<input type='text'>";
-        var text_area ="<textarea rows='4' ></textarea>";
+        var text_box = `<div class="input-field col-md-6">
+        <label for="text_box">Text</label>
+          <input id="text_box" type="text" class="validate">
+        </div>`;
+        var text_area =`<div class="input-field col-md-6">
+        <label for="textarea">Textarea</label>
+          <textarea id="textarea" class="textarea"></textarea>
+        </div>`;
         var html_editor="";
-        var check_box = "<input type='checkbox'>";
-        var datapicker = "<input type='date'>";
-        var dropdown = "";
-        var radiobutton="<input type='radio'>";
+        var check_box = `<div class="col-md-6">
+      <input type="checkbox" id="test" />
+      <label for="test">Red</label>
+    </div>`;
+        var datapicker = `<div class="col-md-6">
+          <input type="date" class="datepicker">
+        </div>`;
+        var dropdown = `<div class="dropdown col-md-6">
+    <button class="btn btn-info dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+      <li><a href="#">HTML</a></li>
+      <li><a href="#">CSS</a></li>
+      <li><a href="#">JavaScript</a></li>
+    </ul>
+  </div>`;
+        var radiobutton=`<div class="col-md-6">
+      <input name="group" type="radio" id="test" />
+      <label for="test">Red</label>
+    </div>`;
         var lookup="";
         var grid="";
-        var label="<label></label>";
+        var label=`<div class="col-md-6">
+        <label>Label</label>
+        </div>`;
 
         var group_field;
 
@@ -194,4 +234,3 @@ $('#frame').on('mousedown','.block',function(){
 //
 //     connectWith: ".block"
 // }).disableSelection();
-

@@ -11,16 +11,16 @@ body {
   min-height: 100vh;
   overflow-y: scroll;
 }
-ul.leftSidebar, ul.rightSidebar, ul.dropdown-content, ul.dropdown-content-two {
+ul.leftSidebar, ul.rightSidebar, ul.dropdown-content, ul.dropdown-content-two, ul.dropdown-content-three {
   list-style-type: none;
   text-align: center;
   padding-left: 0;
 }
-ul.leftSidebar li, ul.rightSidebar li, ul.dropdown-content li, ul.dropdown-content-two li {
+ul.leftSidebar li, ul.rightSidebar li, ul.dropdown-content li, ul.dropdown-content-two li, ul.dropdown-content-three li {
   padding: 10px 10px;
   border: 1px solid #000;
 }
-ul.dropdown-content, ul.dropdown-content-two {
+ul.dropdown-content, ul.dropdown-content-two, ul.dropdown-content-three {
   padding-left: 0;
   display: none;
 }
@@ -48,6 +48,16 @@ ul.dropdown-content, ul.dropdown-content-two {
 .activeLink a {
   color: #000;
 }
+label {
+  color: #fff;
+}
+input, textarea {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #fff;
+  color: #fff;
+}
+
 /* Vladan */
 
 .block {
@@ -68,7 +78,7 @@ ul.dropdown-content, ul.dropdown-content-two {
 .cards {
   background: darkslategray;
   position: relative;
-  height: 100px;
+  min-height: 100px;
   padding: 15px;
   margin-bottom: 25px;
   min-height:50px;
@@ -82,5 +92,3 @@ textarea {
 .visible {
   display: block;
 }
-
->>>>>>> 9bcced51af2e6995bca5eafd51c8a0ef20c25344
