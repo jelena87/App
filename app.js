@@ -118,15 +118,18 @@ function drop(ev) {
 
         //Create templates
 
+
         var text_box = "<div>" +
             "<label for='text_box'>Text</label>" +
             "<input  type='text'>" +
             "</div>";
+
         var text_area ="<div>" +
             "<label for='textarea'>Textarea</label>" +
             "<textarea class='textarea'></textarea>" +
             "</div>";
         var html_editor="";
+
         var check_box = "<div>" +
             "<input type='checkbox'/>" +
             "<label for='test'>Red</label>" +
@@ -143,6 +146,7 @@ function drop(ev) {
             "<li><a href='#'>JavaScript</a></li>" +
             "</ul>" +
             "</div>";
+
         var radiobutton="<div>" +
             "<input name='group' type='radio'/>"+
             "<label for='test'>Red</label>" +
@@ -150,6 +154,7 @@ function drop(ev) {
         var lookup="";
         var grid="";
         var label="<div>" +
+
             "<label>Label</label>" +
             "</div>";
 
@@ -229,6 +234,7 @@ function drop(ev) {
         }
 
     }
+
     ev.stopPropagation();
     return false;
 }

@@ -63,6 +63,7 @@ input, textarea {
 }
 span {
   color: #fff;
+  margin-right: 5px;
 }
 .right {
   display: inline-block;
