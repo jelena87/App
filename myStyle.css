@@ -50,6 +50,7 @@ ul.dropdown-content, ul.dropdown-content-two, ul.dropdown-content-three {
 }
 label {
   color: #fff;
+  padding-right: 15px;
 }
 input, textarea {
   background: transparent;
@@ -57,9 +58,14 @@ input, textarea {
   border-bottom: 1px solid #fff;
   color: #fff;
 }
-.input-field {
-  height: 50px;
-  margin: 10px 0;
+.items-fields {
+  margin-top: 10px;
+  margin-right: 10px;
+  min-height: 2vh;
+  display: inline;
+}
+.field {
+  display: inline-block;
 }
 span {
   color: #fff;
@@ -69,6 +75,10 @@ span {
   display: inline-block;
   float: right;
 }
+.col-md-1 {
+  border: 1px solid #000;
+  height: 10vh;
+}
 /* Vladan */
 
 .block {
@@ -76,7 +86,7 @@ span {
   position: relative;
   padding: 15px;
   border: 1px solid #ccc;
-  height: 1000px;
+  height: 90vh;
   margin-top: 2%;
   margin-bottom: 2%;
 }
@@ -93,7 +103,7 @@ span {
   padding: 15px;
 }
 .card {
-  min-height: 100px;
+  min-height: 10vh;
 
   /*margin-bottom: 25px;*/
 
@@ -109,4 +119,3 @@ textarea {
 .cards > div:first-child {
   border-bottom: 1px solid #fff;
 }
-
