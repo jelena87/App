@@ -83,7 +83,7 @@ function drop(ev) {
              element.innerHTML ="<div class='block'></div>";
              return element;
          }
-         else if(data === 'drag2' && element.parentNode.classList.value === 'block') {
+         else if(data === 'drag2' && element.parentNode.classList.contains("block")) {
              element.classList.add("cards","col-md-4");
              //element.innerHTML ="<div class='col-md-4 col-xs-12 card'>hey2!</div>";
              // element.draggable();
@@ -91,13 +91,13 @@ function drop(ev) {
          }
         else if(data === 'drag2' && element.parentNode.id ==='frame') {
             element.classList.add("block");
-            element.innerHTML =`<div class='cards col-md-4'>
-              <span class="card-title">Card Title</span>
-              <div class="right">
-              <span class="glyphicon glyphicon-pencil"></span>
-              <span class="glyphicon glyphicon-trash"></span></div>
-              <hr>
-            </div>`;
+            element.innerHTML ="<div class='cards col-md-4'>" +
+              "<span class='card-title'>Card Title</span>" +
+              "<div class='right'>" +
+              "<span class='glyphicon glyphicon-pencil'></span>" +
+              "<span class='glyphicon glyphicon-trash'></span></div>" +
+              "<hr>" +
+              "</div>";
             return element;
         }
         else {
@@ -111,40 +111,42 @@ function drop(ev) {
         ev.target.appendChild(element);
 
         //Create templates
-        var text_box = `<div class="input-field col-md-12">
-        <label for="text_box">Text</label>
-          <input id="text_box" type="text" class="validate">
-        </div>`;
-        var text_area =`<div class="input-field col-md-12">
-        <label for="textarea">Textarea</label>
-          <textarea id="textarea" class="textarea"></textarea>
-        </div>`;
+
+        var text_box = "<div class='input-field col-md-6'>" +
+            "<label for='text_box'>Text</label>" +
+            "<input id='text_box' type='text' class='validate'>" +
+            "</div>";
+        var text_area ="<div class='input-field col-md-6'>" +
+            "<label for='textarea'>Textarea</label>" +
+            "<textarea id='textarea' class='textarea'></textarea>" +
+            "</div>";
         var html_editor="";
-        var check_box = `<div class="input-field col-md-12">
-      <input type="checkbox" id="test" />
-      <label for="test">Red</label>
-    </div>`;
-        var datapicker = `<div class="input-field col-md-12">
-          <input type="date" class="datepicker">
-        </div>`;
-        var dropdown = `<div class="input-field dropdown col-md-12">
-    <button class="btn btn-info dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
-    <span class="caret"></span></button>
-    <ul class="dropdown-menu">
-      <li><a href="#">HTML</a></li>
-      <li><a href="#">CSS</a></li>
-      <li><a href="#">JavaScript</a></li>
-    </ul>
-  </div>`;
-        var radiobutton=`<div class="input-field col-md-12">
-      <input name="group" type="radio" id="test" />
-      <label for="test">Red</label>
-    </div>`;
+        var check_box = "<div class='input-field col-md-6'>" +
+            "<input type='checkbox' id='test' />" +
+            "<label for='test'>Red</label>" +
+            "</div>";
+        var datapicker = "<div class='input-field col-md-6'>" +
+            "<input type='date' class='datepicker'>" +
+            "</div>";
+        var dropdown = "<div class='input-field dropdown col-md-6'>"+
+            "<button class='btn btn-info dropdown-toggle' type='button' data-toggle='dropdown'>Dropdown Example"+
+            "<span class='caret'></span></button>"+
+            "<ul class='dropdown-menu'>" +
+            "<li><a href='#'>HTML</a></li>" +
+            "<li><a href='#'>CSS</a></li>" +
+            "<li><a href='#'>JavaScript</a></li>" +
+            "</ul>" +
+            "</div>";
+        var radiobutton="<div class='input-field col-md-6'>" +
+            "<input name='group' type='radio' id='test' />"+
+            "<label for='test'>Red</label>" +
+            "</div>";
         var lookup="";
         var grid="";
-        var label=`<div class="input-field col-md-12">
-        <label>Label</label>
-        </div>`;
+        var label="<div class='input-field col-md-6'>" +
+            "<label>Label</label>" +
+            "</div>";
+
 
         var group_field;
 
@@ -185,13 +187,13 @@ function drop(ev) {
                 break;
         }
 
-        if( element.parentNode.classList.value === 'cards col-md-4'){
+        if( element.parentNode.classList.contains("cards")){
             element.classList.add("field");
             element.innerHTML = template;
             return element;
 
         }
-        if(element.parentNode.classList.value === 'block'){
+        if(element.parentNode.classList.contains("block")){
             element.classList.add("cards","col-md-4");
             element.innerHTML ="<div class='field'>"+ template + "</div>";
             return element;
@@ -204,7 +206,7 @@ function drop(ev) {
             template +"</div></div></div>";
             return element;
         }
-        if(element.parentNode.classList.value !== 'cards col-md-4' && element.parentNode.classList.value !== 'block' && element.parentNode.id != 'frame') {
+        if(!element.parentNode.classList.contains("cards")  && !element.parentNode.classList.contains("block") && element.parentNode.id != 'frame') {
             element.remove();
         }
 
@@ -221,8 +223,9 @@ $("#frame").sortable({
 
 $('#frame').on('mousedown','.block',function(){
 
-        $( ".cards" ).draggable({
-            containment: "parent"
+        $(".block").sortable({
+
+            items: ".cards"
         });
         $( ".input-field" ).draggable({
             containment: ".cards"
