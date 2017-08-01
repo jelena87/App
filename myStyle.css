@@ -57,7 +57,10 @@ input, textarea {
   border-bottom: 1px solid #fff;
   color: #fff;
 }
-
+.input-field {
+  height: 50px;
+  margin: 10px 0;
+}
 /* Vladan */
 
 .block {
