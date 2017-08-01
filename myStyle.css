@@ -61,6 +61,13 @@ input, textarea {
   height: 50px;
   margin: 10px 0;
 }
+span {
+  color: #fff;
+}
+.right {
+  display: inline-block;
+  float: right;
+}
 /* Vladan */
 
 .block {
@@ -84,7 +91,6 @@ input, textarea {
   min-height: 100px;
   padding: 15px;
   margin-bottom: 25px;
-  min-height:50px;
   border: 1px solid #ccc;
 }
 textarea {
