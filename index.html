@@ -20,7 +20,20 @@
     <div class="row">
         <aside class="col-md-2">
             <ul class="leftSidebar">
-                <li>Fields</li>
+                <li class="activeLink"><a class="dropbtn-three" onclick="myFunctionThree()">Fields</a></li>
+                <ul class="dropdown-content-three" id="dropdown-menu-three">
+                  <li><p draggable="true" ondragstart="drag(event)" id="text">Text</p></li>
+                  <li><p draggable="true" ondragstart="drag(event)" id="text_area">TextArea</p></li>
+                  <li><p draggable="true" ondragstart="drag(event)" id="html_text">Html-Text</p></li>
+                  <li><p draggable="true" ondragstart="drag(event)" id="number">Number</p></li>
+                  <li><p draggable="true" ondragstart="drag(event)" id="decimal">Decimal</p></li>
+                  <li><p draggable="true" ondragstart="drag(event)" id="checkbox">Checkbox</p></li>
+                  <li><p draggable="true" ondragstart="drag(event)" id="datum">Date</p></li>
+                  <li><p draggable="true" ondragstart="drag(event)" id="drop_down">DropDown</p></li>
+                  <li><p draggable="true" ondragstart="drag(event)" id="radio_button">Radiobutton</p></li>
+                  <li><p draggable="true" ondragstart="drag(event)" id="reference">Reference to object</p></li>
+                  <li><p draggable="true" ondragstart="drag(event)" id="reference_list">Referencelist to object</p></li>
+                </ul>
                 <li>Fieldgroups</li>
                 <li class="activeLink"><a class="dropbtn-two" onclick="myFunctionTwo()">Controls</a></li>
                 <ul class="dropdown-content-two" id="dropdown-menu-two">
