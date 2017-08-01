@@ -65,7 +65,7 @@ input, textarea {
   display: inline;
 }
 .field {
-  display: inline-block;
+  margin-top: 10px;
 }
 span {
   color: #fff;
