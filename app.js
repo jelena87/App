@@ -54,15 +54,12 @@ function drag(ev) {
     ev.dataTransfer.setData("text", ev.target.id);
 }
 
-function removeNode(node) {
-    node.parentNode.removeChild(node);
-}
-
 function drop(ev) {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("text");
     var drag_depo = ['drag1','drag2'];
-    var drag_cont = ['text_box','text_area','html_editor','check_box','datapicker','dropdown','radiobutton','lookup','grid','label'];
+    var drag_cont = ['text_box','text_area','html_editor','check_box',
+        'datapicker','dropdown','radiobutton','lookup','grid','label','field_text','field_area'];
     var isLeft;
     if(drag_depo.includes(data)){
         isLeft = 'depositories';
@@ -118,11 +115,9 @@ function drop(ev) {
 
         //Create templates
 
-
-        var text_box = "<div>" +
+        var text_box =
             "<label for='text_box'>Text</label>" +
-            "<input  type='text'>" +
-            "</div>";
+            "<input  type='text'>";
 
         var text_area ="<div>" +
             "<label for='textarea'>Textarea</label>" +
@@ -154,7 +149,6 @@ function drop(ev) {
         var lookup="";
         var grid="";
         var label="<div>" +
-
             "<label>Label</label>" +
             "</div>";
 
@@ -166,6 +160,7 @@ function drop(ev) {
 
         //Get dragged element and set template for this element
         switch (data) {
+            // Controls
             case 'text_box':
                 template = text_box;
                 break;
@@ -195,6 +190,13 @@ function drop(ev) {
                 break;
             case 'label':
                 template = label;
+                break;
+            // Fields
+            case 'field_text':
+                template = text_box;
+                break;
+            case 'field_area':
+                template = text_area;
                 break;
         }
 
@@ -248,28 +250,23 @@ $("#frame").sortable({
 $('#frame').on('mousedown','.block',function(){
 
 
-
         $(".block").sortable({
-
             items: ".cards"
         });
-
-        $( ".field" ).draggable({
-            items:".field",
-            containment: "parent"
+        $(".card").sortable({
+            items: ".field"
         });
+        // $( ".field" ).draggable({
+        //     //items:".field",
+        //     containment: "parent"
+        // });
+        var classname = document.getElementsByClassName("glyphicon-trash");
+
+        var myFunction = function() {
+            $(this).closest('.cards').remove();
+        };
+
+        Array.from(classname).forEach(function(element) {
+            element.addEventListener('click', myFunction);
+        })
 });
-
-
-// $(".block").sortable({
-//
-//     connectWith: ".block"
-// }).disableSelection();
-
-
-
-
-// $(".block").sortable({
-//
-//     connectWith: ".block"
-// }).disableSelection();
