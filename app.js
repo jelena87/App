@@ -285,12 +285,19 @@ $('#frame').on('mousedown','.block',function(){
         //     containment: "parent"
         // });
         var classname = document.getElementsByClassName("glyphicon-trash");
+        var delete_field = document.getElementsByClassName("glyphicon-remove");
 
         var myFunction = function() {
             $(this).closest('.cards').remove();
         };
+        var deleteField = function () {
+            $(this).closest('.field').remove();
+        };
 
         Array.from(classname).forEach(function(element) {
             element.addEventListener('click', myFunction);
-        })
+        });
+        Array.from(delete_field).forEach(function(element) {
+            element.addEventListener('click', deleteField);
+        });
 });
