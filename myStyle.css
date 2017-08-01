@@ -89,10 +89,14 @@ span {
 .cards {
   background: darkslategray;
   position: relative;
-  min-height: 100px;
-  padding: 15px;
-  margin-bottom: 25px;
   border: 1px solid #ccc;
+  padding: 15px;
+}
+.card {
+  min-height: 100px;
+
+  /*margin-bottom: 25px;*/
+
 }
 textarea {
   resize: vertical;
@@ -102,3 +106,7 @@ textarea {
 .visible {
   display: block;
 }
+.cards > div:first-child {
+  border-bottom: 1px solid #fff;
+}
+

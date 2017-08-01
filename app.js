@@ -85,19 +85,25 @@ function drop(ev) {
          }
          else if(data === 'drag2' && element.parentNode.classList.contains("block")) {
              element.classList.add("cards","col-md-4");
-             //element.innerHTML ="<div class='col-md-4 col-xs-12 card'>hey2!</div>";
+             element.innerHTML ="<div><span class='card-title'>Card Title</span>" +
+                 "<div class='right'>" +
+                 "<span class='glyphicon glyphicon-pencil'></span>" +
+                 "<span class='glyphicon glyphicon-trash'></span></div>" +
+                 "</div>" +
+                 "<div class='card'>"+
+                 "</div>";
              // element.draggable();
              return element;
          }
         else if(data === 'drag2' && element.parentNode.id ==='frame') {
             element.classList.add("block");
-            element.innerHTML ="<div class='cards col-md-4'>" +
-              "<span class='card-title'>Card Title</span>" +
-              "<div class='right'>" +
-              "<span class='glyphicon glyphicon-pencil'></span>" +
-              "<span class='glyphicon glyphicon-trash'></span></div>" +
-              "<hr>" +
-              "</div>";
+            element.innerHTML ="<div class='cards col-md-4'><div><span class='card-title'>Card Title</span>" +
+                "<div class='right'>" +
+                "<span class='glyphicon glyphicon-pencil'></span>" +
+                "<span class='glyphicon glyphicon-trash'></span></div>" +
+                "</div>" +
+                "<div class='card'>"+
+                "</div></div>";
             return element;
         }
         else {
@@ -112,23 +118,26 @@ function drop(ev) {
 
         //Create templates
 
-        var text_box = "<div class='input-field col-md-12'>" +
+
+        var text_box = "<div>" +
             "<label for='text_box'>Text</label>" +
-            "<input id='text_box' type='text' class='validate'>" +
+            "<input  type='text'>" +
             "</div>";
-        var text_area ="<div class='input-field col-md-12'>" +
+
+        var text_area ="<div>" +
             "<label for='textarea'>Textarea</label>" +
-            "<textarea id='textarea' class='textarea'></textarea>" +
+            "<textarea class='textarea'></textarea>" +
             "</div>";
         var html_editor="";
-        var check_box = "<div class='input-field col-md-12'>" +
-            "<input type='checkbox' id='test' />" +
+
+        var check_box = "<div>" +
+            "<input type='checkbox'/>" +
             "<label for='test'>Red</label>" +
             "</div>";
-        var datapicker = "<div class='input-field col-md-12'>" +
+        var datapicker = "<div>" +
             "<input type='date' class='datepicker'>" +
             "</div>";
-        var dropdown = "<div class='input-field dropdown col-md-12'>"+
+        var dropdown = "<div class='dropdown'>"+
             "<button class='btn btn-info dropdown-toggle' type='button' data-toggle='dropdown'>Dropdown Example"+
             "<span class='caret'></span></button>"+
             "<ul class='dropdown-menu'>" +
@@ -137,13 +146,15 @@ function drop(ev) {
             "<li><a href='#'>JavaScript</a></li>" +
             "</ul>" +
             "</div>";
-        var radiobutton="<div class='input-field col-md-12'>" +
-            "<input name='group' type='radio' id='test' />"+
+
+        var radiobutton="<div>" +
+            "<input name='group' type='radio'/>"+
             "<label for='test'>Red</label>" +
             "</div>";
         var lookup="";
         var grid="";
-        var label="<div class='input-field col-md-12'>" +
+        var label="<div>" +
+
             "<label>Label</label>" +
             "</div>";
 
@@ -187,7 +198,7 @@ function drop(ev) {
                 break;
         }
 
-        if( element.parentNode.classList.contains("cards")){
+        if( element.parentNode.classList.contains("card")){
             element.classList.add("field");
             element.innerHTML = template;
             return element;
@@ -195,15 +206,27 @@ function drop(ev) {
         }
         if(element.parentNode.classList.contains("block")){
             element.classList.add("cards","col-md-4");
-            element.innerHTML ="<div class='field'>"+ template + "</div>";
+            element.innerHTML ="<div><span class='card-title'>Card Title</span>" +
+                "<div class='right'>" +
+                "<span class='glyphicon glyphicon-pencil'></span>" +
+                "<span class='glyphicon glyphicon-trash'></span></div>" +
+                "</div>" +
+                "<div class='card'>"+
+                "<div class='field'>" + template + "</div></div>";
             return element;
 
         }
         if(element.parentNode.id ==='frame'){
             element.classList.add("container-fluid","row");
-            element.innerHTML ="<div class='block'><div class='cards col-md-4'><span class='card-title'>Card Title</span>"+
-            "<div class='right'><span class='glyphicon glyphicon-pencil'></span><span class='glyphicon glyphicon-trash'></span></div><hr><div class='field'>" +
-            template +"</div></div></div>";
+            element.innerHTML ="<div class='block'><div class='cards col-md-4'>" +
+                "<div><span class='card-title'>Card Title</span>" +
+                "<div class='right'>" +
+                "<span class='glyphicon glyphicon-pencil'></span>" +
+                "<span class='glyphicon glyphicon-trash'></span></div>" +
+                "</div>" +
+                "<div class='card'>"+
+                "<div class='field'>" + template + "</div></div>"+
+                "</div></div>";
             return element;
         }
         if(!element.parentNode.classList.contains("cards")  && !element.parentNode.classList.contains("block") && element.parentNode.id != 'frame') {
@@ -224,12 +247,16 @@ $("#frame").sortable({
 
 $('#frame').on('mousedown','.block',function(){
 
+
+
         $(".block").sortable({
 
             items: ".cards"
         });
-        $( ".input-field" ).draggable({
-            containment: ".cards"
+
+        $( ".field" ).draggable({
+            items:".field",
+            containment: "parent"
         });
 });
 
