@@ -114,14 +114,14 @@ function drop(ev) {
           <textarea id="textarea" class="textarea"></textarea>
         </div>`;
         var html_editor="";
-        var check_box = `<div class="col-md-6">
+        var check_box = `<div class="input-field col-md-6">
       <input type="checkbox" id="test" />
       <label for="test">Red</label>
     </div>`;
-        var datapicker = `<div class="col-md-6">
+        var datapicker = `<div class="input-field col-md-6">
           <input type="date" class="datepicker">
         </div>`;
-        var dropdown = `<div class="dropdown col-md-6">
+        var dropdown = `<div class="input-field dropdown col-md-6">
     <button class="btn btn-info dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
     <span class="caret"></span></button>
     <ul class="dropdown-menu">
@@ -130,13 +130,13 @@ function drop(ev) {
       <li><a href="#">JavaScript</a></li>
     </ul>
   </div>`;
-        var radiobutton=`<div class="col-md-6">
+        var radiobutton=`<div class="input-field col-md-6">
       <input name="group" type="radio" id="test" />
       <label for="test">Red</label>
     </div>`;
         var lookup="";
         var grid="";
-        var label=`<div class="col-md-6">
+        var label=`<div class="input-field col-md-6">
         <label>Label</label>
         </div>`;
 
@@ -216,8 +216,8 @@ $('#frame').on('mousedown','.block',function(){
         $( ".cards" ).draggable({
             containment: "parent"
         });
-        $( ".field" ).draggable({
-            containment: "parent"
+        $( ".input-field" ).draggable({
+            containment: ".cards"
         });
 });
 
