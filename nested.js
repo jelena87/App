@@ -77,12 +77,13 @@ function drop(ev) {
         ev.target.appendChild(element);
 
          if(data ==='drag1' && element.parentNode.id ==='frame'){
-             element.classList.add("container-fluid","row");
-             element.innerHTML ="<div class='block'></div>";
+             element.classList.add("grid-stack-item","grid-stack-item");
+             element.innerHTML ="<div class='grid-stack'></div>";
              return element;
          }
-         else if(data === 'drag2' && element.parentNode.classList.contains("block")) {
-             element.classList.add("cards","col-md-4");
+         else if(data === 'drag2' && element.parentNode.classList.contains("grid-stack")) {
+             element.classList.add("grid-stack-item", "grid-stack-item-content");
+             elemant.setAttribute('data-gs-width', '3');
              element.innerHTML ="<div><span class='card-title'>Card Title</span>" +
                  "<div class='right'>" +
                  "<span class='glyphicon glyphicon-pencil'></span>" +
