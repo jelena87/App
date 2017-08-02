@@ -302,9 +302,6 @@ $("#frame").sortable({
     axis: "y",
     items: ".row"
 });
-$( function() {
-    $( ".cards" ).resizable();
-  } );
 
 $('#frame').on('mousedown','.block',function(){
 

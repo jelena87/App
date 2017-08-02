@@ -38,7 +38,27 @@
     JQueryUIGridStackDragDropPlugin.prototype = Object.create(GridStackUI.GridStackDragDropPlugin.prototype);
     JQueryUIGridStackDragDropPlugin.prototype.constructor = JQueryUIGridStackDragDropPlugin;
 
-    
+    JQueryUIGridStackDragDropPlugin.prototype.resizable = function(el, opts) {
+        el = $(el);
+        if (opts === 'disable' || opts === 'enable') {
+            el.resizable(opts);
+        } else if (opts === 'option') {
+            var key = arguments[2];
+            var value = arguments[3];
+            el.resizable(opts, key, value);
+        } else {
+            var handles = el.data('gs-resize-handles') ? el.data('gs-resize-handles') :
+                this.grid.opts.resizable.handles;
+            el.resizable(_.extend({}, this.grid.opts.resizable, {
+                handles: handles
+            }, {
+                start: opts.start || function() {},
+                stop: opts.stop || function() {},
+                resize: opts.resize || function() {}
+            }));
+        }
+        return this;
+    };
 
     JQueryUIGridStackDragDropPlugin.prototype.draggable = function(el, opts) {
         el = $(el);
