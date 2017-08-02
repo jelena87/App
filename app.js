@@ -59,7 +59,8 @@ function drop(ev) {
     var data = ev.dataTransfer.getData("text");
     var drag_depo = ['drag1','drag2'];
     var drag_cont = ['text_box','text_area','html_editor','check_box',
-        'datapicker','dropdown','radiobutton','lookup','grid','label','field_text','field_area'];
+        'datapicker','dropdown','radiobutton','lookup','grid','label','field_text','field_area',
+        'field_date', 'field_number', 'field_drop_down', 'field_checkbox', 'field_radio_button', 'field_decimal'];
     var isLeft;
     if(drag_depo.includes(data)){
         isLeft = 'depositories';
@@ -169,13 +170,26 @@ function drop(ev) {
         var lookup="";
         var grid="";
         var label="<div class='items-fields'>" +
-
             "<label>Label</label>" +
             "<div class='right'>" +
             "<span class='glyphicon glyphicon-pencil'></span>" +
             "<span class='glyphicon glyphicon-remove'></span></div>" +
             "</div>";
 
+        var field_number = "<div class='items-fields'>"+
+            "<label for='num'>Number</label>" +
+            "<input type='number' name='num' min='1' max='5'>"+
+            "<div class='right'>" +
+            "<span class='glyphicon glyphicon-pencil'></span>" +
+            "<span class='glyphicon glyphicon-remove'></span></div>" +
+            "</div>";
+        var field_decimal = "<div class='items-fields'>"+
+        "<label for='decimal'>Decimal</label>" +
+        "<input type='number' required name='decimal' min='0' value='0' step='.01'>"+
+        "<div class='right'>" +
+        "<span class='glyphicon glyphicon-pencil'></span>" +
+        "<span class='glyphicon glyphicon-remove'></span></div>" +
+        "</div>";
 
         var group_field;
 
@@ -221,6 +235,24 @@ function drop(ev) {
                 break;
             case 'field_area':
                 template = text_area;
+                break;
+            case 'field_date':
+                template = datapicker;
+                break;
+            case 'field_checkbox':
+                template = check_box;
+                break;
+            case 'field_drop_down':
+                template = dropdown;
+                break;
+            case 'field_radio_button':
+                template = radiobutton;
+                break;
+            case 'field_number':
+                template = field_number;
+                break;
+            case 'field_decimal':
+                template = field_decimal;
                 break;
         }
 
@@ -269,17 +301,21 @@ $("#frame").sortable({
     axis: "y",
     items: ".row"
 });
-
+$( function() {
+    $( ".cards" ).resizable();
+  } );
 
 $('#frame').on('mousedown','.block',function(){
 
 
         $(".block").sortable({
-            items: ".cards"
+            items: ".cards",
         });
+
         $(".card").sortable({
             items: ".field"
         });
+
         // $( ".field" ).draggable({
         //     //items:".field",
         //     containment: "parent"
@@ -300,4 +336,6 @@ $('#frame').on('mousedown','.block',function(){
         Array.from(delete_field).forEach(function(element) {
             element.addEventListener('click', deleteField);
         });
+
+
 });
