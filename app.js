@@ -309,7 +309,11 @@ $('#frame').on('mousedown','.block',function(){
         $(".block").sortable({
             items: ".cards",
         });
-
+        $(".cards").draggable({
+          grid: [ 70, 110 ],
+          snap: ".ui-widget-header",
+          containment: ".block",
+        })
         $(".card").sortable({
             items: ".field"
         });
