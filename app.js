@@ -169,6 +169,7 @@ function drop(ev) {
             "</div>";
         var lookup="";
         var grid="";
+
         var label="<div class='items-fields'>" +
             "<label>Label</label>" +
             "<div class='right'>" +
