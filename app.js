@@ -118,7 +118,7 @@ function drop(ev) {
          else if(data === 'drag2' && element.parentElement.nodeName === "TD") {
 
              element.classList.add("cards","redips-drag");
-             element.innerHTML ="<div><span class='card-title'>Card Title</span>" +
+             element.innerHTML ="<div class='move_card'><span class='card-title'>Card Title</span>" +
                  "<div class='right'>" +
                  "<span class='glyphicon glyphicon-pencil'></span>" +
                  "<span class='glyphicon glyphicon-trash'></span></div>" +
@@ -141,7 +141,7 @@ function drop(ev) {
                  <tbody>
                  <tr>
                     <td>
-                        <div class='cards redips-drag'><div><span class='card-title'>Card Title</span>
+                        <div class='cards redips-drag'><div<div class='move_card'><span class='card-title'>Card Title</span>
                         <div class='right'>
                         <span class='glyphicon glyphicon-pencil'></span>
                         <span class='glyphicon glyphicon-trash'></span></div>
@@ -378,24 +378,24 @@ $("#frame").sortable({
 
 $('#redips-drag').on('mousedown','.block',function(){
 
-        REDIPS.drag.init();
 
-        $(".block").sortable({
-            items: ".cards"
-        });
-        $(".cards").draggable({
-          obstacle: ".cards",
-          preventCollision: true,
-          containment:".block"
-        });
 
-        $(".card").sortable({
-            items: ".field"
-        });
+        // $(".block").sortable({
+        //     items: ".cards"
+        // });
+        // $(".cards").draggable({
+        //   obstacle: ".cards",
+        //   preventCollision: true,
+        //   containment:".block"
+        // });
+
+
+
 
         var classname = document.getElementsByClassName("glyphicon-trash");
         var delete_field = document.getElementsByClassName("glyphicon-remove");
-        var editCard = document.getElementsByClassName("glyphicon-pencil");
+        var dragField = document.getElementsByClassName("cards");
+        var dragCard = document.getElementsByClassName("move_card");
 
         var myFunction = function() {
             $(this).closest('.cards').remove();
@@ -403,6 +403,25 @@ $('#redips-drag').on('mousedown','.block',function(){
         var deleteField = function () {
             $(this).closest('.field').remove();
         };
+
+       // REDIPS.drag.init();
+
+        var test = function () {
+            console.log("field click");
+            $(".cards").sortable({
+                items: ".field"
+            });
+
+        };
+        var test2 = function () {
+            console.log('card');
+            REDIPS.drag.init();
+        };
+
+
+
+
+
 
       /*  $(editCard).click(function() {
             $('.rightSidebar').toggle();
@@ -413,6 +432,13 @@ $('#redips-drag').on('mousedown','.block',function(){
         });
         Array.from(delete_field).forEach(function(element) {
             element.addEventListener('click', deleteField);
+        });
+
+        Array.from(dragField).forEach(function(element) {
+            element.addEventListener('mousedown', test);
+        });
+        Array.from(dragCard).forEach(function(element) {
+            element.addEventListener('mousedown', test2);
         });
 
 
