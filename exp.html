@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>App</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="myStyle.css"/>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/TweenLite.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/utils/Draggable.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/plugins/CSSPlugin.min.css"></script>
+
+<style media="screen">
+#container {
+    height: 800px;
+    width: 1000px;
+    position: relative;
+}
+
+.box {
+    height: 80px;
+    width: 320px;
+    position: absolute;
+    background: green;
+}
+
+[grid-cell] {
+    position: absolute;
+    border: 1px solid #444;
+    width: 80px;
+    height: 80px;
+}
+</style>
+
+</head>
+
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <aside class="col-md-2">
+            <ul class="leftSidebar">
+                <li class="activeLink"><a class="dropbtn-three" onclick="myFunctionThree()">Fields</a></li>
+                <ul class="dropdown-content-three" id="dropdown-menu-three">
+                  <li><p draggable="true" ondragstart="drag(event)" id="field_text">Text</p></li>
+                  <li><p draggable="true" ondragstart="drag(event)" id="field_area">TextArea</p></li>
+                  <li><p draggable="true" ondragstart="drag(event)" id="field_html_text">Html-Text</p></li>
+                  <li><p draggable="true" ondragstart="drag(event)" id="field_number">Number</p></li>
+                  <li><p draggable="true" ondragstart="drag(event)" id="field_decimal">Decimal</p></li>
+                  <li><p draggable="true" ondragstart="drag(event)" id="field_checkbox">Checkbox</p></li>
+                  <li><p draggable="true" ondragstart="drag(event)" id="field_date">Date</p></li>
+                  <li><p draggable="true" ondragstart="drag(event)" id="field_drop_down">DropDown</p></li>
+                  <li><p draggable="true" ondragstart="drag(event)" id="field_radio_button">Radiobutton</p></li>
+                  <li><p draggable="true" ondragstart="drag(event)" id="field_reference">Reference to object</p></li>
+                  <li><p draggable="true" ondragstart="drag(event)" id="field_reference_list">Referencelist to object</p></li>
+                </ul>
+                <li class="activeLink">Fieldgroups</li>
+                <li class="activeLink"><a class="dropbtn-two" onclick="myFunctionTwo()">Controls</a></li>
+                <ul class="dropdown-content-two" id="dropdown-menu-two">
+                  <li><p draggable="true" ondragstart="drag(event)" id="text_box">TextBox</p></li>
+                  <li><p draggable="true" ondragstart="drag(event)" id="text_area">TextArea</p></li>
+                  <li><p draggable="true" ondragstart="drag(event)" id="html_editor">Html-Editor</p></li>
+                  <li><p draggable="true" ondragstart="drag(event)" id="check_box">Checkbox</p></li>
+                  <li><p draggable="true" ondragstart="drag(event)" id="datapicker">Datepicker</p></li>
+                  <li><p draggable="true" ondragstart="drag(event)" id="dropdown">DropDown</p></li>
+                  <li><p draggable="true" ondragstart="drag(event)" id="radiobutton">Radiobutton</p></li>
+                  <li><p draggable="true" ondragstart="drag(event)" id="lookup">Lookup</p></li>
+                  <li><p draggable="true" ondragstart="drag(event)" id="grid">Grid</p></li>
+                  <li><p draggable="true" ondragstart="drag(event)" id="label">Label</p></li>
+                </ul>
+                <li class="activeLink"><a class="dropbtn" onclick="myFunction()">Depositories</a></li>
+                <ul id="dropdown-menu" class="dropdown-content tasks-container js-dropzone">
+
+                    <li><p draggable="true" ondragstart="drag(event)" id="drag1">Block</p></li>
+                    <li><p draggable="true" ondragstart="drag(event)" id="drag2">Card</p></li>
+
+                </ul>
+            </ul>
+        </aside>
+
+        <div class="col-md-8 grid-form" id="frame" ondrop="drop(event)" ondragover="allowDrop(event)">
+
+          <div class="" id="container">
+            <div class="box">
+
+            </div>
+          </div>
+
+        </div>
+        <aside class="col-md-2">
+            <ul class="rightSidebar">
+                <li>Settings</li>
+                <li>Translations</li>
+            </ul>
+        </aside>
+    </div>
+</div>
+
+<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/plugins/CSSPlugin.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/easing/EasePack.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenLite.min.js"></script>
+<script src="exp.js"></script>
+<script src="app.js">
+
+</script>
+
+</body>
+
+</html>
