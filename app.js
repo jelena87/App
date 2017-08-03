@@ -329,7 +329,7 @@ function drop(ev) {
                 break;
         }
 
-        if( element.parentNode.classList.contains("card")){
+        if( element.parentNode.classList.contains("cards")){
             element.classList.add("field");
             element.innerHTML = template;
             return element;
@@ -404,9 +404,9 @@ $('#redips-drag').on('mousedown','.block',function(){
             $(this).closest('.field').remove();
         };
 
-        $(editCard).click(function() {
+      /*  $(editCard).click(function() {
             $('.rightSidebar').toggle();
-        });
+        }); */
 
         Array.from(classname).forEach(function(element) {
             element.addEventListener('click', myFunction);
