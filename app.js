@@ -380,21 +380,9 @@ $('#redips-drag').on('mousedown','.block',function(){
 
 
 
-        // $(".block").sortable({
-        //     items: ".cards"
-        // });
-        // $(".cards").draggable({
-        //   obstacle: ".cards",
-        //   preventCollision: true,
-        //   containment:".block"
-        // });
-
-
-
-
         var classname = document.getElementsByClassName("glyphicon-trash");
         var delete_field = document.getElementsByClassName("glyphicon-remove");
-        var dragField = document.getElementsByClassName("cards");
+        var dragField = document.getElementsByClassName("field");
         var dragCard = document.getElementsByClassName("move_card");
 
         var myFunction = function() {
@@ -404,21 +392,18 @@ $('#redips-drag').on('mousedown','.block',function(){
             $(this).closest('.field').remove();
         };
 
-       // REDIPS.drag.init();
 
-        var test = function () {
-            console.log("field click");
+        $( ".field" ).mousedown(function() {
+
+            REDIPS.drag.enableDrag(false, ".cards");
             $(".cards").sortable({
                 items: ".field"
             });
+        });
 
-        };
-        var test2 = function () {
-            console.log('card');
+        $( ".move_card" ).mousedown(function() {
             REDIPS.drag.init();
-        };
-
-
+        });
 
 
 
@@ -434,12 +419,6 @@ $('#redips-drag').on('mousedown','.block',function(){
             element.addEventListener('click', deleteField);
         });
 
-        Array.from(dragField).forEach(function(element) {
-            element.addEventListener('mousedown', test);
-        });
-        Array.from(dragCard).forEach(function(element) {
-            element.addEventListener('mousedown', test2);
-        });
 
 
 
