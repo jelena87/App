@@ -16,14 +16,14 @@ div#redips-drag table {
 	margin: 7px;	
 }
 
-/* table cells */
-/*div#redips-drag td {*/
-	/*!*border: 1px solid navy;*!*/
-	/*!*height: 50px;*!*/
-	/*!*text-align: center;*!*/
-	/*!*font-size: 10pt;*!*/
-	/*!*padding: 2px;*!*/
-/*}*/
+ /*table cells */
+div#redips-drag td {
+	border: 1px solid navy;
+	height: 50px;
+	text-align: center;
+	font-size: 10pt;
+	padding: 2px;
+}
 
 /* drag object (DIV inside table cell) */
 /*.redips-drag {*/
