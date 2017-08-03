@@ -7,13 +7,14 @@ body {
 /* make drag container visible */
 #redips-drag {
 	display: table;
+	display: -moz-box;
 }
 
 /* table */
 div#redips-drag table {
 	background-color: #eee;
 	border-collapse: collapse;
-	margin: 7px;	
+	margin: 7px;
 }
 
  /*table cells */
@@ -35,4 +36,3 @@ div#redips-drag td {
 	/*border: 2px solid SteelBlue;*/
 	/*background-color: white;*/
 /*}*/
-

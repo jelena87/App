@@ -95,15 +95,12 @@ span {
   margin-bottom: 0;
 }
 .cards {
-  width: 400px;
+  width: 500px;
   height: 100px;
   background: darkslategray;
   position: relative;
   border: 1px solid #ccc;
   padding: 15px;
-}
-.card {
-  min-height: 30vh;
 }
 textarea {
   resize: vertical;
