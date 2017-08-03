@@ -76,13 +76,48 @@ function drop(ev) {
         var element = document.createElement("div");
         ev.target.appendChild(element);
 
-         if(data ==='drag1' && element.parentNode.id ==='frame'){
+         if(data ==='drag1' && element.parentNode.id ==='redips-drag'){
              element.classList.add("container-fluid","row");
-             element.innerHTML ="<div class='block'></div>";
+             element.innerHTML =`<table class="block">
+                 <colgroup>
+                 <col width="100"/><col width="100"/><col width="100"/><col width="100"/><col width="100"/>
+                 <col width="100"/><col width="100"/><col width="100"/><col width="100"/><col width="100"/>
+                 <col width="100"/>
+                 <col width="100"/>
+                 </colgroup>
+                 <tbody>
+                 <tr>
+                    <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                 </tr>
+                 <tr>
+                    <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                 </tr>
+                 <tr>
+                    <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                 </tr>
+                 <tr>
+                    <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                 </tr>
+                 <tr>
+                    <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                 </tr>
+                 <tr>
+                    <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                 </tr>
+                 <tr>
+                    <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                 </tr>
+                 <tr>
+                    <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                 </tr>
+             </tbody>
+             </table>`;
              return element;
          }
-         else if(data === 'drag2' && element.parentNode.classList.contains("block")) {
-             element.classList.add("cards","col-md-4");
+
+         else if(data === 'drag2' && element.parentElement.nodeName === "TD") {
+
+             element.classList.add("cards","redips-drag");
              element.innerHTML ="<div><span class='card-title'>Card Title</span>" +
                  "<div class='right'>" +
                  "<span class='glyphicon glyphicon-pencil'></span>" +
@@ -93,15 +128,52 @@ function drop(ev) {
              // element.draggable();
              return element;
          }
-        else if(data === 'drag2' && element.parentNode.id ==='frame') {
-            element.classList.add("block");
-            element.innerHTML ="<div class='cards col-md-4'><div><span class='card-title'>Card Title</span>" +
-                "<div class='right'>" +
-                "<span class='glyphicon glyphicon-pencil'></span>" +
-                "<span class='glyphicon glyphicon-trash'></span></div>" +
-                "</div>" +
-                "<div class='card'>"+
-                "</div></div>";
+        else if(data === 'drag2' && element.parentNode.id ==='redips-drag') {
+
+            element.classList.add("container-fluid","row");
+            element.innerHTML =
+                `<table class="block">
+                 <colgroup>
+                 <col width="100"/><col width="100"/><col width="100"/><col width="100"/><col width="100"/>
+                 <col width="100"/><col width="100"/><col width="100"/><col width="100"/><col width="100"/><col width="100"/>
+                 <col width="100"/>
+                 </colgroup>
+                 <tbody>
+                 <tr>
+                    <td>
+                        <div class='cards redips-drag'><div><span class='card-title'>Card Title</span>
+                        <div class='right'>
+                        <span class='glyphicon glyphicon-pencil'></span>
+                        <span class='glyphicon glyphicon-trash'></span></div>
+                        </div>
+                        <div class='card'>
+                        </div></div>
+                    </td>
+                 <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                 </tr>
+                 <tr>
+                    <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                 </tr>
+                 <tr>
+                    <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                 </tr>
+                 <tr>
+                    <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                 </tr>
+                 <tr>
+                    <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                 </tr>
+                 <tr>
+                    <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                 </tr>
+                 <tr>
+                    <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                 </tr>
+                 <tr>
+                    <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                 </tr>
+             </tbody>
+             </table>`;
             return element;
         }
         else {
@@ -303,17 +375,19 @@ $("#frame").sortable({
     items: ".row"
 });
 
-$('#frame').on('mousedown','.block',function(){
-
+$('#redips-drag').on('mousedown','.block',function(){
+        REDIPS.drag.init();
 
         $(".block").sortable({
-            items: ".cards",
+            items: ".cards"
         });
         $(".cards").draggable({
-          grid: [ 70, 110 ],
-          snap: ".ui-widget-header",
-          containment: ".block",
-        })
+          obstacle: ".cards",
+          preventCollision: true,
+          containment:".block"
+        });
+
+
         $(".card").sortable({
             items: ".field"
         });
