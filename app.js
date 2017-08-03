@@ -80,32 +80,35 @@ function drop(ev) {
              element.classList.add("container-fluid","row");
              element.innerHTML =`<table class="block">
                  <colgroup>
-                 <col width="400"/><col width="400"/><col width="400"/>
+                 <col width="100"/><col width="100"/><col width="100"/><col width="100"/><col width="100"/>
+                 <col width="100"/><col width="100"/><col width="100"/><col width="100"/><col width="100"/>
+                 <col width="100"/>
+                 <col width="100"/>
                  </colgroup>
                  <tbody>
                  <tr>
-                    <td></td><td></td><td></td>
+                    <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
                  </tr>
                  <tr>
-                    <td></td><td></td><td></td>
+                    <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
                  </tr>
                  <tr>
-                    <td></td><td></td><td></td>
+                    <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
                  </tr>
                  <tr>
-                    <td></td><td></td><td></td>
+                    <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
                  </tr>
                  <tr>
-                    <td></td><td></td><td></td>
+                    <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
                  </tr>
                  <tr>
-                    <td></td><td></td><td></td>
+                    <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
                  </tr>
                  <tr>
-                    <td></td><td></td><td></td>
+                    <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
                  </tr>
                  <tr>
-                    <td></td><td></td><td></td>
+                    <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
                  </tr>
              </tbody>
              </table>`;
