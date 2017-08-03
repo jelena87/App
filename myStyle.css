@@ -95,13 +95,15 @@ span {
   margin-bottom: 0;
 }
 .cards {
+  width: 250px;
+  height: 300px;
   background: darkslategray;
   position: relative;
   border: 1px solid #ccc;
   padding: 15px;
 }
 .card {
-  min-height: 10vh;
+  min-height: 30vh;
 
   /*margin-bottom: 25px;*/
 
