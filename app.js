@@ -377,6 +377,7 @@ $("#frame").sortable({
 
 
 $('#redips-drag').on('mousedown','.block',function(){
+
         REDIPS.drag.init();
 
         $(".block").sortable({
@@ -392,10 +393,6 @@ $('#redips-drag').on('mousedown','.block',function(){
             items: ".field"
         });
 
-        // $( ".field" ).draggable({
-        //     //items:".field",
-        //     containment: "parent"
-        // });
         var classname = document.getElementsByClassName("glyphicon-trash");
         var delete_field = document.getElementsByClassName("glyphicon-remove");
         var editCard = document.getElementsByClassName("glyphicon-pencil");

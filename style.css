@@ -1,5 +1,4 @@
 
-
 body {
 	font-family: arial;
 	margin: 0px;
@@ -7,7 +6,6 @@ body {
 
 /* make drag container visible */
 #redips-drag {
-	/*border: 2px dashed LightBlue;*/
 	display: table;
 }
 

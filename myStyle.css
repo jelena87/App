@@ -104,9 +104,6 @@ span {
 }
 .card {
   min-height: 30vh;
-
-  /*margin-bottom: 25px;*/
-
 }
 textarea {
   resize: vertical;
