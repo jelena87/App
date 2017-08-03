@@ -375,6 +375,7 @@ $("#frame").sortable({
     items: ".row"
 });
 
+
 $('#redips-drag').on('mousedown','.block',function(){
         REDIPS.drag.init();
 
@@ -387,7 +388,6 @@ $('#redips-drag').on('mousedown','.block',function(){
           containment:".block"
         });
 
-
         $(".card").sortable({
             items: ".field"
         });
@@ -398,6 +398,7 @@ $('#redips-drag').on('mousedown','.block',function(){
         // });
         var classname = document.getElementsByClassName("glyphicon-trash");
         var delete_field = document.getElementsByClassName("glyphicon-remove");
+        var editCard = document.getElementsByClassName("glyphicon-pencil");
 
         var myFunction = function() {
             $(this).closest('.cards').remove();
@@ -406,12 +407,17 @@ $('#redips-drag').on('mousedown','.block',function(){
             $(this).closest('.field').remove();
         };
 
+        $(editCard).click(function() {
+            $('.rightSidebar').toggle();
+        });
+
         Array.from(classname).forEach(function(element) {
             element.addEventListener('click', myFunction);
         });
         Array.from(delete_field).forEach(function(element) {
             element.addEventListener('click', deleteField);
         });
+
 
 
 });
