@@ -95,8 +95,8 @@ span {
   margin-bottom: 0;
 }
 .cards {
-  width: 250px;
-  height: 300px;
+  width: 400px;
+  height: 100px;
   background: darkslategray;
   position: relative;
   border: 1px solid #ccc;
