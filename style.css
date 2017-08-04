@@ -19,7 +19,7 @@ div#redips-drag table {
 
  /*table cells */
 div#redips-drag td {
-	border: 1px solid navy;
+	/*border: 1px solid navy;*/
 	height: 50px;
 	text-align: center;
 	font-size: 10pt;
