@@ -94,6 +94,7 @@ span {
 .blocks {
   margin-bottom: 0;
 }
+
 .cards {
   width: 400px;
   min-height: 100px;
@@ -102,7 +103,6 @@ span {
   border: 1px solid #ccc;
   padding: 15px;
 }
-
 textarea {
   resize: vertical;
   height: 50px;

@@ -1,5 +1,5 @@
 var container = $("#container");
-var box = $(".box");
+var box = $(".cards");
 
 var width  = 80;
 var height = 80;
@@ -17,7 +17,6 @@ Draggable.create(box, {
     bounds: container,
     onDrag: onDrag
 });
-
 function onDrag() {
 
     TweenLite.to(box, 0.5, {
