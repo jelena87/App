@@ -269,8 +269,8 @@ function drop(ev) {
             return element;
 
         }
-        if(element.parentNode.classList.contains("block")){
-            element.classList.add("cards","col-md-4");
+        if(element.parentNode.id ==='container'){
+            element.classList.add("cards");
             element.innerHTML ="<div><span class='card-title'>Card Title</span>" +
                 "<div class='right'>" +
                 "<span class='glyphicon glyphicon-pencil'></span>" +
@@ -283,7 +283,7 @@ function drop(ev) {
         }
         if(element.parentNode.id ==='frame'){
             element.classList.add("container-fluid","row");
-            element.innerHTML ="<div class='block'><div class='cards col-md-4'>" +
+            element.innerHTML ="<div id='container'><div class='cards'>" +
                 "<div><span class='card-title'>Card Title</span>" +
                 "<div class='right'>" +
                 "<span class='glyphicon glyphicon-pencil'></span>" +
@@ -294,7 +294,7 @@ function drop(ev) {
                 "</div></div>";
             return element;
         }
-        if(!element.parentNode.classList.contains("cards")  && !element.parentNode.classList.contains("block") && element.parentNode.id != 'frame') {
+        if(!element.parentNode.classList.contains("cards")  && !element.parentNode.id.contains("container") && element.parentNode.id != 'frame') {
             element.remove();
         }
 
