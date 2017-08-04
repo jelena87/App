@@ -78,12 +78,11 @@ function drop(ev) {
 
          if(data ==='drag1' && element.parentNode.id ==='frame'){
              element.classList.add("container-fluid", "row");
-             element.innerHTML =`<div class="block"></div>`;
+             element.innerHTML =`<div id="container"></div>`;
              return element;
          }
 
-         else if(data === 'drag2' && element.parentElement.nodeName === "blok") {
-
+         else if(data === 'drag2' && element.parentNode.id ==='container') {
           //   element.classList.add("cards");
              element.innerHTML =`<div class="cards">
                <div><span class='card-title'>Card Title</span>
@@ -309,6 +308,33 @@ function drop(ev) {
 
 $('#frame').on('mousedown','#container',function(){
 
+  var container = $("#container");
+  var box = $(".cards");
+
+  var width  = 80;
+  var height = 80;
+  var rows   = 8;
+  var cols   = 12;
+  var snap   = 80;
+
+  for (var i = 0; i < rows * cols; i++) {
+      var y = Math.floor(i / cols) * height;
+      var x = (i * width) % (cols * width);
+      $("<div grid-cell></div>").css({ top: y, left: x }).prependTo(container);
+  }
+
+  Draggable.create(box, {
+      bounds: container,
+      onDrag: onDrag
+  });
+  function onDrag() {
+
+      TweenLite.to(box, 0.5, {
+          x: Math.round(this.x / snap) * snap,
+          y: Math.round(this.y / snap) * snap,
+          ease: Back.easeOut.config(2)
+      });
+  }
 
         $(".block").sortable({
             items: ".cards"
