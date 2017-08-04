@@ -60,7 +60,7 @@ function drop(ev) {
     var drag_depo = ['drag1','drag2'];
     var drag_cont = ['text_box','text_area','html_editor','check_box',
         'datapicker','dropdown','radiobutton','lookup','grid','label','field_text','field_area',
-        'field_date', 'field_number', 'field_drop_down', 'field_checkbox', 'field_radio_button', 'field_decimal'];
+        'field_date', 'field_number', 'field_drop_down', 'field_checkbox', 'field_radio_button', 'field_decimal', 'group_field'];
     var isLeft;
     if(drag_depo.includes(data)){
         isLeft = 'depositories';
@@ -198,8 +198,30 @@ function drop(ev) {
         "<span class='glyphicon glyphicon-remove'></span></div>" +
         "</div>";
 
-        var group_field;
-
+        var group_field = "<div class='items-fields'>"+
+        "<label for='text_box'>Text</label>" +
+        "<input  type='text'>" +
+        "</div>"+
+        "<div class='items-fields'>" +
+        "<label for='textarea'>Textarea</label>" +
+        "<textarea class='textarea'></textarea>" +
+        "</div>"+
+        "<div class='items-fields'>" +
+        "<input type='date' class='datepicker'>" +
+        "</div>"+
+        "<div class='dropdown items-fields'>"+
+        "<button class='btn btn-info dropdown-toggle' type='button' data-toggle='dropdown'>Dropdown Example"+
+        "<span class='caret'></span></button>"+
+        "<ul class='dropdown-menu'>" +
+        "<li><a href='#'>HTML</a></li>" +
+        "<li><a href='#'>CSS</a></li>" +
+        "<li><a href='#'>JavaScript</a></li>" +
+        "</ul>" +
+        "</div>"+
+        "<div class='items-fields'>" +
+        "<input type='checkbox'/>" +
+        "<label for='test'>Red</label>" +
+        "</div>";
 
         var template;
 
@@ -260,6 +282,9 @@ function drop(ev) {
                 break;
             case 'field_decimal':
                 template = field_decimal;
+                break;
+            case 'group_field':
+                template = group_field;
                 break;
         }
 
