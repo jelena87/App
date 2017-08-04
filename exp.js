@@ -25,3 +25,20 @@ function onDrag() {
         ease: Back.easeOut.config(2)
     });
 }
+$('.cards').draggable({
+  revert: function(container) {
+    if (container === false) {
+      // Drop was rejected, tween back to original position.
+      TweenLite.to(this, 0.5, { left:0, top:0 });
+    }
+    return false;
+  }
+});
+
+$('.cards').droppable({
+  drop: function(event, ui) {
+    var x = $(this).position().left;
+    var y = $(this).position().top;
+    TweenLite.to(ui.draggable, 0.5, { left:x, top:y });
+  }
+});
