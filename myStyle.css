@@ -62,7 +62,7 @@ input, textarea {
   margin-top: 10px;
   margin-right: 10px;
   min-height: 2vh;
-  display: inline;
+  display: block;
 }
 .field {
   margin-top: 10px;
