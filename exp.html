@@ -13,7 +13,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/TweenLite.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/utils/Draggable.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/plugins/CSSPlugin.min.css"></script>
+
 
 <style media="screen">
 #container {
@@ -22,8 +22,8 @@
     position: relative;
 }
 
-.box {
-    height: 80px;
+.cards {
+    min-height: 80px;
     width: 320px;
     position: absolute;
     background: green;
@@ -84,10 +84,16 @@
 
         <div class="col-md-8 grid-form" id="frame" ondrop="drop(event)" ondragover="allowDrop(event)">
 
-          <div class="" id="container">
-            <div class="box">
-
-            </div>
+          <div class="blok" id="container">
+                <div class="cards" id="droppable">
+                  <div><span class='card-title'>Card Title</span>
+                      <div class='right'>
+                      <span class='glyphicon glyphicon-pencil'></span>
+                      <span class='glyphicon glyphicon-trash'></span></div>
+                      </div>
+                      <div class='card'>
+                      </div>
+                </div>
           </div>
 
         </div>
@@ -104,7 +110,7 @@
 <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/easing/EasePack.min.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenLite.min.js"></script>
 <script src="exp.js"></script>
-<script src="app.js">
+<script src="app1.js">
 
 </script>
 
