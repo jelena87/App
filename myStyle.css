@@ -49,14 +49,14 @@ ul.dropdown-content, ul.dropdown-content-two, ul.dropdown-content-three {
   color: #000;
 }
 label {
-  color: #fff;
+  color: #000;
   padding-right: 15px;
 }
 input, textarea {
   background: transparent;
   border: none;
-  border-bottom: 1px solid #fff;
-  color: #fff;
+  border-bottom: 1px solid #000;
+  color: #000;
 }
 .items-fields {
   margin-top: 10px;
@@ -68,7 +68,7 @@ input, textarea {
   margin-top: 10px;
 }
 span {
-  color: #fff;
+  color: #000;
   margin-right: 5px;
 }
 .right {

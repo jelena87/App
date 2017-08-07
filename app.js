@@ -60,7 +60,7 @@ function drop(ev) {
     var drag_depo = ['drag1','drag2'];
     var drag_cont = ['text_box','text_area','html_editor','check_box',
         'datapicker','dropdown','radiobutton','lookup','grid','label','field_text','field_area',
-        'field_date', 'field_number', 'field_drop_down', 'field_checkbox', 'field_radio_button', 'field_decimal', 'group_field'];
+        'field_date', 'field_number', 'field_drop_down', 'field_checkbox', 'field_radio_button', 'field_decimal'];
     var isLeft;
     if(drag_depo.includes(data)){
         isLeft = 'depositories';
@@ -264,30 +264,7 @@ function drop(ev) {
         "<span class='glyphicon glyphicon-remove'></span></div>" +
         "</div>";
 
-        var group_field = "<div class='items-fields'>"+
-        "<label for='text_box'>Text</label>" +
-        "<input  type='text'>" +
-        "</div>"+
-        "<div class='items-fields'>" +
-        "<label for='textarea'>Textarea</label>" +
-        "<textarea class='textarea'></textarea>" +
-        "</div>"+
-        "<div class='items-fields'>" +
-        "<input type='date' class='datepicker'>" +
-        "</div>"+
-        "<div class='dropdown items-fields'>"+
-        "<button class='btn btn-info dropdown-toggle' type='button' data-toggle='dropdown'>Dropdown Example"+
-        "<span class='caret'></span></button>"+
-        "<ul class='dropdown-menu'>" +
-        "<li><a href='#'>HTML</a></li>" +
-        "<li><a href='#'>CSS</a></li>" +
-        "<li><a href='#'>JavaScript</a></li>" +
-        "</ul>" +
-        "</div>"+
-        "<div class='items-fields'>" +
-        "<input type='checkbox'/>" +
-        "<label for='test'>Red</label>" +
-        "</div>";
+        var group_field;
 
 
         var template;
@@ -350,12 +327,9 @@ function drop(ev) {
             case 'field_decimal':
                 template = field_decimal;
                 break;
-            case 'group_field':
-                template = group_field;
-                break;
         }
 
-        if( element.parentElement.nodeName === "TD"){
+        if( element.parentNode.classList.contains("cards")){
             element.classList.add("field");
             element.innerHTML = template;
             return element;
@@ -369,58 +343,24 @@ function drop(ev) {
                 "<span class='glyphicon glyphicon-trash'></span></div>" +
                 "</div>" +
                 "<div class='card'>"+
-                "</div>";
+                "<div class='field'>" + template + "</div></div>";
             return element;
 
         }
-        if(element.parentNode.id ==='redips-drag'){
+        if(element.parentNode.id ==='frame'){
             element.classList.add("container-fluid","row");
-            element.innerHTML =`<table class="block">
-             <colgroup>
-             <col width="100"/><col width="100"/><col width="100"/><col width="100"/><col width="100"/>
-             <col width="100"/><col width="100"/><col width="100"/><col width="100"/><col width="100"/><col width="100"/>
-             <col width="100"/>
-             </colgroup>
-             <tbody>
-             <tr>
-                <td>
-                    <div class='cards redips-drag'><div><span class='card-title'>Card Title</span>
-                    <div class='right'>
-                    <span class='glyphicon glyphicon-pencil'></span>
-                    <span class='glyphicon glyphicon-trash'></span></div>
-                    </div>
-                    <div class='card'>
-                      <div class='field'>  </div>
-                    </div></div>
-                </td>
-             <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
-             </tr>
-             <tr>
-                <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
-             </tr>
-             <tr>
-                <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
-             </tr>
-             <tr>
-                <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
-             </tr>
-             <tr>
-                <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
-             </tr>
-             <tr>
-                <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
-             </tr>
-             <tr>
-                <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
-             </tr>
-             <tr>
-                <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
-             </tr>
-         </tbody>
-         </table>`;
+            element.innerHTML ="<div class='block'><div class='cards col-md-4'>" +
+                "<div><span class='card-title'>Card Title</span>" +
+                "<div class='right'>" +
+                "<span class='glyphicon glyphicon-pencil'></span>" +
+                "<span class='glyphicon glyphicon-trash'></span></div>" +
+                "</div>" +
+                "<div class='card'>"+
+                "<div class='field'>" + template + "</div></div>"+
+                "</div></div>";
             return element;
         }
-        if(!element.parentNode.classList.contains("cards redips-drag")  && !element.parentElement.nodeName.contains("TD") && element.parentNode.id != 'redips-drag') {
+        if(!element.parentNode.classList.contains("cards")  && !element.parentNode.classList.contains("block") && element.parentNode.id != 'frame') {
             element.remove();
         }
 
@@ -475,6 +415,6 @@ $('#redips-drag').on('mousedown','.block',function(){
             element.addEventListener('click', deleteField);
         });
 
-
+      
 
 });

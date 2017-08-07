@@ -101,6 +101,32 @@
         <aside class="col-md-2">
             <ul class="rightSidebar">
                 <li>Settings</li>
+                <li class="general" style="display:none;"><div class="edit_card">
+                  <p>General settings</p>
+                  <div class="">
+                    <label for="card-title">Card Title</label>
+                    <input type="text" name="card-title" value="" />
+                  </div>
+                  <div class="">
+                    <label for="comment">Comment</label>
+                    <textarea name="comment"></textarea>
+                  </div>
+                  <button type="button" name="button">Save</button>
+                </div></li>
+                <li class="field-settings"><div class="edit_field">
+                  <p>Field settings</p>
+                  <div class="edit-text" style="display:none;">
+                    <div class="">
+                      <label for="text">Minimum length</label>
+                      <input type="number" name="text" value="">
+                    </div>
+                    <div class="">
+                      <label for="text">Maximum length</label>
+                      <input type="number" name="text" value="">
+                    </div>
+                    <button type="button" name="button">Save</button>
+                  </div>
+                </div></li>
                 <li>Translations</li>
             </ul>
         </aside>
