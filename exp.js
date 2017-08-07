@@ -15,7 +15,7 @@ for (var i = 0; i < rows * cols; i++) {
 
 Draggable.create(box, {
     bounds: container,
-    onDrag: onDrag
+    onDrag: onDrag,
 });
 function onDrag() {
 
@@ -25,15 +25,7 @@ function onDrag() {
         ease: Back.easeOut.config(2)
     });
 }
-$('.cards').draggable({
-  revert: function(container) {
-    if (container === false) {
-      // Drop was rejected, tween back to original position.
-      TweenLite.to(this, 0.5, { left:0, top:0 });
-    }
-    return false;
-  }
-});
+
 
 $('.cards').droppable({
   drop: function(event, ui) {

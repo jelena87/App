@@ -127,7 +127,7 @@ function drop(ev) {
             "<label for='text_box'>Text</label>" +
             "<input  type='text'>" +
             "<div class='right'>" +
-            "<span class='glyphicon glyphicon-pencil'></span>" +
+            "<span class='glyphicon glyphicon-cog text_box'></span>" +
             "<span class='glyphicon glyphicon-remove'></span></div>" +
             "</div>";
 
@@ -135,22 +135,28 @@ function drop(ev) {
             "<label for='textarea'>Textarea</label>" +
             "<textarea class='textarea'></textarea>" +
             "<div class='right'>" +
-            "<span class='glyphicon glyphicon-pencil'></span>" +
+            "<span class='glyphicon glyphicon-cog text_area'></span>" +
             "<span class='glyphicon glyphicon-remove'></span></div>" +
             "</div>";
-        var html_editor="";
+        var html_editor="<div class='items-fields'>" +
+            "<label for='textarea'>HTML</label>" +
+            "<textarea class='html'></textarea>" +
+            "<div class='right'>" +
+            "<span class='glyphicon glyphicon-cog html'></span>" +
+            "<span class='glyphicon glyphicon-remove'></span></div>" +
+            "</div>";
 
         var check_box = "<div class='items-fields'>" +
             "<input type='checkbox'/>" +
             "<label for='test'>Red</label>" +
             "<div class='right'>" +
-            "<span class='glyphicon glyphicon-pencil'></span>" +
+            "<span class='glyphicon glyphicon-cog check'></span>" +
             "<span class='glyphicon glyphicon-remove'></span></div>" +
             "</div>";
         var datapicker = "<div class='items-fields'>" +
             "<input type='date' class='datepicker'>" +
             "<div class='right'>" +
-            "<span class='glyphicon glyphicon-pencil'></span>" +
+            "<span class='glyphicon glyphicon-cog'></span>" +
             "<span class='glyphicon glyphicon-remove'></span></div>" +
             "</div>";
         var dropdown = "<div class='dropdown items-fields'>"+
@@ -162,7 +168,7 @@ function drop(ev) {
             "<li><a href='#'>JavaScript</a></li>" +
             "</ul>" +
             "<div class='right'>" +
-            "<span class='glyphicon glyphicon-pencil'></span>" +
+            "<span class='glyphicon glyphicon-cog'></span>" +
             "<span class='glyphicon glyphicon-remove'></span></div>" +
             "</div>";
 
@@ -170,7 +176,7 @@ function drop(ev) {
             "<input name='group' type='radio'/>"+
             "<label for='test'>Red</label>" +
             "<div class='right'>" +
-            "<span class='glyphicon glyphicon-pencil'></span>" +
+            "<span class='glyphicon glyphicon-cog'></span>" +
             "<span class='glyphicon glyphicon-remove'></span></div>" +
             "</div>";
         var lookup="";
@@ -179,7 +185,7 @@ function drop(ev) {
         var label="<div class='items-fields'>" +
             "<label>Label</label>" +
             "<div class='right'>" +
-            "<span class='glyphicon glyphicon-pencil'></span>" +
+            "<span class='glyphicon glyphicon-cog'></span>" +
             "<span class='glyphicon glyphicon-remove'></span></div>" +
             "</div>";
 
@@ -187,14 +193,14 @@ function drop(ev) {
             "<label for='num'>Number</label>" +
             "<input type='number' name='num' min='1' max='5'>"+
             "<div class='right'>" +
-            "<span class='glyphicon glyphicon-pencil'></span>" +
+            "<span class='glyphicon glyphicon-cog'></span>" +
             "<span class='glyphicon glyphicon-remove'></span></div>" +
             "</div>";
         var field_decimal = "<div class='items-fields'>"+
         "<label for='decimal'>Decimal</label>" +
         "<input type='number' required name='decimal' min='0' value='0' step='.01'>"+
         "<div class='right'>" +
-        "<span class='glyphicon glyphicon-pencil'></span>" +
+        "<span class='glyphicon glyphicon-cog'></span>" +
         "<span class='glyphicon glyphicon-remove'></span></div>" +
         "</div>";
 
@@ -319,7 +325,7 @@ function drop(ev) {
                 "</div></div>";
             return element;
         }
-        if(!element.parentNode.classList.contains("cards")  && !element.parentNode.id.contains("container") && element.parentNode.id != 'frame') {
+        if(!element.parentNode.classList.contains("cards")  && element.parentNode.id != ("container") && element.parentNode.id != 'frame') {
             element.remove();
         }
 
@@ -376,7 +382,7 @@ $('#frame').on('mousedown','#container',function(){
 
         var classname = document.getElementsByClassName("glyphicon-trash");
         var delete_field = document.getElementsByClassName("glyphicon-remove");
-        var editCard = document.getElementsByClassName("glyphicon-pencil");
+
 
         var myFunction = function() {
             $(this).closest('.cards').remove();
@@ -396,6 +402,11 @@ $('#frame').on('mousedown','#container',function(){
             element.addEventListener('click', deleteField);
         });
 
-
+        $(".glyphicon-pencil").click(function(){
+        $(".general").show();
+        });
+        $(".text_box").click(function(){
+        $(".edit-text").show();
+        });
 
 });
