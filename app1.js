@@ -60,7 +60,7 @@ function drop(ev) {
     var drag_depo = ['drag1','drag2'];
     var drag_cont = ['text_box','text_area','html_editor','check_box',
         'datapicker','dropdown','radiobutton','lookup','grid','label','field_text','field_area',
-        'field_date', 'field_number', 'field_drop_down', 'field_checkbox', 'field_radio_button', 'field_decimal', 'group_field'];
+        'field_date', 'field_number', 'field_drop_down', 'field_checkbox', 'field_radio_button', 'field_decimal', 'group_field', 'field_html'];
     var isLeft;
     if(drag_depo.includes(data)){
         isLeft = 'depositories';
@@ -148,7 +148,7 @@ function drop(ev) {
 
         var check_box = "<div class='items-fields'>" +
             "<input type='checkbox'/>" +
-            "<label for='test'>Red</label>" +
+            "<label for='test'>Test</label>" +
             "<div class='right'>" +
             "<span class='glyphicon glyphicon-cog check'></span>" +
             "<span class='glyphicon glyphicon-remove'></span></div>" +
@@ -156,7 +156,7 @@ function drop(ev) {
         var datapicker = "<div class='items-fields'>" +
             "<input type='date' class='datepicker'>" +
             "<div class='right'>" +
-            "<span class='glyphicon glyphicon-cog'></span>" +
+            "<span class='glyphicon glyphicon-cog date'></span>" +
             "<span class='glyphicon glyphicon-remove'></span></div>" +
             "</div>";
         var dropdown = "<div class='dropdown items-fields'>"+
@@ -168,15 +168,15 @@ function drop(ev) {
             "<li><a href='#'>JavaScript</a></li>" +
             "</ul>" +
             "<div class='right'>" +
-            "<span class='glyphicon glyphicon-cog'></span>" +
+            "<span class='glyphicon glyphicon-cog drop'></span>" +
             "<span class='glyphicon glyphicon-remove'></span></div>" +
             "</div>";
 
         var radiobutton="<div class='items-fields'>" +
             "<input name='group' type='radio'/>"+
-            "<label for='test'>Red</label>" +
+            "<label for='test'>Test</label>" +
             "<div class='right'>" +
-            "<span class='glyphicon glyphicon-cog'></span>" +
+            "<span class='glyphicon glyphicon-cog radio'></span>" +
             "<span class='glyphicon glyphicon-remove'></span></div>" +
             "</div>";
         var lookup="";
@@ -185,7 +185,7 @@ function drop(ev) {
         var label="<div class='items-fields'>" +
             "<label>Label</label>" +
             "<div class='right'>" +
-            "<span class='glyphicon glyphicon-cog'></span>" +
+            "<span class='glyphicon glyphicon-cog label'></span>" +
             "<span class='glyphicon glyphicon-remove'></span></div>" +
             "</div>";
 
@@ -193,41 +193,50 @@ function drop(ev) {
             "<label for='num'>Number</label>" +
             "<input type='number' name='num' min='1' max='5'>"+
             "<div class='right'>" +
-            "<span class='glyphicon glyphicon-cog'></span>" +
+            "<span class='glyphicon glyphicon-cog num'></span>" +
             "<span class='glyphicon glyphicon-remove'></span></div>" +
             "</div>";
         var field_decimal = "<div class='items-fields'>"+
         "<label for='decimal'>Decimal</label>" +
         "<input type='number' required name='decimal' min='0' value='0' step='.01'>"+
         "<div class='right'>" +
-        "<span class='glyphicon glyphicon-cog'></span>" +
+        "<span class='glyphicon glyphicon-cog decimal'></span>" +
         "<span class='glyphicon glyphicon-remove'></span></div>" +
         "</div>";
 
-        var group_field = "<div class='items-fields'>"+
-        "<label for='text_box'>Text</label>" +
-        "<input  type='text'>" +
-        "</div>"+
-        "<div class='items-fields'>" +
-        "<label for='textarea'>Textarea</label>" +
-        "<textarea class='textarea'></textarea>" +
-        "</div>"+
-        "<div class='items-fields'>" +
-        "<input type='date' class='datepicker'>" +
-        "</div>"+
-        "<div class='dropdown items-fields'>"+
-        "<button class='btn btn-info dropdown-toggle' type='button' data-toggle='dropdown'>Dropdown Example"+
-        "<span class='caret'></span></button>"+
-        "<ul class='dropdown-menu'>" +
-        "<li><a href='#'>HTML</a></li>" +
-        "<li><a href='#'>CSS</a></li>" +
-        "<li><a href='#'>JavaScript</a></li>" +
-        "</ul>" +
-        "</div>"+
-        "<div class='items-fields'>" +
-        "<input type='checkbox'/>" +
-        "<label for='test'>Red</label>" +
-        "</div>";
+        var group_field = "<div class='items-fields'>" +
+            "<label for='text_box'>Text</label>" +
+            "<input  type='text'>" +
+            "<div class='right'>" +
+            "<span class='glyphicon glyphicon-cog text_box'></span>" +
+            "<span class='glyphicon glyphicon-remove'></span></div>" +
+            "</div>"+
+            "<div class='items-fields'>" +
+            "<label for='textarea'>Textarea</label>" +
+            "<textarea class='textarea'></textarea>" +
+            "<div class='right'>" +
+            "<span class='glyphicon glyphicon-cog text_area'></span>" +
+            "<span class='glyphicon glyphicon-remove'></span></div>" +
+            "</div>"+
+            "<div class='items-fields'>" +
+            "<input type='date' class='datepicker'>" +
+            "<div class='right'>" +
+            "<span class='glyphicon glyphicon-cog date'></span>" +
+            "<span class='glyphicon glyphicon-remove'></span></div>" +
+            "</div>"+
+            "<div class='dropdown items-fields'>"+
+            "<button class='btn btn-info dropdown-toggle' type='button' data-toggle='dropdown'>Dropdown Example"+
+            "<span class='caret'></span></button>"+
+            "<ul class='dropdown-menu'>" +
+            "<li><a href='#'>HTML</a></li>" +
+            "<li><a href='#'>CSS</a></li>" +
+            "<li><a href='#'>JavaScript</a></li>" +
+            "</ul>" +
+            "<div class='right'>" +
+            "<span class='glyphicon glyphicon-cog drop'></span>" +
+            "<span class='glyphicon glyphicon-remove'></span></div>" +
+            "</div>";
+
 
         var template;
 
@@ -270,6 +279,9 @@ function drop(ev) {
                 break;
             case 'field_area':
                 template = text_area;
+                break;
+            case 'field_html':
+                template = html_editor;
                 break;
             case 'field_date':
                 template = datapicker;
@@ -366,14 +378,26 @@ $('#frame').on('mousedown','#container',function(){
           ease: Back.easeOut.config(2)
       });
   }
+  $('.cards').each(function() {
+  var drag = $(this);
+  var handle = $("<div class='resize-handle'></div>").appendTo(drag);
+  TweenLite.set(handle, { top: drag.width(), left: drag.height() });
+
+//  Draggable.create(drag);
+
+  Draggable.create(handle, {
+    type:"top,left",
+    onPress: function(e) {
+      e.stopPropagation(); // cancel drag
+    },
+    onDrag: function(e) {
+      TweenLite.set(this.target.parentNode, { width: this.x, height: this.y });
+    }
+  });
+});
 
         $(".block").sortable({
             items: ".cards"
-        });
-        $(".cards").draggable({
-          obstacle: ".cards",
-          preventCollision: true,
-          containment:".block"
         });
 
         $(".cards").sortable({
@@ -408,5 +432,28 @@ $('#frame').on('mousedown','#container',function(){
         $(".text_box").click(function(){
         $(".edit-text").show();
         });
-
+        $(".text_area").click(function(){
+        $(".edit-textarea").show();
+        });
+        $(".num").click(function(){
+        $(".edit-number").show();
+        });
+        $(".decimal").click(function(){
+        $(".edit-decimal").show();
+        });
+        $(".html").click(function(){
+        $(".edit-html").show();
+        });
+        $(".check").click(function(){
+        $(".edit-checkbox").show();
+        });
+        $(".drop").click(function(){
+        $(".edit-drop").show();
+        });
+        $(".date").click(function(){
+        $(".edit-date").show();
+        });
+        $(".radio").click(function(){
+        $(".edit-radio").show();
+        });
 });

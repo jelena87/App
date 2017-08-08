@@ -36,6 +36,17 @@
     width: 80px;
     height: 80px;
 }
+.resize-handle {
+  position: absolute;
+  width: 0px;
+  height: 0px;
+  margin-top: -16px;
+  margin-left: -15px;
+  border-style: solid;
+  border-width: 0 0 16px 16px;
+  border-color: transparent transparent #AAA transparent;
+  cursor: nw-resize !important;
+}
 </style>
 
 </head>
@@ -49,7 +60,7 @@
                 <ul class="dropdown-content-three" id="dropdown-menu-three">
                   <li><p draggable="true" ondragstart="drag(event)" id="field_text">Text</p></li>
                   <li><p draggable="true" ondragstart="drag(event)" id="field_area">TextArea</p></li>
-                  <li><p draggable="true" ondragstart="drag(event)" id="field_html_text">Html-Text</p></li>
+                  <li><p draggable="true" ondragstart="drag(event)" id="field_html">Html-Text</p></li>
                   <li><p draggable="true" ondragstart="drag(event)" id="field_number">Number</p></li>
                   <li><p draggable="true" ondragstart="drag(event)" id="field_decimal">Decimal</p></li>
                   <li><p draggable="true" ondragstart="drag(event)" id="field_checkbox">Checkbox</p></li>
@@ -102,27 +113,144 @@
             <ul class="rightSidebar">
                 <li>Settings</li>
                 <li class="general" style="display:none;"><div class="edit_card">
-                  <p>General settings</p>
-                  <div class="">
+                  <p>General card settings</p>
+                  <div class="edit">
                     <label for="card-title">Card Title</label>
-                    <input type="text" name="card-title" value="" />
+                    <input type="text" name="card-title" value="" required />
                   </div>
-                  <div class="">
+                  <div class="edit">
                     <label for="comment">Comment</label>
                     <textarea name="comment"></textarea>
                   </div>
                   <button type="button" name="button">Save</button>
                 </div></li>
-                <li class="field-settings"><div class="edit_field">
-                  <p>Field settings</p>
-                  <div class="edit-text" style="display:none;">
-                    <div class="">
+                <li class="edit-text" style="display:none;"><div class="edit_textbox">
+                  <p>TextBox settings</p>
+                  <div class="">
+                    <div class="edit">
                       <label for="text">Minimum length</label>
                       <input type="number" name="text" value="">
                     </div>
-                    <div class="">
+                    <div class="edit">
                       <label for="text">Maximum length</label>
                       <input type="number" name="text" value="">
+                    </div>
+                    <button type="button" name="button">Save</button>
+                  </div>
+                </div></li>
+                <li class="edit-textarea" style="display:none;"><div class="edit_textarea">
+                  <p>TextArea settings</p>
+                  <div class="">
+                    <div class="edit">
+                      <label for="text_area">Minimum length</label>
+                      <input type="number" name="text_area" value="">
+                    </div>
+                    <div class="edit">
+                      <label for="text_area">Maximum length</label>
+                      <input type="number" name="text_area" value="">
+                    </div>
+                    <button type="button" name="button">Save</button>
+                  </div>
+                </div></li>
+                <li class="edit-number" style="display:none;"><div class="edit_number">
+                  <p>Number settings</p>
+                  <div class="">
+                    <div class="edit">
+                      <label for="num">Minimum value</label>
+                      <input type="number" name="num" value="">
+                    </div>
+                    <div class="edit">
+                      <label for="num">Maximum value</label>
+                      <input type="number" name="num" value="">
+                    </div>
+                    <button type="button" name="button">Save</button>
+                  </div>
+                </div></li>
+                <li class="edit-decimal" style="display:none;"><div class="edit_decimal">
+                  <p>Decimal settings</p>
+                  <div class="">
+                    <div class="edit">
+                      <label for="decimal">Minimum value</label>
+                      <input type="number" name="decimal" value="">
+                    </div>
+                    <div class="edit">
+                      <label for="decimal">Maximum value</label>
+                      <input type="number" name="decimal" value="">
+                    </div>
+                    <button type="button" name="button">Save</button>
+                  </div>
+                </div></li>
+                <li class="edit-html" style="display:none;"><div class="edit_html">
+                  <p>HTML settings</p>
+                  <div class="">
+                    <div class="edit">
+                      <label for="html">HTML Default Value</label>
+                      <input type="text" name="html" value="">
+                    </div>
+                    <button type="button" name="button">Save</button>
+                  </div>
+                </div></li>
+                <li class="edit-checkbox" style="display:none;"><div class="edit_checkbox">
+                  <p>Checkbox settings</p>
+                  <div class="">
+                    <div class="edit">
+                      <label for="list">Value 1</label>
+                      <input type="text" name="list" value="">
+                    </div>
+                    <div class="edit">
+                      <label for="list">Value 2</label>
+                      <input type="text" name="list" value="">
+                    </div>
+                    <div class="edit">
+                      <label for="list">Value 3</label>
+                      <input type="text" name="list" value="">
+                    </div>
+                    <button type="button" name="button">Save</button>
+                  </div>
+                </div></li>
+                <li class="edit-drop" style="display:none;"><div class="edit_drop">
+                  <p>Dropdown settings</p>
+                  <p>List of selectable values</p>
+                  <div class="">
+                    <div class="edit">
+                      <label for="list">Value 1</label>
+                      <input type="text" name="list" value="">
+                    </div>
+                    <div class="edit">
+                      <label for="list">Value 2</label>
+                      <input type="text" name="list" value="">
+                    </div>
+                    <div class="edit">
+                      <label for="list">Value 3</label>
+                      <input type="text" name="list" value="">
+                    </div>
+                    <button type="button" name="button">Save</button>
+                  </div>
+                </div></li>
+                <li class="edit-date" style="display:none;"><div class="edit_date">
+                  <p>Datepicker settings</p>
+                  <div class="">
+                    <div class="edit">
+                      <label for="date">Change the date</label>
+                      <input type="date" name="date" value="">
+                    </div>
+                    <button type="button" name="button">Save</button>
+                  </div>
+                </div></li>
+                <li class="edit-radio" style="display:none;"><div class="edit_radio">
+                  <p>Radiobutton settings</p>
+                  <div class="">
+                    <div class="edit">
+                      <label for="list">Value 1</label>
+                      <input type="text" name="list" value="">
+                    </div>
+                    <div class="edit">
+                      <label for="list">Value 2</label>
+                      <input type="text" name="list" value="">
+                    </div>
+                    <div class="edit">
+                      <label for="list">Value 3</label>
+                      <input type="text" name="list" value="">
                     </div>
                     <button type="button" name="button">Save</button>
                   </div>
