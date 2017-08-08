@@ -350,12 +350,10 @@ function drop(ev) {
     return false;
 }
 
-
-
 $('#frame').on('mousedown','#container',function(){
 
   var container = $("#container");
-  var box = $(".cards");
+  var box = $("#" + id);
 
   var width  = 80;
   var height = 80;
