@@ -75,7 +75,12 @@ span {
   display: inline-block;
   float: right;
 }
-
+.edit {
+  text-align: left;
+}
+button {
+  margin-top: 5px;
+}
 /* Vladan */
 
 .block {
