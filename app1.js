@@ -53,10 +53,12 @@ function allowDrop(ev) {
 function drag(ev) {
     ev.dataTransfer.setData("text", ev.target.id);
 }
-
+var id = 1;
 function drop(ev) {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("text");
+
+    console.log(id);
     var drag_depo = ['drag1','drag2'];
     var drag_cont = ['text_box','text_area','html_editor','check_box',
         'datapicker','dropdown','radiobutton','lookup','grid','label','field_text','field_area',
@@ -84,30 +86,31 @@ function drop(ev) {
 
          else if(data === 'drag2' && element.parentNode.id ==='container') {
           //   element.classList.add("cards");
-             element.innerHTML =`<div class="cards">
-               <div><span class='card-title'>Card Title</span>
-                   <div class='right'>
-                   <span class='glyphicon glyphicon-pencil'></span>
-                   <span class='glyphicon glyphicon-trash'></span></div>
-                   </div>
-                   <div class='card'>
-                   </div>
-             </div>`;
+             id = id +1;
+             element.innerHTML ="<div class='cards' id=" + id + ">" +
+               "<div><span class='card-title'>Card Title</span>" +
+                   "<div class='right'>" +
+                   "<span class='glyphicon glyphicon-pencil'></span>" +
+                   "<span class='glyphicon glyphicon-trash'></span></div>" +
+                   "</div>" +
+                   "<div class='card'>" +
+                   "</div>" +
+             "</div>";
              // element.draggable();
              return element;
          }
         else if(data === 'drag2' && element.parentNode.id ==='frame') {
-
+             id = id +1;
             element.classList.add("container-fluid","row");
-            element.innerHTML =`<div id="container"><div class="cards">
-              <div><span class='card-title'>Card Title</span>
-                  <div class='right'>
-                  <span class='glyphicon glyphicon-pencil'></span>
-                  <span class='glyphicon glyphicon-trash'></span></div>
-                  </div>
-                  <div class='card'>
-                  </div>
-            </div></div>`;
+            element.innerHTML ="<div id='container'><div class='cards' id="+ id +">" +
+              "<div><span class='card-title'>Card Title</span>" +
+                  "<div class='right'>" +
+                  "<span class='glyphicon glyphicon-pencil'></span>" +
+                  "<span class='glyphicon glyphicon-trash'></span></div>" +
+                  "</div>" +
+                  "<div class='card'>" +
+                  "</div>" +
+            "</div></div>";
             return element;
         }
         else {
