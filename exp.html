@@ -18,9 +18,11 @@
 <style media="screen">
 #container {
     height: 800px;
-    width: 1000px;
-    position: relative;
-    background: #fff;
+    width: 960px;
+    position: absolute;
+    left: 0;
+    background: transparent;
+    border: 5px solid #000;
 }
 
 .cards {
@@ -121,6 +123,49 @@
                   <div class="edit">
                     <label for="comment">Comment</label>
                     <textarea name="comment"></textarea>
+                  </div>
+                  <div class="edit">
+                    <p>Size of a card widthXheight</p>
+                    <input type="radio" name="size" value="4x1">
+                    <label for="size">4x1</label>
+                    <input type="radio" name="size" value="4x2">
+                    <label for="size">4x2</label>
+                    <input type="radio" name="size" value="4x4">
+                    <label for="size">4x4</label>
+                    <input type="radio" name="size" value="4x8">
+                    <label for="size">4x8</label>
+                  </div>
+                  <div class="edit">
+                    <input type="radio" name="size" value="6x2">
+                    <label for="size">6x2</label>
+                    <input type="radio" name="size" value="6x3">
+                    <label for="size">6x3</label>
+                    <input type="radio" name="size" value="6x4">
+                    <label for="size">6x4</label>
+                    <input type="radio" name="size" value="6x6">
+                    <label for="size">6x6</label>
+                    <input type="radio" name="size" value="6x8">
+                    <label for="size">6x8</label>
+                  </div>
+                  <div class="edit">
+                    <input type="radio" name="size" value="8x2">
+                    <label for="size">8x2</label>
+                    <input type="radio" name="size" value="8x4">
+                    <label for="size">8x4</label>
+                    <input type="radio" name="size" value="8x8">
+                    <label for="size">8x8</label>
+                  </div>
+                  <div class="edit">
+                    <input type="radio" name="size" value="12x1">
+                    <label for="size">12x1</label>
+                    <input type="radio" name="size" value="12x2">
+                    <label for="size">12x2</label>
+                    <input type="radio" name="size" value="12x4">
+                    <label for="size">12x4</label>
+                    <input type="radio" name="size" value="12x6">
+                    <label for="size">12x6</label>
+                    <input type="radio" name="size" value="12x8">
+                    <label for="size">12x8</label>
                   </div>
                   <button type="button" name="button">Save</button>
                 </div></li>
