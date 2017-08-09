@@ -185,3 +185,6 @@ textarea {
 .cards > div:first-child {
   border-bottom: 1px solid #fff;
 }
+.blocks{
+  padding-bottom:30px;
+}
