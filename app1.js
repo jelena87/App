@@ -80,7 +80,12 @@ function drop(ev) {
 
          if(data ==='drag1' && element.parentNode.id ==='frame'){
              element.classList.add("container-fluid", "row");
-             element.innerHTML =`<div id="container"></div>`;
+             element.innerHTML =`<div id="container">
+             <div class="title"><span class='block-title'>Block Title</span>
+             <div class='right'>
+             <span class='glyphicon glyphicon-pencil'></span>
+             <span class='glyphicon glyphicon-trash'></span></div></div>
+             </div>`;
              return element;
          }
 
@@ -102,7 +107,12 @@ function drop(ev) {
         else if(data === 'drag2' && element.parentNode.id ==='frame') {
              id = id +1;
             element.classList.add("container-fluid","row");
-            element.innerHTML ="<div id='container'><div class='cards' id="+ id +">" +
+            element.innerHTML ="<div id='container'><div class='title'><span class='block-title'>Block Title</span>" +
+            "<div class='right'>" +
+            "<span class='glyphicon glyphicon-pencil'></span>" +
+            "<span class='glyphicon glyphicon-trash'></span></div>" +
+            "</div>" +
+            "<div class='cards' id="+ id +">" +
               "<div><span class='card-title'>Card Title</span>" +
                   "<div class='right'>" +
                   "<span class='glyphicon glyphicon-pencil'></span>" +
@@ -332,7 +342,12 @@ function drop(ev) {
         if(element.parentNode.id ==='frame'){
             id = id + 1;
             element.classList.add("container-fluid","row");
-            element.innerHTML ="<div id='container'><div class='cards' id="+ id +">" +
+            element.innerHTML ="<div id='container'><div class='title'><span class='block-title'>Block Title</span>" +
+            "<div class='right'>" +
+            "<span class='glyphicon glyphicon-pencil'></span>" +
+            "<span class='glyphicon glyphicon-trash'></span></div>" +
+            "</div>" +
+            "<div class='cards' id="+ id +">" +
                 "<div><span class='card-title'>Card Title</span>" +
                 "<div class='right'>" +
                 "<span class='glyphicon glyphicon-pencil'></span>" +
@@ -398,6 +413,7 @@ $('#frame').on('mousedown','#container',function(){
     }
   });
 });*/
+
 
 
 
