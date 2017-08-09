@@ -99,16 +99,16 @@ function drop(ev) {
          if(data ==='drag1' && element.parentNode.id ==='frame'){
 
              element.classList.add("container-fluid", "row");
-<<<<<<< HEAD
+
              element.innerHTML ="<div id='container'></div>";
-=======
+
              element.innerHTML =`<div class="block">
              <div class="title"><span class='block-title'>Block Title</span>
              <div class='right'>
              <span class='glyphicon glyphicon-pencil g-block'></span>
              <span class='glyphicon glyphicon-trash'></span></div></div>
              </div>`;
->>>>>>> b78312b6a52edea719a1b134b518e7ed226539a1
+
              return element;
          }
 
