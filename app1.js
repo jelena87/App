@@ -316,7 +316,9 @@ function drop(ev) {
 
         }
         if(element.parentNode.id ==='container'){
+            id = id +1;
             element.classList.add("cards");
+            element.id = id;
             element.innerHTML ="<div><span class='card-title'>Card Title</span>" +
                 "<div class='right'>" +
                 "<span class='glyphicon glyphicon-pencil'></span>" +
@@ -328,8 +330,9 @@ function drop(ev) {
 
         }
         if(element.parentNode.id ==='frame'){
+            id = id + 1;
             element.classList.add("container-fluid","row");
-            element.innerHTML ="<div id='container'><div class='cards'>" +
+            element.innerHTML ="<div id='container'><div class='cards' id="+ id +">" +
                 "<div><span class='card-title'>Card Title</span>" +
                 "<div class='right'>" +
                 "<span class='glyphicon glyphicon-pencil'></span>" +
