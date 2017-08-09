@@ -59,8 +59,9 @@ function drop(ev) {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("text");
 
-    console.log(event.clientX);
-    console.log(event.clientY);
+    // console.log(event.clientX);
+    // console.log(event.clientY);
+
 
     // Create GRID
     var width  = 80;
@@ -111,18 +112,18 @@ function drop(ev) {
          }
 
          else if(data === 'drag2' && element.parentNode.classList.contains("block")) {
-          //   element.classList.add("cards");
-
              id = id +1;
-             element.innerHTML ="<div class='cards' id=" + id + ">" +
+             element.classList.add("cards");
+             element.id = id;
+
+             element.innerHTML =
                "<div><span class='card-title'>Card Title</span>" +
                    "<div class='right'>" +
                    "<span class='glyphicon glyphicon-pencil g-card'></span>" +
                    "<span class='glyphicon glyphicon-trash'></span></div>" +
                    "</div>" +
                    "<div class='card'>" +
-                   "</div>" +
-             "</div>";
+                   "</div>";
              // var offset;
              // var dm = document.getElementsByClassName('cards');
              // dm.style.left = (event.clientX + parseInt(offset[0],10)) + 'px';
@@ -417,10 +418,23 @@ $('#frame').on('mousedown','.block',function(){
   });*/
 
   Draggable.create(box, {
+      type:"x,y",
       bounds: container,
-      onDrag: onDrag
+      onDragEnd:function(e) {
+          //see if the target overlaps with the element with ID "element2"
+          var get_id;
+          $('.cards[id]').each(function(){
+              get_id = this.id;
+          });
+          if (this.hitTest( get_id )) {
+              //do stuff
+              console.log('test');
+          }
+      }
   });
   function onDrag() {
+
+
 
       TweenLite.to(box, 0.5, {
           x: Math.round(this.x / snap) * snap,
@@ -428,6 +442,7 @@ $('#frame').on('mousedown','.block',function(){
 
           ease: Back.easeOut.config(2)
       });
+
 
   }
 
