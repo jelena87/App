@@ -75,86 +75,18 @@ span {
   display: inline-block;
   float: right;
 }
+
 .edit {
   text-align: left;
+}
+.title_card {
+  height: 25px;
 }
 button {
   margin-top: 5px;
 }
-.fourXone {
-  min-height: 80px;
-  width: 320px;
-}
-.fourXtwo {
-  min-height: 160px;
-  width: 320px;
-}
-.fourXfour {
-  min-height: 320px;
-  width: 320px;
-}
-.fourXsix {
-  min-height: 480px;
-  width: 320px;
-}
-.fourXeight {
-  min-height: 640px;
-  width: 320px;
-}
-.sixXtwo {
-  min-height: 160px;
-  width: 480px;
-}
-.sixXthree {
-  min-height: 240px;
-  width: 480px;
-}
-.sixXfour {
-  min-height: 320px;
-  width: 480px;
-}
-.sixXsix {
-  min-height: 480px;
-  width: 480px;
-}
-.sixXeight {
-  min-height: 640px;
-  width: 480px;
-}
-.eightXtwo {
-  min-height: 160px;
-  width: 640px;
-}
-.eightXfour {
-  min-height: 320px;
-  width: 640px;
-}
-.eightXeight {
-  min-height: 640px;
-  width: 640px;
-}
-.twelveXone {
-  min-height: 80px;
-  width: 960px;
-}
-.twelveXtwo {
-  min-height: 160px;
-  width: 960px;
-}
-.twelveXfour {
-  min-height: 320px;
-  width: 960px;
-}
-.twelveXsix {
-  min-height: 480px;
-  width: 960px;
-}
-.twelveXeight {
-  min-height: 640px;
-  width: 960px;
-}
 .title {
-  height: 80px;
+  height: 40px;
   background: #fff;
 }
 /* Vladan */
@@ -182,9 +114,9 @@ textarea {
 .visible {
   display: block;
 }
+
 .cards > div:first-child {
   border-bottom: 1px solid #fff;
-}
 
 
 

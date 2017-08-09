@@ -65,8 +65,8 @@ function drop(ev) {
 
     // Create GRID
     var width  = 80;
-    var height = 80;
-    var rows   = 20;
+    var height = 40;
+    var rows   = 27;
     var cols   = 12;
 
     for (var i = 0; i < rows * cols; i++) {
@@ -141,7 +141,7 @@ function drop(ev) {
             "<span class='glyphicon glyphicon-trash'></span></div>" +
             "</div>" +
             "<div class='cards' id="+ id +">" +
-              "<div><span class='card-title'>Card Title</span>" +
+              "<div class='title_card'>" +
                   "<div class='right'>" +
                   "<span class='glyphicon glyphicon-pencil g-card'></span>" +
                   "<span class='glyphicon glyphicon-trash'></span></div>" +
@@ -357,7 +357,7 @@ function drop(ev) {
             id = id +1;
             element.classList.add("cards");
             element.id = id;
-            element.innerHTML ="<div><span class='card-title'>Card Title</span>" +
+            element.innerHTML ="<div class='title_card'>" +
                 "<div class='right'>" +
                 "<span class='glyphicon glyphicon-pencil'></span>" +
                 "<span class='glyphicon glyphicon-trash'></span></div>" +
@@ -376,7 +376,7 @@ function drop(ev) {
             "<span class='glyphicon glyphicon-trash'></span></div>" +
             "</div>" +
             "<div class='cards' id="+ id +">" +
-                "<div><span class='card-title'>Card Title</span>" +
+                "<div class='title_card'>" +
                 "<div class='right'>" +
                 "<span class='glyphicon glyphicon-pencil g-card'></span>" +
                 "<span class='glyphicon glyphicon-trash'></span></div>" +
@@ -402,7 +402,7 @@ $('#frame').on('mousedown','.block',function(){
   var box = $("#" + id);
 
 
-  var snap   = 80;
+  var snap   = 40;
 
 
 /*  Draggable.create(container, {
