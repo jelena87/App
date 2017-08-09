@@ -99,18 +99,27 @@ function drop(ev) {
          if(data ==='drag1' && element.parentNode.id ==='frame'){
 
              element.classList.add("container-fluid", "row");
+<<<<<<< HEAD
              element.innerHTML ="<div id='container'></div>";
+=======
+             element.innerHTML =`<div class="block">
+             <div class="title"><span class='block-title'>Block Title</span>
+             <div class='right'>
+             <span class='glyphicon glyphicon-pencil g-block'></span>
+             <span class='glyphicon glyphicon-trash'></span></div></div>
+             </div>`;
+>>>>>>> b78312b6a52edea719a1b134b518e7ed226539a1
              return element;
          }
 
-         else if(data === 'drag2' && element.parentNode.id ==='container') {
+         else if(data === 'drag2' && element.parentNode.classList.contains("block")) {
           //   element.classList.add("cards");
 
              id = id +1;
              element.innerHTML ="<div class='cards' id=" + id + ">" +
                "<div><span class='card-title'>Card Title</span>" +
                    "<div class='right'>" +
-                   "<span class='glyphicon glyphicon-pencil'></span>" +
+                   "<span class='glyphicon glyphicon-pencil g-card'></span>" +
                    "<span class='glyphicon glyphicon-trash'></span></div>" +
                    "</div>" +
                    "<div class='card'>" +
@@ -127,10 +136,15 @@ function drop(ev) {
         else if(data === 'drag2' && element.parentNode.id ==='frame') {
              id = id +1;
             element.classList.add("container-fluid","row");
-            element.innerHTML ="<div id='container'><div class='cards' id="+ id +">" +
+            element.innerHTML ="<div class='block'><div class='title'><span class='block-title'>Block Title</span>" +
+            "<div class='right'>" +
+            "<span class='glyphicon glyphicon-pencil g-block'></span>" +
+            "<span class='glyphicon glyphicon-trash'></span></div>" +
+            "</div>" +
+            "<div class='cards' id="+ id +">" +
               "<div><span class='card-title'>Card Title</span>" +
                   "<div class='right'>" +
-                  "<span class='glyphicon glyphicon-pencil'></span>" +
+                  "<span class='glyphicon glyphicon-pencil g-card'></span>" +
                   "<span class='glyphicon glyphicon-trash'></span></div>" +
                   "</div>" +
                   "<div class='card'>" +
@@ -357,10 +371,15 @@ function drop(ev) {
         if(element.parentNode.id ==='frame'){
             id = id + 1;
             element.classList.add("container-fluid","row");
-            element.innerHTML ="<div id='container'><div class='cards' id="+ id +">" +
+            element.innerHTML ="<div class='block'><div class='title'><span class='block-title'>Block Title</span>" +
+            "<div class='right'>" +
+            "<span class='glyphicon glyphicon-pencil g-block'></span>" +
+            "<span class='glyphicon glyphicon-trash'></span></div>" +
+            "</div>" +
+            "<div class='cards' id="+ id +">" +
                 "<div><span class='card-title'>Card Title</span>" +
                 "<div class='right'>" +
-                "<span class='glyphicon glyphicon-pencil'></span>" +
+                "<span class='glyphicon glyphicon-pencil g-card'></span>" +
                 "<span class='glyphicon glyphicon-trash'></span></div>" +
                 "</div>" +
                 "<div class='card'>"+
@@ -368,7 +387,7 @@ function drop(ev) {
                 "</div></div>";
             return element;
         }
-        if(!element.parentNode.classList.contains("cards")  && element.parentNode.id != ("container") && element.parentNode.id != 'frame') {
+        if(!element.parentNode.classList.contains("cards")  && !element.parentNode.classList.contains("block") && element.parentNode.id != 'frame') {
             element.remove();
         }
 
@@ -378,15 +397,26 @@ function drop(ev) {
     return false;
 }
 
-$('#frame').on('mousedown','#container',function(){
+$('#frame').on('mousedown','.block',function(){
   var frame = $("#frame");
-  var container = $("#container");
+  var container = $(".block");
   var box = $("#" + id);
 
 
   var snap   = 80;
 
 
+  Draggable.create(container, {
+      bounds: frame,
+      onDrag: function onDragBlock() {
+
+          TweenLite.to(container, 0.5, {
+              x: Math.round(this.x / snap) * snap,
+              y: Math.round(this.y / snap) * snap,
+              ease: Back.easeOut.config(2)
+          });
+      }
+  });
 
   Draggable.create(box, {
       bounds: container,
@@ -402,11 +432,14 @@ $('#frame').on('mousedown','#container',function(){
       });
 
   }
-/*   var drag = $(this);
+
+
+$(container).each(function() {
+  var drag = $(this);
   var handle = $("<div class='resize-handle'></div>").appendTo(drag);
   TweenLite.set(handle, { top: drag.width(), left: drag.height() });
 
-//  Draggable.create(drag);
+
 
   Draggable.create(handle, {
     type:"top,left",
@@ -417,7 +450,24 @@ $('#frame').on('mousedown','#container',function(){
       TweenLite.set(this.target.parentNode, { width: this.x, height: this.y });
     }
   });
-});*/
+});
+$(box).each(function() {
+  var drag = $(this);
+  var handle = $("<div class='resize-box'></div>").appendTo(drag);
+  TweenLite.set(handle, { top: drag.width(), left: drag.height() });
+
+
+
+  Draggable.create(handle, {
+    type:"top,left",
+    onPress: function(e) {
+      e.stopPropagation(); // cancel drag
+    },
+    onDrag: function(e) {
+      TweenLite.set(this.target.parentNode, { width: this.x, height: this.y });
+    }
+  });
+});
 
 
 
@@ -432,9 +482,7 @@ $('#frame').on('mousedown','#container',function(){
             $(this).closest('.field').remove();
         };
 
-      /*  $(editCard).click(function() {
-            $('.rightSidebar').toggle();
-        }); */
+
 
 
         Array.from(classname).forEach(function(element) {
@@ -444,8 +492,12 @@ $('#frame').on('mousedown','#container',function(){
             element.addEventListener('click', deleteField);
         });
 
-        $(".glyphicon-pencil").click(function(){
+
+        $(".g-card").click(function(){
         $(".general").show();
+        });
+        $(".g-block").click(function(){
+        $(".general-block").show();
         });
         $(".text_box").click(function(){
         $(".edit-text").show();

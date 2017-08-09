@@ -153,17 +153,12 @@ button {
   min-height: 640px;
   width: 960px;
 }
+.title {
+  height: 80px;
+  background: #fff;
+}
 /* Vladan */
 
-.block {
-  background: #f2f2f2;
-  position: relative;
-  padding: 15px;
-  border: 1px solid #ccc;
-  height: 90vh;
-  margin-top: 2%;
-  margin-bottom: 2%;
-}
 .block:not(:first-child) {
   margin-top: 10px;
 }
