@@ -354,7 +354,7 @@ function drop(ev) {
             return element;
 
         }
-        if(element.parentNode.id ==='container'){
+        if(element.parentNode.classList.contains("block")){
             id = id +1;
             element.classList.add("cards");
             element.id = id;
@@ -406,7 +406,7 @@ $('#frame').on('mousedown','.block',function(){
   var snap   = 80;
 
 
-  Draggable.create(container, {
+/*  Draggable.create(container, {
       bounds: frame,
       onDrag: function onDragBlock() {
 
@@ -416,7 +416,7 @@ $('#frame').on('mousedown','.block',function(){
               ease: Back.easeOut.config(2)
           });
       }
-  });
+  });*/
 
   Draggable.create(box, {
       bounds: container,
