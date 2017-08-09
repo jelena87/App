@@ -351,20 +351,20 @@ function drop(ev) {
 }
 
 $('#frame').on('mousedown','#container',function(){
-
+  var frame = $("#frame");
   var container = $("#container");
   var box = $("#" + id);
 
   var width  = 80;
   var height = 80;
-  var rows   = 8;
+  var rows   = 20;
   var cols   = 12;
   var snap   = 80;
 
   for (var i = 0; i < rows * cols; i++) {
       var y = Math.floor(i / cols) * height;
       var x = (i * width) % (cols * width);
-      $("<div grid-cell></div>").css({ top: y, left: x }).prependTo(container);
+      $("<div grid-cell></div>").css({ top: y, left: x }).prependTo(frame);
   }
 
   Draggable.create(box, {
@@ -379,8 +379,7 @@ $('#frame').on('mousedown','#container',function(){
           ease: Back.easeOut.config(2)
       });
   }
-  $('.cards').each(function() {
-  var drag = $(this);
+/*   var drag = $(this);
   var handle = $("<div class='resize-handle'></div>").appendTo(drag);
   TweenLite.set(handle, { top: drag.width(), left: drag.height() });
 
@@ -395,15 +394,9 @@ $('#frame').on('mousedown','#container',function(){
       TweenLite.set(this.target.parentNode, { width: this.x, height: this.y });
     }
   });
-});
+});*/
 
-        $(".block").sortable({
-            items: ".cards"
-        });
 
-        $(".cards").sortable({
-            items: ".field"
-        });
 
         var classname = document.getElementsByClassName("glyphicon-trash");
         var delete_field = document.getElementsByClassName("glyphicon-remove");
