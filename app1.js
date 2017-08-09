@@ -384,7 +384,17 @@ $('#frame').on('mousedown','.block',function(){
       var x = (i * width) % (cols * width);
       $("<div grid-cell></div>").css({ top: y, left: x }).prependTo(frame);
   }
+  Draggable.create(container, {
+      bounds: frame,
+      onDrag: function onDragBlock() {
 
+          TweenLite.to(container, 0.5, {
+              x: Math.round(this.x / snap) * snap,
+              y: Math.round(this.y / snap) * snap,
+              ease: Back.easeOut.config(2)
+          });
+      }
+  });
   Draggable.create(box, {
       bounds: container,
       onDrag: onDrag
@@ -397,6 +407,7 @@ $('#frame').on('mousedown','.block',function(){
           ease: Back.easeOut.config(2)
       });
   }
+
 
 $(container).each(function() {
   var drag = $(this);
