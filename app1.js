@@ -62,17 +62,17 @@ function drop(ev) {
     console.log(event.clientX);
     console.log(event.clientY);
 
-    // Create GRID
-    var width  = 80;
-    var height = 80;
-    var rows   = 20;
-    var cols   = 12;
-
-    for (var i = 0; i < rows * cols; i++) {
-        var y = Math.floor(i / cols) * height;
-        var x = (i * width) % (cols * width);
-        $("<div grid-cell></div>").css({ top: y, left: x }).prependTo(frame);
-    };
+    // // Create GRID
+    // var width  = 80;
+    // var height = 80;
+    // var rows   = 20;
+    // var cols   = 12;
+    //
+    // for (var i = 0; i < rows * cols; i++) {
+    //     var y = Math.floor(i / cols) * height;
+    //     var x = (i * width) % (cols * width);
+    //     $("<div grid-cell></div>").css({ top: y, left: x }).prependTo(frame);
+    // };
 
 
     var drag_depo = ['drag1','drag2'];
@@ -98,9 +98,7 @@ function drop(ev) {
 
          if(data ==='drag1' && element.parentNode.id ==='frame'){
 
-             element.classList.add("container-fluid", "row");
-
-             element.innerHTML ="<div id='container'></div>";
+             element.classList.add("container-fluid","row");
 
              element.innerHTML =`<div class="block">
              <div class="title"><span class='block-title'>Block Title</span>
@@ -482,7 +480,7 @@ $(box).each(function() {
             $(this).closest('.field').remove();
         };
 
-
+        $( "#frame" ).sortable();
 
 
         Array.from(classname).forEach(function(element) {
