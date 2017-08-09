@@ -153,6 +153,10 @@ button {
   min-height: 640px;
   width: 960px;
 }
+.title {
+  height: 80px;
+  background: #fff;
+}
 /* Vladan */
 
 .block {
