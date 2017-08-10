@@ -121,6 +121,17 @@ textarea {
   border-bottom: 1px solid #fff;
 }
 
+.resize-handle {
+  //position: absolute;
+  width: 0px;
+  height: 0px;
+
+  border-style: solid;
+  border-width: 0 0 16px 16px;
+  border-color: transparent transparent #AAA transparent;
+  cursor: nw-resize !important;
+}
+
 
 
 
