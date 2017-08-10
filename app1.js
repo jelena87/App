@@ -366,7 +366,7 @@ function drop(ev) {
         }
         if(element.parentNode.id ==='frame'){
             id = id + 1;
-            element.classList.add("container-fluid","row");
+            element.classList.add("block_area");
             element.innerHTML ="<div class='block'><div class='title'><span class='block-title'>Block Title</span>" +
             "<div class='right'>" +
             "<span class='glyphicon glyphicon-pencil g-block'></span>" +
