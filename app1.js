@@ -62,7 +62,7 @@ function drop(ev) {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("text");
 
-    console.log(this);
+
     // Create GRID
     var width  = 80;
     var height = 40;
@@ -97,16 +97,14 @@ function drop(ev) {
 
 
             var get_frame = element.closest("div[id]").id;
-        
+
          if(data ==='drag1' && get_frame === 'frame' ){
              //element.classList.add("container-fluid","row");
 
              $html =`<div class='block_area'>
              <div class="block">
              <div class="title"><span class='block-title'>Block Title</span>
-             <div class='right'>
-             <span class='glyphicon glyphicon-pencil g-block'></span>
-             <span class='glyphicon glyphicon-trash'></span></div></div>
+            </div>
              </div>
              </div>`;
              $('#frame').append($html);
@@ -118,15 +116,7 @@ function drop(ev) {
              id = id +1;
 
              element.classList.add("cards");
-
-             var get_mouseX =event.clientX;
-             var get_mouseY =event.clientY;
-
-             var x = ev.pageX - this.offsetLeft;
-             var y = ev.pageY - this.offsetTop;
-             console.log(x + " " + y);
-
-             element.style.transform = "translate3d(40px, 60px, 0px)";
+             element.style.transform = 'translate3d(40px, 60px, 0px)';
              element.id = id;
 
              element.innerHTML =
@@ -150,16 +140,8 @@ function drop(ev) {
             element.classList.add("container-fluid","row");
             element.innerHTML ="<div class='block_area'>" +
                 "<div class='block'><div class='title'><span class='block-title'>Block Title</span>" +
-            "<div class='right'>" +
-            "<span class='glyphicon glyphicon-pencil g-block'></span>" +
-            "<span class='glyphicon glyphicon-trash'></span></div>" +
-            "</div>" +
             "<div class='cards' id="+ id +">" +
               "<div class='title_card'>" +
-                  "<div class='right'>" +
-                  "<span class='glyphicon glyphicon-pencil g-card'></span>" +
-                  "<span class='glyphicon glyphicon-trash'></span></div>" +
-                  "</div>" +
                   "<div class='card'>" +
                   "</div>" +
             "</div></div>" +
@@ -374,12 +356,8 @@ function drop(ev) {
         }
         if(element.parentNode.id ==='frame'){
             id = id + 1;
-            element.classList.add("block_area");
+            element.classList.add("container-fluid","row");
             element.innerHTML ="<div class='block'><div class='title'><span class='block-title'>Block Title</span>" +
-            "<div class='right'>" +
-            "<span class='glyphicon glyphicon-pencil g-block'></span>" +
-            "<span class='glyphicon glyphicon-trash'></span></div>" +
-            "</div>" +
             "<div class='cards' id="+ id +">" +
                 "<div class='title_card'>" +
                 "<div class='right'>" +
@@ -462,8 +440,6 @@ $('#frame').on('mousedown','.block',function(){
 
 
   }
-
-
    // $( "#frame" ).sortable();
 
 // Sortable block
@@ -473,40 +449,40 @@ $('#frame').on('mousedown','.block',function(){
     });
 
 
-// $(container).each(function() {
-//   var drag = $(this);
-//   var handle = $("<div class='resize-handle'></div>").appendTo(drag);
-//   TweenLite.set(handle, { top: drag.width(), left: drag.height() });
-//
-//
-//
-//   Draggable.create(handle, {
-//     //type:"top,left",
-//     onPress: function(e) {
-//       e.stopPropagation(); // cancel drag
-//     },
-//     onDrag: function(e) {
-//       TweenLite.set(this.target.parentNode, { width: this.x, height: this.y });
-//     }
-//   });
-// });
-// $(box).each(function() {
-//   var drag = $(this);
-//   var handle = $("<div class='resize-box'></div>").appendTo(drag);
-//   TweenLite.set(handle, { top: drag.width(), left: drag.height() });
-//
-//
-//
-//   Draggable.create(handle, {
-//     type:"top,left",
-//     onPress: function(e) {
-//       e.stopPropagation(); // cancel drag
-//     },
-//     onDrag: function(e) {
-//       TweenLite.set(this.target.parentNode, { width: this.x, height: this.y });
-//     }
-//   });
-// });
+/*$(container).each(function() {
+  var drag = $(this);
+  var handle = $("<div class='resize-handle'></div>").appendTo(drag);
+  TweenLite.set(handle, { top: drag.width(), left: drag.height() });
+
+
+
+  Draggable.create(handle, {
+    //type:"top,left",
+    onPress: function(e) {
+      e.stopPropagation(); // cancel drag
+    },
+    onDrag: function(e) {
+      TweenLite.set(this.target.parentNode, { width: this.x, height: this.y });
+    }
+  });
+});
+$(box).each(function() {
+  var drag = $(this);
+  var handle = $("<div class='resize-box'></div>").appendTo(drag);
+  TweenLite.set(handle, { top: drag.width(), left: drag.height() });
+
+
+
+  Draggable.create(handle, {
+    type:"top,left",
+    onPress: function(e) {
+      e.stopPropagation(); // cancel drag
+    },
+    onDrag: function(e) {
+      TweenLite.set(this.target.parentNode, { width: this.x, height: this.y });
+    }
+  });
+});*/
 
 
 

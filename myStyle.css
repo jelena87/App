@@ -4,6 +4,7 @@ body {
 }
 .container-fluid {
   height: 100%;
+  padding-left: 0;
 }
 .grid-form {
   background-color: #ddd;
@@ -89,7 +90,6 @@ button {
 }
 .title {
   height: 40px;
-  background: #fff;
 }
 /* Vladan */
 
@@ -132,7 +132,3 @@ textarea {
   border-color: transparent transparent #AAA transparent;
   cursor: nw-resize !important;
 }
-
-
-
-

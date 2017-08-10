@@ -19,25 +19,25 @@
 
 <style media="screen">
     .block_area {
-        height: 360px;
+        height: 320px;
         width: 960px;
         max-height: 360px;
         max-width: 960px;
         left: 0;
         background: transparent;
-        border: 5px solid #000;
+        border: 3px solid #000;
     }
 .block {
-    height: 360px;
-    width: 960px;
-    max-height: 360px;
+    height: 320px;
+    width: 950px;
+    max-height: 320px;
     max-width: 960px;
     position: relative;
 
 }
 
 .cards {
-    min-height: 80px;
+    min-height: 75px;
     width: 320px;
     position: absolute;
     background: #fff;
@@ -83,6 +83,11 @@
             <ul class="leftSidebar">
                 <li class="activeLink"><a class="dropbtn-three" onclick="myFunctionThree()">Fields</a></li>
                 <ul class="dropdown-content-three" id="dropdown-menu-three">
+
+                </ul>
+                <li class="activeLink"><p draggable="true" ondragstart="drag(event)" id="group_field">Fieldgroups</p></li>
+                <li class="activeLink"><a class="dropbtn-two" onclick="myFunctionTwo()">Controls</a></li>
+                <ul class="dropdown-content-two" id="dropdown-menu-two">
                   <li><p draggable="true" ondragstart="drag(event)" id="field_text">Text</p></li>
                   <li><p draggable="true" ondragstart="drag(event)" id="field_area">TextArea</p></li>
                   <li><p draggable="true" ondragstart="drag(event)" id="field_html">Html-Text</p></li>
@@ -94,20 +99,6 @@
                   <li><p draggable="true" ondragstart="drag(event)" id="field_radio_button">Radiobutton</p></li>
                   <li><p draggable="true" ondragstart="drag(event)" id="field_reference">Reference to object</p></li>
                   <li><p draggable="true" ondragstart="drag(event)" id="field_reference_list">Referencelist to object</p></li>
-                </ul>
-                <li class="activeLink"><p draggable="true" ondragstart="drag(event)" id="group_field">Fieldgroups</p></li>
-                <li class="activeLink"><a class="dropbtn-two" onclick="myFunctionTwo()">Controls</a></li>
-                <ul class="dropdown-content-two" id="dropdown-menu-two">
-                  <li><p draggable="true" ondragstart="drag(event)" id="text_box">TextBox</p></li>
-                  <li><p draggable="true" ondragstart="drag(event)" id="text_area">TextArea</p></li>
-                  <li><p draggable="true" ondragstart="drag(event)" id="html_editor">Html-Editor</p></li>
-                  <li><p draggable="true" ondragstart="drag(event)" id="check_box">Checkbox</p></li>
-                  <li><p draggable="true" ondragstart="drag(event)" id="datapicker">Datepicker</p></li>
-                  <li><p draggable="true" ondragstart="drag(event)" id="dropdown">DropDown</p></li>
-                  <li><p draggable="true" ondragstart="drag(event)" id="radiobutton">Radiobutton</p></li>
-                  <li><p draggable="true" ondragstart="drag(event)" id="lookup">Lookup</p></li>
-                  <li><p draggable="true" ondragstart="drag(event)" id="grid">Grid</p></li>
-                  <li><p draggable="true" ondragstart="drag(event)" id="label">Label</p></li>
                 </ul>
                 <li class="activeLink"><a class="dropbtn" onclick="myFunction()">Depositories</a></li>
                 <ul id="dropdown-menu" class="dropdown-content-two tasks-container js-dropzone">
