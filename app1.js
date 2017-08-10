@@ -1,5 +1,6 @@
 
 function myFunction() {
+  console.log('test');
     document.getElementById("dropdown-menu").classList.toggle("show");
 }
 window.onclick = function(event) {
@@ -179,7 +180,7 @@ function drop(ev) {
         var html_editor="<div class='items-fields input-field col s8'>" +
             "<label for='html'>HTML Editor</label>" +
             "<textarea class='materialize-textarea'></textarea></div>" +
-            "<div class='right col s2'><span class='glyphicon glyphicon-cog html'></span>" +
+            "<div class='right col s2'><span class='glyphicon glyphicon-cog html-edit'></span>" +
             "<span class='glyphicon glyphicon-remove'></span></div>";
 
         var check_box = `<div class='col s8'><form action="#">
@@ -536,7 +537,7 @@ $(box).each(function() {
         $(".decimal").click(function(){
         $(".edit-decimal").show();
         });
-        $(".html").click(function(){
+        $(".html-edit").click(function(){
         $(".edit-html").show();
         });
         $(".check").click(function(){
@@ -560,4 +561,6 @@ $(box).each(function() {
         closeOnSelect: false // Close upon selecting a date,
       });
         $('select').material_select();
+          $('.dropbtn').dropdown('open');
+
 });
