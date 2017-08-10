@@ -396,6 +396,7 @@ function drop(ev) {
     return false;
 }
 
+
 $('#frame').on('mousedown','.block',function(){
   var frame = $("#frame");
   var container = $(".block");
@@ -404,42 +405,55 @@ $('#frame').on('mousedown','.block',function(){
 
   var snap   = 40;
 
+        // if (e.which === 1) {
+        //     console.log(e.pageX + " / " + e.pageY);
+        // }
+// Draggable.create(container, {
+//       bounds: frame,
+//       onDrag: function onDragBlock() {
+//
+//           TweenLite.to(container, 0.5, {
+//               x: Math.round(this.x / snap) * snap,
+//               y: Math.round(this.y / snap) * snap,
+//               ease: Back.easeOut.config(2)
+//           });
+//       }
+//   });
 
-/*  Draggable.create(container, {
-      bounds: frame,
-      onDrag: function onDragBlock() {
-
-          TweenLite.to(container, 0.5, {
-              x: Math.round(this.x / snap) * snap,
-              y: Math.round(this.y / snap) * snap,
-              ease: Back.easeOut.config(2)
-          });
-      }
-  });*/
-
+    var droppables = $(".cards");
+    var overlapThreshold = 0;
   Draggable.create(box, {
       type:"x,y",
       bounds: container,
+      onDrag: onDrag,
       onDragEnd:function(e) {
-          //see if the target overlaps with the element with ID "element2"
-          var get_id;
-          $('.cards[id]').each(function(){
-              get_id = this.id;
-          });
-          if (this.hitTest( get_id )) {
-              //do stuff
-              console.log('test');
+
+          var i = droppables.length;
+
+          while (--i > 0) {
+              if (this.hitTest(droppables[i], overlapThreshold)) {
+                  console.log('overlap');
+                  TweenLite.to(this.target, 0.5, {
+                      x: 0,
+                      y: 0
+                  });
+
+
+              } else {
+                  console.log('no overlap');
+
+              }
           }
+
+
       }
+
   });
   function onDrag() {
-
-
 
       TweenLite.to(box, 0.5, {
           x: Math.round(this.x / snap) * snap,
           y: Math.round(this.y / snap) * snap,
-
           ease: Back.easeOut.config(2)
       });
 
