@@ -19,8 +19,8 @@ function drop(ev) {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("text");
 
-    var x = ev.pageX - this.offsetLeft;
-    var y = ev.pageY - this.offsetTop;
+    // var x = ev.pageX - this.offsetLeft;
+    // var y = ev.pageY - this.offsetTop;
 
     // Create GRID
     var width  = 80;
@@ -113,7 +113,7 @@ function drop(ev) {
                 "<span class='glyphicon glyphicon-trash'></span></div>" +
                 "</div>" +
                 "<div class='card'>" +
-                "</div>"; +
+                "</div>" +
                 "</div></div>";
             $('#frame').append(element);
 
@@ -340,7 +340,7 @@ function drop(ev) {
                 "</div>" +
                 "<div class='card'>"+
                 "<div class='field'>" + template + "</div></div>"+
-                "</div></div>";
+                "</div></div></div>";
             return element;
         }
         if(!element.parentNode.classList.contains("cards")  && !element.parentNode.classList.contains("block") && element.parentNode.id != 'frame') {
@@ -422,6 +422,7 @@ $('#frame').on('mousedown','.block',function(){
         axis: 'y',
         items: '.block_area'
     });
+
 
 
     /*$(container).each(function() {
