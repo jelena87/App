@@ -62,7 +62,7 @@ function drop(ev) {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("text");
 
-
+    console.log(this);
     // Create GRID
     var width  = 80;
     var height = 40;
@@ -118,7 +118,15 @@ function drop(ev) {
              id = id +1;
 
              element.classList.add("cards");
-             element.style.transform = 'translate3d(40px, 60px, 0px)';
+
+             var get_mouseX =event.clientX;
+             var get_mouseY =event.clientY;
+
+             var x = ev.pageX - this.offsetLeft;
+             var y = ev.pageY - this.offsetTop;
+             console.log(x + " " + y);
+
+             element.style.transform = "translate3d(40px, 60px, 0px)";
              element.id = id;
 
              element.innerHTML =
@@ -454,6 +462,8 @@ $('#frame').on('mousedown','.block',function(){
 
 
   }
+
+
    // $( "#frame" ).sortable();
 
 // Sortable block
@@ -463,40 +473,40 @@ $('#frame').on('mousedown','.block',function(){
     });
 
 
-$(container).each(function() {
-  var drag = $(this);
-  var handle = $("<div class='resize-handle'></div>").appendTo(drag);
-  TweenLite.set(handle, { top: drag.width(), left: drag.height() });
-
-
-
-  Draggable.create(handle, {
-    //type:"top,left",
-    onPress: function(e) {
-      e.stopPropagation(); // cancel drag
-    },
-    onDrag: function(e) {
-      TweenLite.set(this.target.parentNode, { width: this.x, height: this.y });
-    }
-  });
-});
-$(box).each(function() {
-  var drag = $(this);
-  var handle = $("<div class='resize-box'></div>").appendTo(drag);
-  TweenLite.set(handle, { top: drag.width(), left: drag.height() });
-
-
-
-  Draggable.create(handle, {
-    type:"top,left",
-    onPress: function(e) {
-      e.stopPropagation(); // cancel drag
-    },
-    onDrag: function(e) {
-      TweenLite.set(this.target.parentNode, { width: this.x, height: this.y });
-    }
-  });
-});
+// $(container).each(function() {
+//   var drag = $(this);
+//   var handle = $("<div class='resize-handle'></div>").appendTo(drag);
+//   TweenLite.set(handle, { top: drag.width(), left: drag.height() });
+//
+//
+//
+//   Draggable.create(handle, {
+//     //type:"top,left",
+//     onPress: function(e) {
+//       e.stopPropagation(); // cancel drag
+//     },
+//     onDrag: function(e) {
+//       TweenLite.set(this.target.parentNode, { width: this.x, height: this.y });
+//     }
+//   });
+// });
+// $(box).each(function() {
+//   var drag = $(this);
+//   var handle = $("<div class='resize-box'></div>").appendTo(drag);
+//   TweenLite.set(handle, { top: drag.width(), left: drag.height() });
+//
+//
+//
+//   Draggable.create(handle, {
+//     type:"top,left",
+//     onPress: function(e) {
+//       e.stopPropagation(); // cancel drag
+//     },
+//     onDrag: function(e) {
+//       TweenLite.set(this.target.parentNode, { width: this.x, height: this.y });
+//     }
+//   });
+// });
 
 
 
