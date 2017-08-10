@@ -196,7 +196,7 @@
                <div class="row">
                    <aside class="col-md-2">
                        <ul class="leftSidebar">
-                           <li class="activeLink"><a class="dropbtn-three" onclick="myFunctionThree()">Fields</a></li>
+                           <li class="activeLink"><a class="dropbtn-three" onclick="myFunction('dropdown-menu-three')">Fields</a></li>
                            <ul class="dropdown-content-three" id="dropdown-menu-three">
                                <li><p draggable="true" ondragstart="drag(event)" id="field_text">Text</p></li>
                                <li><p draggable="true" ondragstart="drag(event)" id="field_area">TextArea</p></li>
@@ -211,7 +211,7 @@
                                <li><p draggable="true" ondragstart="drag(event)" id="field_reference_list">Referencelist to object</p></li>
                            </ul>
                            <li class="activeLink"><p draggable="true" ondragstart="drag(event)" id="group_field">Fieldgroups</p></li>
-                           <li class="activeLink"><a class="dropbtn-two" onclick="myFunctionTwo()">Controls</a></li>
+                           <li class="activeLink"><a class="dropbtn-two" onclick="myFunction('dropdown-menu-two')">Controls</a></li>
                            <ul class="dropdown-content-two" id="dropdown-menu-two">
                                <li><p draggable="true" ondragstart="drag(event)" id="text_box">TextBox</p></li>
                                <li><p draggable="true" ondragstart="drag(event)" id="text_area">TextArea</p></li>
@@ -224,7 +224,7 @@
                                <li><p draggable="true" ondragstart="drag(event)" id="grid">Grid</p></li>
                                <li><p draggable="true" ondragstart="drag(event)" id="label">Label</p></li>
                            </ul>
-                           <li class="activeLink"><a class="dropbtn" onclick="myFunction()">Depositories</a></li>
+                           <li class="activeLink"><a class="dropbtn" onclick="myFunction('dropdown-menu')">Depositories</a></li>
                            <ul id="dropdown-menu" class="dropdown-content-two tasks-container js-dropzone">
 
                                <li><p draggable="true" ondragstart="drag(event)" id="drag1">Block</p></li>
@@ -280,20 +280,38 @@
                                <p>TextBox settings</p>
                                <div class="">
                                    <div class="edit">
-                                       <label for="title_box">Title</label>
+                                       <label for="title_box">Alias</label>
                                        <input type="text" name="text" value="" id="title_box">
                                    </div>
                                    <div class="edit">
-                                       <label for="mapp_box">Mapping</label>
-                                       <input type="text" name="text" value="" id="mapp_box">
+                                       <div class="input-field col s12">
+                                           <select>
+                                               <option value="" disabled selected>Mapping</option>
+                                               <option value="1">Option 1</option>
+                                               <option value="2">Option 2</option>
+                                               <option value="3">Option 3</option>
+                                           </select>
+                                       </div>
                                    </div>
                                    <div class="edit">
                                        <label for="label_box">Label</label>
-                                       <input type="text" name="text" value="" id="label_box">
+                                       <div class="input-field col s12">
+                                           <select>
+                                               <option value="" disabled selected>Choose</option>
+                                               <option value="1" selected>On</option>
+                                               <option value="2">Off</option>
+                                           </select>
+                                       </div>
                                    </div>
                                    <div class="edit">
                                        <label for="help_box">Help</label>
-                                       <input type="text" name="text" value="" id="help_box">
+                                       <div class="input-field col s12">
+                                           <select>
+                                               <option value="" disabled selected>Choose</option>
+                                               <option value="1" selected>On</option>
+                                               <option value="2">Off</option>
+                                           </select>
+                                       </div>
                                    </div>
                                    <button type="button" name="button">Save</button>
                                </div>
@@ -302,20 +320,38 @@
                                <p>TextArea settings</p>
                                <div class="">
                                    <div class="edit">
-                                       <label for="title_area">Title</label>
+                                       <label for="title_area">Alias</label>
                                        <input type="text" name="text" value="" id="title_area">
                                    </div>
                                    <div class="edit">
-                                       <label for="mapp_area">Mapping</label>
-                                       <input type="text" name="text" value="" id="mapp_area">
+                                       <div class="input-field col s12">
+                                           <select>
+                                               <option value="" disabled selected>Mapping</option>
+                                               <option value="1">Option 1</option>
+                                               <option value="2">Option 2</option>
+                                               <option value="3">Option 3</option>
+                                           </select>
+                                       </div>
                                    </div>
                                    <div class="edit">
                                        <label for="label_area">Label</label>
-                                       <input type="text" name="text" value="" id="label_area">
+                                       <div class="input-field col s12">
+                                           <select>
+                                               <option value="" disabled selected>Choose</option>
+                                               <option value="1" selected>On</option>
+                                               <option value="2">Off</option>
+                                           </select>
+                                       </div>
                                    </div>
                                    <div class="edit">
                                        <label for="help_area">Help</label>
-                                       <input type="text" name="text" value="" id="help_area">
+                                       <div class="input-field col s12">
+                                           <select>
+                                               <option value="" disabled selected>Choose</option>
+                                               <option value="1" selected>On</option>
+                                               <option value="2">Off</option>
+                                           </select>
+                                       </div>
                                    </div>
                                    <button type="button" name="button">Save</button>
                                </div>
@@ -324,20 +360,38 @@
                                <p>Number settings</p>
                                <div class="">
                                    <div class="edit">
-                                       <label for="title_number">Title</label>
+                                       <label for="title_number">Alias</label>
                                        <input type="text" name="text" value="" id="title_number">
                                    </div>
                                    <div class="edit">
-                                       <label for="mapp_number">Mapping</label>
-                                       <input type="text" name="text" value="" id="mapp_number">
+                                       <div class="input-field col s12">
+                                           <select>
+                                               <option value="" disabled selected>Mapping</option>
+                                               <option value="1">Option 1</option>
+                                               <option value="2">Option 2</option>
+                                               <option value="3">Option 3</option>
+                                           </select>
+                                       </div>
                                    </div>
                                    <div class="edit">
                                        <label for="label_number">Label</label>
-                                       <input type="text" name="text" value="" id="label_number">
+                                       <div class="input-field col s12">
+                                           <select>
+                                               <option value="" disabled selected>Choose</option>
+                                               <option value="1" selected>On</option>
+                                               <option value="2">Off</option>
+                                           </select>
+                                       </div>
                                    </div>
                                    <div class="edit">
                                        <label for="help_number">Help</label>
-                                       <input type="text" name="text" value="" id="help_number">
+                                       <div class="input-field col s12">
+                                           <select>
+                                               <option value="" disabled selected>Choose</option>
+                                               <option value="1" selected>On</option>
+                                               <option value="2">Off</option>
+                                           </select>
+                                       </div>
                                    </div>
                                    <button type="button" name="button">Save</button>
                                </div>
@@ -346,20 +400,38 @@
                                <p>Decimal settings</p>
                                <div class="">
                                    <div class="edit">
-                                       <label for="title_decimal">Title</label>
+                                       <label for="title_decimal">Alias</label>
                                        <input type="text" name="text" value="" id="title_decimal">
                                    </div>
                                    <div class="edit">
-                                       <label for="mapp_decimal">Mapping</label>
-                                       <input type="text" name="text" value="" id="mapp_decimal">
+                                       <div class="input-field col s12">
+                                           <select>
+                                               <option value="" disabled selected>Mapping</option>
+                                               <option value="1">Option 1</option>
+                                               <option value="2">Option 2</option>
+                                               <option value="3">Option 3</option>
+                                           </select>
+                                       </div>
                                    </div>
                                    <div class="edit">
                                        <label for="label_decimal">Label</label>
-                                       <input type="text" name="text" value="" id="label_decimal">
+                                       <div class="input-field col s12">
+                                           <select>
+                                               <option value="" disabled selected>Choose</option>
+                                               <option value="1" selected>On</option>
+                                               <option value="2">Off</option>
+                                           </select>
+                                       </div>
                                    </div>
                                    <div class="edit">
                                        <label for="help_decimal">Help</label>
-                                       <input type="text" name="text" value="" id="help_decimal">
+                                       <div class="input-field col s12">
+                                           <select>
+                                               <option value="" disabled selected>Choose</option>
+                                               <option value="1" selected>On</option>
+                                               <option value="2">Off</option>
+                                           </select>
+                                       </div>
                                    </div>
                                    <button type="button" name="button">Save</button>
                                </div>
@@ -368,20 +440,38 @@
                                <p>HTML settings</p>
                                <div class="">
                                    <div class="edit">
-                                       <label for="title_html">Title</label>
+                                       <label for="title_html">Alias</label>
                                        <input type="text" name="text" value="" id="title_html">
                                    </div>
                                    <div class="edit">
-                                       <label for="mapp_html">Mapping</label>
-                                       <input type="text" name="text" value="" id="mapp_html">
+                                       <div class="input-field col s12">
+                                           <select>
+                                               <option value="" disabled selected>Mapping</option>
+                                               <option value="1">Option 1</option>
+                                               <option value="2">Option 2</option>
+                                               <option value="3">Option 3</option>
+                                           </select>
+                                       </div>
                                    </div>
                                    <div class="edit">
                                        <label for="label_html">Label</label>
-                                       <input type="text" name="text" value="" id="label_html">
+                                       <div class="input-field col s12">
+                                           <select>
+                                               <option value="" disabled selected>Choose</option>
+                                               <option value="1" selected>On</option>
+                                               <option value="2">Off</option>
+                                           </select>
+                                       </div>
                                    </div>
                                    <div class="edit">
                                        <label for="help_html">Help</label>
-                                       <input type="text" name="text" value="" id="help_html">
+                                       <div class="input-field col s12">
+                                           <select>
+                                               <option value="" disabled selected>Choose</option>
+                                               <option value="1" selected>On</option>
+                                               <option value="2">Off</option>
+                                           </select>
+                                       </div>
                                    </div>
                                    <button type="button" name="button">Save</button>
                                </div>
@@ -390,20 +480,38 @@
                                <p>Checkbox settings</p>
                                <div class="">
                                    <div class="edit">
-                                       <label for="title_check">Title</label>
+                                       <label for="title_check">Alias</label>
                                        <input type="text" name="text" value="" id="title_check">
                                    </div>
                                    <div class="edit">
-                                       <label for="mapp_check">Mapping</label>
-                                       <input type="text" name="text" value="" id="mapp_check">
+                                       <div class="input-field col s12">
+                                           <select>
+                                               <option value="" disabled selected>Mapping</option>
+                                               <option value="1">Option 1</option>
+                                               <option value="2">Option 2</option>
+                                               <option value="3">Option 3</option>
+                                           </select>
+                                       </div>
                                    </div>
                                    <div class="edit">
                                        <label for="label_check">Label</label>
-                                       <input type="text" name="text" value="" id="label_check">
+                                       <div class="input-field col s12">
+                                           <select>
+                                               <option value="" disabled selected>Choose</option>
+                                               <option value="1" selected>On</option>
+                                               <option value="2">Off</option>
+                                           </select>
+                                       </div>
                                    </div>
                                    <div class="edit">
                                        <label for="help_check">Help</label>
-                                       <input type="text" name="text" value="" id="help_check">
+                                       <div class="input-field col s12">
+                                           <select>
+                                               <option value="" disabled selected>Choose</option>
+                                               <option value="1" selected>On</option>
+                                               <option value="2">Off</option>
+                                           </select>
+                                       </div>
                                    </div>
                                    <button type="button" name="button">Save</button>
                                </div>
@@ -413,20 +521,38 @@
                                <p>List of selectable values</p>
                                <div class="">
                                    <div class="edit">
-                                       <label for="title_drop">Title</label>
+                                       <label for="title_drop">Alias</label>
                                        <input type="text" name="text" value="" id="title_drop">
                                    </div>
                                    <div class="edit">
-                                       <label for="mapp_drop">Mapping</label>
-                                       <input type="text" name="text" value="" id="mapp_drop">
+                                       <div class="input-field col s12">
+                                           <select>
+                                               <option value="" disabled selected>Mapping</option>
+                                               <option value="1">Option 1</option>
+                                               <option value="2">Option 2</option>
+                                               <option value="3">Option 3</option>
+                                           </select>
+                                       </div>
                                    </div>
                                    <div class="edit">
                                        <label for="label_drop">Label</label>
-                                       <input type="text" name="text" value="" id="label_drop">
+                                       <div class="input-field col s12">
+                                           <select>
+                                               <option value="" disabled selected>Choose</option>
+                                               <option value="1" selected>On</option>
+                                               <option value="2">Off</option>
+                                           </select>
+                                       </div>
                                    </div>
                                    <div class="edit">
                                        <label for="help_drop">Help</label>
-                                       <input type="text" name="text" value="" id="help_drop">
+                                       <div class="input-field col s12">
+                                           <select>
+                                               <option value="" disabled selected>Choose</option>
+                                               <option value="1" selected>On</option>
+                                               <option value="2">Off</option>
+                                           </select>
+                                       </div>
                                    </div>
                                    <button type="button" name="button">Save</button>
                                </div>
@@ -435,20 +561,38 @@
                                <p>Datepicker settings</p>
                                <div class="">
                                    <div class="edit">
-                                       <label for="title_date">Title</label>
+                                       <label for="title_date">Alias</label>
                                        <input type="text" name="text" value="" id="title_date">
                                    </div>
                                    <div class="edit">
-                                       <label for="mapp_date">Mapping</label>
-                                       <input type="text" name="text" value="" id="mapp_date">
+                                       <div class="input-field col s12">
+                                           <select>
+                                               <option value="" disabled selected>Mapping</option>
+                                               <option value="1">Option 1</option>
+                                               <option value="2">Option 2</option>
+                                               <option value="3">Option 3</option>
+                                           </select>
+                                       </div>
                                    </div>
                                    <div class="edit">
                                        <label for="label_date">Label</label>
-                                       <input type="text" name="text" value="" id="label_date">
+                                       <div class="input-field col s12">
+                                           <select>
+                                               <option value="" disabled selected>Choose</option>
+                                               <option value="1" selected>On</option>
+                                               <option value="2">Off</option>
+                                           </select>
+                                       </div>
                                    </div>
                                    <div class="edit">
                                        <label for="help_date">Help</label>
-                                       <input type="text" name="text" value="" id="help_date">
+                                       <div class="input-field col s12">
+                                           <select>
+                                               <option value="" disabled selected>Choose</option>
+                                               <option value="1" selected>On</option>
+                                               <option value="2">Off</option>
+                                           </select>
+                                       </div>
                                    </div>
                                    <button type="button" name="button">Save</button>
                                </div>
@@ -457,20 +601,38 @@
                                <p>Radiobutton settings</p>
                                <div class="">
                                    <div class="edit">
-                                       <label for="title_radio">Title</label>
+                                       <label for="title_radio">Alias</label>
                                        <input type="text" name="text" value="" id="title_radio">
                                    </div>
                                    <div class="edit">
-                                       <label for="mapp_radio">Mapping</label>
-                                       <input type="text" name="text" value="" id="mapp_radio">
+                                       <div class="input-field col s12">
+                                           <select>
+                                               <option value="" disabled selected>Mapping</option>
+                                               <option value="1">Option 1</option>
+                                               <option value="2">Option 2</option>
+                                               <option value="3">Option 3</option>
+                                           </select>
+                                       </div>
                                    </div>
                                    <div class="edit">
                                        <label for="label_radio">Label</label>
-                                       <input type="text" name="text" value="" id="label_radio">
+                                       <div class="input-field col s12">
+                                           <select>
+                                               <option value="" disabled selected>Choose</option>
+                                               <option value="1" selected>On</option>
+                                               <option value="2">Off</option>
+                                           </select>
+                                       </div>
                                    </div>
                                    <div class="edit">
                                        <label for="help_radio">Help</label>
-                                       <input type="text" name="text" value="" id="help_radio">
+                                       <div class="input-field col s12">
+                                           <select>
+                                               <option value="" disabled selected>Choose</option>
+                                               <option value="1" selected>On</option>
+                                               <option value="2">Off</option>
+                                           </select>
+                                       </div>
                                    </div>
                                    <button type="button" name="button">Save</button>
                                </div>

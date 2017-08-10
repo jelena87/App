@@ -1,14 +1,7 @@
 
-function myFunction() {
-    document.getElementById("dropdown-menu").classList.toggle("show");
-}
-
-function myFunctionTwo() {
-    document.getElementById("dropdown-menu-two").classList.toggle("show");
-}
-
-function myFunctionThree() {
-    document.getElementById("dropdown-menu-three").classList.toggle("show");
+function myFunction(geeter) {
+    var get_id = geeter;
+    document.getElementById(get_id).classList.toggle("show");
 }
 
 
@@ -84,7 +77,10 @@ function drop(ev) {
             id = id +1;
             get_block = element.closest("div[id]").id;
             element.classList.add("cards");
-            element.style.transform = 'translate3d(80px, 80px, 0px)';
+            var x = ev.pageX - $("#" + get_block).offset().left;
+            var y = ev.pageY - $("#" + get_block).offset().top ;
+            element.style.transform = 'translate3d('+x+'px, '+y+'px, 0px)';
+            //element.style.transform = 'translate3d(80px, 80px, 0px)';
             element.id = id;
 
             element.innerHTML =
@@ -95,25 +91,32 @@ function drop(ev) {
                 "</div>" +
                 "<div class='card'>" +
                 "</div>";
-            // var offset;
-            // var dm = document.getElementsByClassName('cards');
-            // dm.style.left = (event.clientX + parseInt(offset[0],10)) + 'px';
-            // dm.style.top = (event.clientY + parseInt(offset[1],10)) + 'px';
-            // event.preventDefault();
-            // element.draggable();
+
             return element;
         }
-        else if(data === 'drag2' && element.parentNode.id ==='frame') {
+        else if(data === 'drag2' && element.closest("div[id]").id ==='frame') {
+
             id = id +1;
-            element.classList.add("container-fluid","row");
-            element.innerHTML ="<div class='block_area'>" +
+            block_id = block_id + 1;
+            get_block = block_id;
+
+            element.classList.add("block_area");
+            element.id = block_id;
+
+
+            element.innerHTML =
                 "<div class='block'><div class='title'><span class='block-title'>Block Title</span>" +
                 "<div class='cards' id="+ id +">" +
                 "<div class='title_card'>" +
-                "<div class='card'>" +
+                "<div class='right'>" +
+                "<span class='glyphicon glyphicon-pencil g-card'></span>" +
+                "<span class='glyphicon glyphicon-trash'></span></div>" +
                 "</div>" +
-                "</div></div>" +
-                "</div>";
+                "<div class='card'>" +
+                "</div>"; +
+                "</div></div>";
+            $('#frame').append(element);
+
             return element;
         }
         else {
@@ -229,7 +232,7 @@ function drop(ev) {
             "<label for='textarea'>Textarea</label>" +
             "<textarea class='materialize-textarea'></textarea>" +
             "</div>" +
-            "<div class='right col s2'><span class='glyphicon glyphicon-cog text_box'></span>" +
+            "<div class='right col s2'><span class='glyphicon glyphicon-cog text_area'></span>" +
             "<span class='glyphicon glyphicon-remove'></span></div>";
 
 
@@ -314,7 +317,7 @@ function drop(ev) {
             element.id = id;
             element.innerHTML ="<div class='title_card'>" +
                 "<div class='right'>" +
-                "<span class='glyphicon glyphicon-pencil'></span>" +
+                "<span class='glyphicon glyphicon-pencil g-card'></span>" +
                 "<span class='glyphicon glyphicon-trash'></span></div>" +
                 "</div>" +
                 "<div class='card'>"+
@@ -352,7 +355,7 @@ $('#frame').on('mousedown','.block',function(){
     var frame = $("#frame");
     var container = $("#" + get_block);
     var box = $("#" + id);
-    console.log(container);
+    // console.log(container);
     var snap   = 40;
     var snapX = 80;
 
@@ -478,36 +481,43 @@ $('#frame').on('mousedown','.block',function(){
 
     $(".g-card").click(function(){
         $(".general").show();
-    });
-    $(".g-block").click(function(){
-        $(".general-block").show();
+        $(".edit-text, .edit-textarea, .edit-number, .edit-decimal, .edit-html, .edit-drop, .edit-checkbox, .edit-date, .edit-radio").hide();
     });
     $(".text_box").click(function(){
         $(".edit-text").show();
+        $(".general, .edit-textarea, .edit-number, .edit-decimal, .edit-html, .edit-drop, .edit-checkbox, .edit-date, .edit-radio").hide();
     });
     $(".text_area").click(function(){
         $(".edit-textarea").show();
+        $(".edit-text, .general, .edit-number, .edit-decimal, .edit-html, .edit-drop, .edit-checkbox, .edit-date, .edit-radio").hide();
     });
     $(".num").click(function(){
         $(".edit-number").show();
+        $(".edit-text, .edit-textarea, .general, .edit-decimal, .edit-html, .edit-drop, .edit-checkbox, .edit-date, .edit-radio").hide();
     });
     $(".decimal").click(function(){
         $(".edit-decimal").show();
+        $(".edit-text, .edit-textarea, .edit-number, .general, .edit-html, .edit-drop, .edit-checkbox, .edit-date, .edit-radio").hide();
     });
     $(".html").click(function(){
         $(".edit-html").show();
+        $(".edit-text, .edit-textarea, .edit-number, .edit-decimal, .general, .edit-drop, .edit-checkbox, .edit-date, .edit-radio").hide();
     });
     $(".check").click(function(){
         $(".edit-checkbox").show();
+        $(".edit-text, .edit-textarea, .edit-number, .edit-decimal, .edit-html, .edit-drop, .general, .edit-date, .edit-radio").hide();
     });
     $(".drop").click(function(){
         $(".edit-drop").show();
+        $(".edit-text, .edit-textarea, .edit-number, .edit-decimal, .edit-html, .general, .edit-checkbox, .edit-date, .edit-radio").hide();
     });
     $(".date").click(function(){
         $(".edit-date").show();
+        $(".edit-text, .edit-textarea, .edit-number, .edit-decimal, .edit-html, .edit-drop, .edit-checkbox, .general, .edit-radio").hide();
     });
     $(".radio").click(function(){
         $(".edit-radio").show();
+        $(".edit-text, .edit-textarea, .edit-number, .edit-decimal, .edit-html, .edit-drop, .edit-checkbox, .edit-date, .general").hide();
     });
     $('.datepicker').pickadate({
         selectMonths: true, // Creates a dropdown to control month
