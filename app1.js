@@ -59,8 +59,9 @@ function drop(ev) {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("text");
 
-    console.log(event.clientX);
-    console.log(event.clientY);
+    // console.log(event.clientX);
+    // console.log(event.clientY);
+
 
     // Create GRID
     var width  = 80;
@@ -111,17 +112,18 @@ function drop(ev) {
          }
 
          else if(data === 'drag2' && element.parentNode.classList.contains("block")) {
-
              id = id +1;
-             element.innerHTML ="<div class='cards' id=" + id + ">" +
-               "<div class='title_card'>" +
+             element.classList.add("cards");
+             element.id = id;
+
+             element.innerHTML =
+               "<div><span class='card-title'>Card Title</span>" +
                    "<div class='right'>" +
                    "<span class='glyphicon glyphicon-pencil g-card'></span>" +
                    "<span class='glyphicon glyphicon-trash'></span></div>" +
                    "</div>" +
                    "<div class='card'>" +
-                   "</div>" +
-             "</div>";
+                   "</div>";
              // var offset;
              // var dm = document.getElementsByClassName('cards');
              // dm.style.left = (event.clientX + parseInt(offset[0],10)) + 'px';
@@ -394,6 +396,7 @@ function drop(ev) {
     return false;
 }
 
+
 $('#frame').on('mousedown','.block',function(){
   var frame = $("#frame");
   var container = $(".block");
@@ -402,31 +405,58 @@ $('#frame').on('mousedown','.block',function(){
 
   var snap   = 40;
 
+        // if (e.which === 1) {
+        //     console.log(e.pageX + " / " + e.pageY);
+        // }
+// Draggable.create(container, {
+//       bounds: frame,
+//       onDrag: function onDragBlock() {
+//
+//           TweenLite.to(container, 0.5, {
+//               x: Math.round(this.x / snap) * snap,
+//               y: Math.round(this.y / snap) * snap,
+//               ease: Back.easeOut.config(2)
+//           });
+//       }
+//   });
 
-/*  Draggable.create(container, {
-      bounds: frame,
-      onDrag: function onDragBlock() {
-
-          TweenLite.to(container, 0.5, {
-              x: Math.round(this.x / snap) * snap,
-              y: Math.round(this.y / snap) * snap,
-              ease: Back.easeOut.config(2)
-          });
-      }
-  });*/
-
+    var droppables = $(".cards");
+    var overlapThreshold = 0;
   Draggable.create(box, {
+      type:"x,y",
       bounds: container,
-      onDrag: onDrag
+      onDrag: onDrag,
+      onDragEnd:function(e) {
+
+          var i = droppables.length;
+
+          while (--i > 0) {
+              if (this.hitTest(droppables[i], overlapThreshold)) {
+                  console.log('overlap');
+                  TweenLite.to(this.target, 0.5, {
+                      x: 0,
+                      y: 0
+                  });
+
+
+              } else {
+                  console.log('no overlap');
+
+              }
+          }
+
+
+      }
+
   });
   function onDrag() {
 
       TweenLite.to(box, 0.5, {
           x: Math.round(this.x / snap) * snap,
           y: Math.round(this.y / snap) * snap,
-
           ease: Back.easeOut.config(2)
       });
+
 
   }
 

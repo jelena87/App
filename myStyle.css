@@ -115,6 +115,9 @@ textarea {
   display: block;
 }
 
-.blocks{
-  padding-bottom:30px;
-}
+.cards > div:first-child {
+  border-bottom: 1px solid #fff;
+
+
+
+
