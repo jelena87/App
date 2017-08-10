@@ -3,6 +3,7 @@ function myFunction() {
     document.getElementById("dropdown-menu").classList.toggle("show");
 }
 window.onclick = function(event) {
+
     if (!event.target.matches('.dropbtn')) {
 
         var dropdowns = document.getElementsByClassName("dropdown-content");
@@ -19,6 +20,7 @@ function myFunctionTwo() {
     document.getElementById("dropdown-menu-two").classList.toggle("show");
 }
 window.onclick = function(event) {
+
     if (!event.target.matches('.dropbtn-two')) {
 
         var dropdown = document.getElementsByClassName("dropdown-content-two");
@@ -54,13 +56,11 @@ function allowDrop(ev) {
 function drag(ev) {
     ev.dataTransfer.setData("text", ev.target.id);
 }
-var id = 1;
+var id = 0;
+
 function drop(ev) {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("text");
-
-    // console.log(event.clientX);
-    // console.log(event.clientY);
 
 
     // Create GRID
@@ -96,23 +96,27 @@ function drop(ev) {
         ev.target.appendChild(element);
 
 
+            var get_frame = element.closest("div[id]").id;
+        
+         if(data ==='drag1' && get_frame === 'frame' ){
+             //element.classList.add("container-fluid","row");
 
-         if(data ==='drag1' && element.parentNode.id ==='frame'){
-
-             element.classList.add("container-fluid","row");
-
-             element.innerHTML =`<div class="block">
+             $html =`<div class='block_area'>
+             <div class="block">
              <div class="title"><span class='block-title'>Block Title</span>
              <div class='right'>
              <span class='glyphicon glyphicon-pencil g-block'></span>
              <span class='glyphicon glyphicon-trash'></span></div></div>
+             </div>
              </div>`;
+             $('#frame').append($html);
 
              return element;
          }
 
          else if(data === 'drag2' && element.parentNode.classList.contains("block")) {
              id = id +1;
+
              element.classList.add("cards");
              element.id = id;
 
@@ -135,7 +139,8 @@ function drop(ev) {
         else if(data === 'drag2' && element.parentNode.id ==='frame') {
              id = id +1;
             element.classList.add("container-fluid","row");
-            element.innerHTML ="<div class='block'><div class='title'><span class='block-title'>Block Title</span>" +
+            element.innerHTML ="<div class='block_area'>" +
+                "<div class='block'><div class='title'><span class='block-title'>Block Title</span>" +
             "<div class='right'>" +
             "<span class='glyphicon glyphicon-pencil g-block'></span>" +
             "<span class='glyphicon glyphicon-trash'></span></div>" +
@@ -148,7 +153,8 @@ function drop(ev) {
                   "</div>" +
                   "<div class='card'>" +
                   "</div>" +
-            "</div></div>";
+            "</div></div>" +
+            "</div>";
             return element;
         }
         else {
@@ -392,31 +398,19 @@ $('#frame').on('mousedown','.block',function(){
   var container = $(".block");
   var box = $("#" + id);
 
-
   var snap   = 40;
 
-        // if (e.which === 1) {
-        //     console.log(e.pageX + " / " + e.pageY);
-        // }
-// Draggable.create(container, {
-//       bounds: frame,
-//       onDrag: function onDragBlock() {
-//
-//           TweenLite.to(container, 0.5, {
-//               x: Math.round(this.x / snap) * snap,
-//               y: Math.round(this.y / snap) * snap,
-//               ease: Back.easeOut.config(2)
-//           });
-//       }
-//   });
 
     var droppables = $(".cards");
+
     var overlapThreshold = 0;
     var pointX = 0;
     var pointY = 0;
   Draggable.create(box, {
       type:"x,y",
-      bounds: container,
+      //bounds: container,
+      containment: ".block",
+
       onDrag: onDrag,
       onDragEnd:function(e) {
 
@@ -445,6 +439,7 @@ $('#frame').on('mousedown','.block',function(){
       }
 
   });
+
   function onDrag() {
 
       pointX = this.startX;
@@ -458,6 +453,13 @@ $('#frame').on('mousedown','.block',function(){
 
 
   }
+   // $( "#frame" ).sortable();
+
+// Sortable block
+    $('#frame').sortable({
+        axis: 'y',
+        items: '.block_area'
+    });
 
 
 $(container).each(function() {
@@ -468,7 +470,7 @@ $(container).each(function() {
 
 
   Draggable.create(handle, {
-    type:"top,left",
+    //type:"top,left",
     onPress: function(e) {
       e.stopPropagation(); // cancel drag
     },

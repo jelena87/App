@@ -19,15 +19,22 @@
 
 
 <style media="screen">
+    .block_area {
+        height: 360px;
+        width: 960px;
+        max-height: 360px;
+        max-width: 960px;
+        left: 0;
+        background: transparent;
+        border: 5px solid #000;
+    }
 .block {
     height: 360px;
     width: 960px;
     max-height: 360px;
     max-width: 960px;
-    position: absolute;
-    left: 0;
-    background: transparent;
-    border: 5px solid #000;
+    position: relative;
+
 }
 
 .cards {
@@ -291,6 +298,9 @@
         </aside>
     </div>
 </div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
 
 <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/plugins/CSSPlugin.min.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/easing/EasePack.min.js"></script>
