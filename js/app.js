@@ -101,12 +101,12 @@ function drop(ev) {
         if(data ==='drag1' && get_frame === 'frame' ){
             //element.classList.add("container-fluid","row");
 
-            $html ="<div class='block_area'>"+
-             "<div class='block'>" +
-             "<div class='title'><span class='block-title'>Block Title</span>" +
-             "</div>" +
-             "</div>" +
-             "</div>";
+            $html =`<div class='block_area'>
+             <div class="block">
+             <div class="title"><span class='block-title'>Block Title</span>
+            </div>
+             </div>
+             </div>`;
             $('#frame').append($html);
 
             return element;
@@ -116,7 +116,7 @@ function drop(ev) {
             id = id +1;
 
             element.classList.add("cards");
-            element.style.transform = 'translate3d(40px, 60px, 0px)';
+            element.style.transform = 'translate3d(80px, 80px, 0px)';
             element.id = id;
 
             element.innerHTML =
@@ -386,6 +386,7 @@ $('#frame').on('mousedown','.block',function(){
     var box = $("#" + id);
 
     var snap   = 40;
+    var snapX = 80;
 
 
     var droppables = $(".cards");
@@ -395,8 +396,8 @@ $('#frame').on('mousedown','.block',function(){
     var pointY = 0;
     Draggable.create(box, {
         type:"x,y",
-        //bounds: container,
-        containment: ".block",
+        bounds: container,
+        //containment: ".block",
 
         onDrag: onDrag,
         onDragEnd:function(e) {
@@ -433,7 +434,7 @@ $('#frame').on('mousedown','.block',function(){
         pointY = this.startY;
 
         TweenLite.to(box, 0.5, {
-            x: Math.round(this.x / snap) * snap,
+            x: Math.round(this.x / snapX) * snapX,
             y: Math.round(this.y / snap) * snap,
             ease: Back.easeOut.config(2)
         });

@@ -189,3 +189,7 @@ textarea {
 .content {
     background-color: #fff;
 }
+.settings {
+    padding-left: 0;
+}
+

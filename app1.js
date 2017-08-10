@@ -395,8 +395,8 @@ $('#frame').on('mousedown','.block',function(){
     var pointY = 0;
   Draggable.create(box, {
       type:"x,y",
-      //bounds: container,
-      containment: ".block",
+      bounds: container,
+      //containment: ".block",
 
       onDrag: onDrag,
       onDragEnd:function(e) {
