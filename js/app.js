@@ -327,7 +327,10 @@ function drop(ev) {
         }
         if(element.parentNode.id ==='frame'){
             id = id + 1;
+            block_id = block_id + 1;
+            get_block = block_id;
             element.classList.add("block_area");
+            element.id = block_id;
             element.innerHTML ="<div class='block'><div class='title'><span class='block-title'>Block Title</span>" +
                 "<div class='cards' id="+ id +">" +
                 "<div class='title_card'>" +
