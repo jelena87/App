@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="85287c76-4dad-47b5-94f9-ed6c85327756" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app1.js" afterPath="$PROJECT_DIR$/app1.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/exp.html" afterPath="$PROJECT_DIR$/exp.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -33,12 +32,12 @@
       <file leaf-file-name="app1.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app1.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
-              <caret line="432" column="24" lean-forward="false" selection-start-line="432" selection-start-column="24" selection-end-line="432" selection-end-column="24" />
+            <state relative-caret-position="201">
+              <caret line="458" column="6" lean-forward="false" selection-start-line="458" selection-start-column="6" selection-end-line="458" selection-end-column="6" />
               <folding>
-                <marker date="1502320331000" expanded="true" signature="3067:3340" ph="..." />
-                <marker date="1502320331000" expanded="true" signature="3100:3320" ph="..." />
-                <marker date="1502320331000" expanded="true" signature="3177:3314" ph="..." />
+                <marker date="1502350986000" expanded="true" signature="3067:3340" ph="..." />
+                <marker date="1502350986000" expanded="true" signature="3100:3320" ph="..." />
+                <marker date="1502350986000" expanded="true" signature="3177:3314" ph="..." />
               </folding>
             </state>
           </provider>
@@ -92,7 +91,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>updateContainerHeight</find>
       <find>data-gs-x</find>
       <find>block</find>
       <find>modifier</find>
@@ -122,6 +120,7 @@
       <find>$mode</find>
       <find>container</find>
       <find>.block</find>
+      <find>console</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -157,7 +156,7 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="101" />
-    <option name="y" value="281" />
+    <option name="y" value="193" />
     <option name="width" value="1412" />
     <option name="height" value="724" />
   </component>
@@ -348,15 +347,15 @@
       <workItem from="1502200526239" duration="977000" />
       <workItem from="1502267924422" duration="9559000" />
       <workItem from="1502289045054" duration="2312000" />
-      <workItem from="1502315333809" duration="4574000" />
+      <workItem from="1502315333809" duration="6046000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="114049000" />
+    <option name="totallyTimeSpent" value="115521000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="101" y="281" width="1412" height="724" extended-state="0" />
+    <frame x="101" y="193" width="1412" height="724" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16713881" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
@@ -750,12 +749,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app1.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="432" column="24" lean-forward="false" selection-start-line="432" selection-start-column="24" selection-end-line="432" selection-end-column="24" />
+        <state relative-caret-position="201">
+          <caret line="458" column="6" lean-forward="false" selection-start-line="458" selection-start-column="6" selection-end-line="458" selection-end-column="6" />
           <folding>
-            <marker date="1502320331000" expanded="true" signature="3067:3340" ph="..." />
-            <marker date="1502320331000" expanded="true" signature="3100:3320" ph="..." />
-            <marker date="1502320331000" expanded="true" signature="3177:3314" ph="..." />
+            <marker date="1502350986000" expanded="true" signature="3067:3340" ph="..." />
+            <marker date="1502350986000" expanded="true" signature="3100:3320" ph="..." />
+            <marker date="1502350986000" expanded="true" signature="3177:3314" ph="..." />
           </folding>
         </state>
       </provider>

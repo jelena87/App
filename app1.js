@@ -422,6 +422,8 @@ $('#frame').on('mousedown','.block',function(){
 
     var droppables = $(".cards");
     var overlapThreshold = 0;
+    var pointX = 0;
+    var pointY = 0;
   Draggable.create(box, {
       type:"x,y",
       bounds: container,
@@ -430,17 +432,21 @@ $('#frame').on('mousedown','.block',function(){
 
           var i = droppables.length;
 
+
           while (--i > 0) {
+
               if (this.hitTest(droppables[i], overlapThreshold)) {
-                  console.log('overlap');
+
+
                   TweenLite.to(this.target, 0.5, {
-                      x: 0,
-                      y: 0
+                      x: pointX,
+                      y: pointY
                   });
 
 
-              } else {
-                  console.log('no overlap');
+              }
+              else {
+                  //console.log('no overlap');
 
               }
           }
@@ -450,6 +456,9 @@ $('#frame').on('mousedown','.block',function(){
 
   });
   function onDrag() {
+      
+      pointX = this.startX;
+      pointY = this.startY;
 
       TweenLite.to(box, 0.5, {
           x: Math.round(this.x / snap) * snap,
