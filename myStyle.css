@@ -132,3 +132,57 @@ textarea {
   border-color: transparent transparent #AAA transparent;
   cursor: nw-resize !important;
 }
+/* from inline */
+.block_area {
+  height: 320px;
+  width: 960px;
+  max-height: 360px;
+  max-width: 960px;
+  left: 0;
+  background: transparent;
+  border: 3px solid #000;
+}
+.block {
+  height: 320px;
+  width: 950px;
+  max-height: 320px;
+  max-width: 960px;
+  position: relative;
+
+}
+
+.cards {
+  min-height: 75px;
+  width: 320px;
+  position: absolute;
+  background: #fff;
+  max-width: 960px;
+  max-height: 280px;
+}
+
+[grid-cell] {
+  position: absolute;
+  border: 1px solid #444;
+  width: 80px;
+  height: 40px;
+}
+.resize-handle {
+  position: absolute;
+  width: 0px;
+  height: 0px;
+  margin-top: -616px;
+  margin-left: 585px;
+  border-style: solid;
+  border-width: 0 0 16px 16px;
+  border-color: transparent transparent #AAA transparent;
+}
+.resize-box {
+  position: absolute;
+  width: 0px;
+  height: 0px;
+  margin-top: -226px;
+  margin-left: 254px;
+  border-style: solid;
+  border-width: 0 0 16px 16px;
+  border-color: transparent transparent #AAA transparent;
+}
