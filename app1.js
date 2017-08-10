@@ -118,6 +118,7 @@ function drop(ev) {
              id = id +1;
 
              element.classList.add("cards");
+             element.style.transform = 'translate3d(40px, 60px, 0px)';
              element.id = id;
 
              element.innerHTML =
