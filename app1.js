@@ -96,17 +96,22 @@ function drop(ev) {
         ev.target.appendChild(element);
 
 
+            var get_frame = element.closest("div[id]").id;
+        console.log(get_frame);
 
-         if(data ==='drag1' && element.parentNode.id ==='frame'){
+         if(data ==='drag1' && get_frame == 'frame' ){
 
-             element.classList.add("container-fluid","row");
+             //element.classList.add("container-fluid","row");
 
-             element.innerHTML =`<div class="block">
+             $html =`<div class="block_area">
+             <div class="block" id="test">
              <div class="title"><span class='block-title'>Block Title</span>
              <div class='right'>
              <span class='glyphicon glyphicon-pencil g-block'></span>
              <span class='glyphicon glyphicon-trash'></span></div></div>
+             </div>
              </div>`;
+             $('#frame').append($html);
 
              return element;
          }
