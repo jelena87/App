@@ -67,7 +67,7 @@ function drop(ev) {
     // Create GRID
     var width  = 80;
     var height = 40;
-    var rows   = 27;
+    var rows   = 30;
     var cols   = 12;
 
     for (var i = 0; i < rows * cols; i++) {
@@ -98,7 +98,7 @@ function drop(ev) {
 
 
             var get_frame = element.closest("div[id]").id;
-        
+
          if(data ==='drag1' && get_frame === 'frame' ){
              //element.classList.add("container-fluid","row");
 
