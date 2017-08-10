@@ -1,0 +1,157 @@
+﻿.card-1-login {
+    box-shadow: 0px 2px 2px #888888;
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+    width: 97%;
+    max-width: 360px;
+    height: 350px;
+    background-color: white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    position: absolute;
+}
+
+.card-1-login:hover {
+    box-shadow: 0px 8px 8px #888888;
+}
+
+.login-header {
+    height: 50px;
+    position: relative;
+    width: 100%;
+    padding: 10px 0px 10px 0px;
+    /*padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 0px;
+    padding-right: 0px;*/
+}
+.login-serverresponse {
+    text-align: center;
+}
+.login-header > table {
+    width: 100%;
+}
+
+.login-header > table td:first-child {
+    width: 75%;
+}
+
+.login-header > table td:last-child {
+    width: 20%;
+}
+
+.login-header-text {
+    color: white;
+    font-size: 150%;
+    margin: 0px;
+}
+
+.languageglobe {
+    color: white;
+    font-size: 25px !important;
+}
+
+.languagecaretdown {
+    color: white;
+    padding-left: 1px;
+    font-size: 12px !important;
+    vertical-align: text-top;
+}
+
+.login-input {
+    width: 100%;
+}
+.field-validation{
+    min-height: 15px;
+    display: inline-block;
+}
+.login-icons {
+    text-align: right;
+    padding-right: 5px;
+    /*color: #355469;*/
+    cursor: default;
+}
+.login-bottom {
+    bottom: 10px;
+    position: absolute;
+    width: 100%;
+    left: 0px;
+}
+
+.language-dropdown-div {
+    border: none;
+    min-width: 49px;
+    padding-right: 10px;
+    cursor: pointer;
+}
+
+/*Dropdown Content (Hidden by Default)*/
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 140px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    max-height: 200px;
+    overflow-y: auto;
+    right: 0px;
+    text-align: left;
+}
+
+    /*Links inside the dropdown*/
+    .dropdown-content a {
+        color: black;
+        /*padding-right: 5px;
+        padding-left: 16px;
+        padding-bottom: 8px;
+        padding-top: 8px;*/
+        padding: 8px 5px 8px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+        .dropdown-content a:hover {
+            background-color: #cccccc;
+        }
+
+.login-submit-link {
+    text-align: center;
+}
+
+.row {
+    margin-top: 25px !important;
+}
+
+.row-header {
+    margin: 5px !important;
+}
+
+.language-dropdown-div-item {
+    display: inline-block;
+    cursor: pointer;
+}
+
+.dropdown-button-div {
+    padding-left: 0px;
+    padding-right: 0px;
+    text-align: right;
+    padding-top: 2px;
+}
+
+.dropdown-flags {
+    margin-right: 15px;
+}
+
+.selected-dropdown {
+    background-color: lightgray;
+}
+
+.language-check-icon {
+    padding-left: 10px;
+    font-size: 12px !important;
+}
+
+.checkbox {
+    text-align: center;
+}

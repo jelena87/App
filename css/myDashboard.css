@@ -1,0 +1,19 @@
+﻿.card-1-dashboard {
+    box-shadow: 0px 2px 2px #888888;
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+    background-color: white;
+}
+
+.card-1-dashboard:hover {
+    box-shadow: 0px 8px 8px #888888;
+}
+
+div.dashboardRow {
+    padding-top: 20px;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.dashboardColumn{
+    padding-bottom:15px;
+}

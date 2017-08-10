@@ -1,0 +1,157 @@
+﻿div.tab-container {
+    margin: 0px 0px 0px 0px;
+    height: 42px;
+    overflow: hidden;
+    padding: 0px 5px 0px 5px;
+}
+
+.tab {
+    height: 100%;
+    bottom: 0;
+    margin-top: 7px;
+    padding: 0px 5px 0px 5px;
+}
+
+    .tab:hover {
+        margin-top: 3px;
+    }
+
+div.tab.activetab {
+    margin-top: 3px;
+}
+
+    div.tab.activetab:hover {
+        margin-top: 1px;
+    }
+
+.tab-table {
+    table-layout: fixed;
+    vertical-align: middle;
+    width: 100%;
+    height: 100%;
+    -webkit-box-shadow: 2px 0px 3px 0px rgba(0,0,0,0.4);
+    -moz-box-shadow: 2px 0px 3px 0px rgba(0,0,0,0.4);
+    box-shadow: 2px 0px 3px 0px rgba(0,0,0,0.4);
+    cursor: default;
+    border-collapse: separate;
+}
+
+td.tab-text {
+    font-size: 100%;
+    font-weight: normal;
+    text-align: left;
+    width: calc(100% - 60px);
+    text-overflow: ellipsis;
+    overflow: hidden;
+    cursor: default;
+    white-space: nowrap;
+}
+
+td.tab-icon {
+    width: 30px;
+    font-size: 18px;
+    text-align: center;
+    cursor: default;
+}
+
+    td.tab-icon > img {
+        border-radius: 50%;
+        width: 23px;
+        height: 23px;
+        transform: translateY(-2px);
+    }
+
+td.tab-close {
+    width: 30px;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+}
+
+div.tab.notshown {
+    display: none;
+    opacity: 1;
+    visibility: hidden;
+}
+
+.contentpanelWrapper {
+    width: 100%;
+    height: 100%;
+}
+
+.contentpanel {
+    width: 100%;
+    height: calc(100% - 42px);
+    animation-duration: 0.35s;
+    -webkit-animation-duration: 0.35s;
+    -moz-animation-duration: 0.35s;
+}
+
+.contentpanel-invisible {
+    display: none;
+}
+.contentpanel-close {
+    border: none;
+    position:absolute;
+    top: 0;
+    right: 0;
+    height: 30px;
+    width: 30px;
+    font-size: 20px;
+    cursor: pointer;
+}
+.contentpanel-minimize {
+    border: none;
+    position: absolute;
+    top: 0;
+    right: 30px;
+    height: 30px;
+    width: 30px;
+    font-size: 14px;
+    cursor: pointer;
+}
+.contentpanel-close > i {
+    margin-left: 8px;
+    margin-top: 6px;
+}
+.contentpanel-minimize > i {
+    margin-top: 10px;
+    margin-left: 8px;
+}
+#tab-1 {
+  z-index: 6;
+}
+#tab-2 {
+    z-index: 5;
+}
+#tab-3 {
+    z-index: 4;
+}
+#tab-4 {
+    z-index: 3;
+}
+#tab-5 {
+    z-index: 2;
+}
+#tab-6 {
+    z-index: 1;
+}
+    @media (max-width: 570px) {
+        div .tab-container {
+        padding: 0;
+    }
+
+    div.tab {
+    }
+    td.tab-text {
+        display: none;
+    }
+
+    td.tab-icon {
+        font-size: 16px;
+    }
+
+    td.tab-close {
+        display: none;
+    }
+}

@@ -1,0 +1,21 @@
+﻿.content {
+    margin-left: 42px;
+    width: auto;
+    max-width: calc(100% - 42px);
+    width: calc(100% - 42px);
+}
+
+.tab-navigation {
+    margin-left: 42px;
+    width: calc(100% - 42px);
+}
+
+.sidebaritem > span {
+    width: 0%;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.sidebar {
+    width: 42px;
+}

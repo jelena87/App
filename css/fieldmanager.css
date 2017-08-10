@@ -1,0 +1,112 @@
+﻿.card-1-fieldmanager {
+    box-shadow: 0px 2px 2px #888888;
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+    background-color: white;
+}
+
+.card-1-fieldmanager:hover {
+    box-shadow: 0px 8px 8px #888888;
+}
+
+.card-1-fieldmanager .field-type-content {
+    padding:15px;
+}
+
+.card-header {
+    height: 50px;
+    position: relative;
+    padding: 10px 0px 10px 0px;
+    background-color: #355469;
+}
+
+.card-header-text {
+    color: white;
+    font-size: 150%;
+    margin: 0px;
+}
+
+#draggable-fieldtypes .field-options {
+    display: none;
+}
+
+#dropped-fieldtypes .field-options {
+    display: block;
+}
+
+.list-group-item {
+    cursor: move !important;
+    padding: 3px 6px;
+    margin-bottom: 10px;
+}
+
+#dropped-fieldtypes .fieldname {
+    cursor: text;
+}
+
+#dropped-fieldtypes {
+    min-height: 50px;
+}
+
+#dropped-fieldtypes .list-group-item {
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+#dropped-fieldtypes .list-group-item {
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.ui-sortable-handle {
+    
+}
+
+.ui-draggable-dragging {
+    min-width:200px;
+}
+
+.field-group {
+    margin: 15px;
+}
+
+.field-options a {
+}
+
+.field-options .btn-sm {
+    padding: 1px 3px;
+    font-size: 11px;
+}
+
+input[type="text"] {
+    border: 0;
+    border-bottom: 1px solid #AAA;
+    background-color: #fff;
+    border-radius: 0px;
+    height: 25px;
+    outline: none;
+    width: 100%;
+}
+
+input[type="checkbox"] {
+    margin-top: 10px;
+}
+
+input[type="radio"] {
+    margin-top: 5px;
+}
+
+input[type="text"]:focus {
+    border-bottom: 1px solid #212121;
+}
+
+.setting-options .row {
+    margin-bottom: 10px;
+}
+
+.add-option {
+    margin-top: 10px;
+}
+
+.fieldname.editable-unsaved {
+    font-weight:normal !important;
+}
