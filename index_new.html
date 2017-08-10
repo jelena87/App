@@ -17,6 +17,7 @@
     <link rel="stylesheet" type="text/css" href="/css/loadingSpinner.css" />
     <link rel="stylesheet" type="text/css" href="/css/popup.css" />
     <link rel="stylesheet" type="text/css" href="/lib/pageguide/pageguide.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
     <script src="/lib/jquery/dist/jquery.min.js"></script>
     <script src="/lib/jquery-validation/dist//jquery.validate.js"></script>
     <script src="/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
@@ -36,9 +37,16 @@
 
     <link rel="stylesheet" href="/css/formdesigner.css" />
     <link rel="stylesheet" href="/lib/gridstack/dist/gridstack.css" />
+    <link rel="stylesheet" href="/css/myStyle.css"/>
 
     <script type="text/javascript" src="/lib/gridstack/dist/gridstack.js"></script>
     <script type="text/javascript" src="/lib/gridstack/dist/gridstack.jQueryUI.js"></script>
+
+
+    <!-- new added scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/TweenLite.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/utils/Draggable.min.js"></script>
+
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
     <meta charset="UTF-8">
@@ -181,201 +189,291 @@
         </div>
     </div>
     <div id="contentoverlay" class="contentoverlay">
-        <div class="content">
-            <style type="text/css">
+        <!-- Content goes here -->
+       <div class="content">
 
-                .list-group-item {
-                    cursor:move;
-                }
+           <div class="container-fluid">
+               <div class="row">
+                   <aside class="col-md-2">
+                       <ul class="leftSidebar">
+                           <li class="activeLink"><a class="dropbtn-three" onclick="myFunctionThree()">Fields</a></li>
+                           <ul class="dropdown-content-three" id="dropdown-menu-three">
 
-                .block-widget {
-                    background-color: transparent;
-                    border: 1px dashed #000;
-                    width: 100%;
-                    min-height: 400px;
-                    margin-bottom: 15px;
-                }
+                           </ul>
+                           <li class="activeLink"><p draggable="true" ondragstart="drag(event)" id="group_field">Fieldgroups</p></li>
+                           <li class="activeLink"><a class="dropbtn-two" onclick="myFunctionTwo()">Controls</a></li>
+                           <ul class="dropdown-content-two" id="dropdown-menu-two">
+                               <li><p draggable="true" ondragstart="drag(event)" id="field_text">Text</p></li>
+                               <li><p draggable="true" ondragstart="drag(event)" id="field_area">TextArea</p></li>
+                               <li><p draggable="true" ondragstart="drag(event)" id="field_html">Html-Text</p></li>
+                               <li><p draggable="true" ondragstart="drag(event)" id="field_number">Number</p></li>
+                               <li><p draggable="true" ondragstart="drag(event)" id="field_decimal">Decimal</p></li>
+                               <li><p draggable="true" ondragstart="drag(event)" id="field_checkbox">Checkbox</p></li>
+                               <li><p draggable="true" ondragstart="drag(event)" id="field_date">Date</p></li>
+                               <li><p draggable="true" ondragstart="drag(event)" id="field_drop_down">DropDown</p></li>
+                               <li><p draggable="true" ondragstart="drag(event)" id="field_radio_button">Radiobutton</p></li>
+                               <li><p draggable="true" ondragstart="drag(event)" id="field_reference">Reference to object</p></li>
+                               <li><p draggable="true" ondragstart="drag(event)" id="field_reference_list">Referencelist to object</p></li>
+                           </ul>
+                           <li class="activeLink"><a class="dropbtn" onclick="myFunction()">Depositories</a></li>
+                           <ul id="dropdown-menu" class="dropdown-content-two tasks-container js-dropzone">
 
-            </style>
+                               <li><p draggable="true" ondragstart="drag(event)" id="drag1">Block</p></li>
+                               <li><p draggable="true" ondragstart="drag(event)" id="drag2">Card</p></li>
 
-            <div class="contentpanelWrapper" id="contentpanelWrapper">
-                <div class="contentpanel" id="contentpanel-1">
-                    <div class="row">
-                        <div class="col-md-2 col-xs-10">
-                            <div class="panel-group" id="droppable-accordion">
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <h4 class="panel-title">
-                                            <a data-toggle="collapse" data-parent="#droppable-accordion" href="#collapse-fields">Fields</a>
-                                        </h4>
-                                    </div>
-                                    <div id="collapse-fields" class="panel-collapse collapse in">
-                                        <div class="panel-body" id="field-widgets">
-                                            .. fields
+                           </ul>
+                       </ul>
+                   </aside>
+
+                   <div class="col-md-8 grid-form" id="frame" ondrop="drop(event)" ondragover="allowDrop(event)">
+
+                       <div class="block" id="container" style="display:none;">
+                           <div class="cards">
+                               <div><span class='card-title'>Card Title</span>
+                                   <div class='right'>
+                                       <span class='glyphicon glyphicon-pencil'></span>
+                                       <span class='glyphicon glyphicon-trash'></span></div>
+                               </div>
+                               <div class='card'>
+                               </div>
+                           </div>
+                       </div>
+
+                   </div>
+                   <aside class="col-md-2">
+                       <ul class="rightSidebar">
+                           <li>Settings</li>
+                           <li class="general-block" style="display:none;"><div class="edit_block">
+                               <p>General block settings</p>
+                               <div class="edit">
+                                   <label for="block-title">Block Title</label>
+                                   <input type="text" name="block-title" value="" required />
+                               </div>
+                               <div class="edit">
+                                   <label for="comment">Comment</label>
+                                   <textarea name="comment"></textarea>
+                               </div>
+                               <button type="button" name="button">Save</button>
+                           </div></li>
+                           <li class="general" style="display:none;"><div class="edit_card">
+                               <p>General card settings</p>
+                               <div class="edit">
+                                   <label for="card-title">Card Title</label>
+                                   <input type="text" name="card-title" value="" required />
+                               </div>
+                               <div class="edit">
+                                   <label for="comment">Comment</label>
+                                   <textarea name="comment"></textarea>
+                               </div>
+                               <button type="button" name="button">Save</button>
+                           </div></li>
+                           <li class="edit-text" style="display:none;"><div class="edit_textbox">
+                               <p>TextBox settings</p>
+                               <div class="">
+                                   <div class="edit">
+                                       <label for="title_box">Title</label>
+                                       <input type="text" name="text" value="" id="title_box">
+                                   </div>
+                                   <div class="edit">
+                                       <label for="mapp_box">Mapping</label>
+                                       <input type="text" name="text" value="" id="mapp_box">
+                                   </div>
+                                   <div class="edit">
+                                       <label for="label_box">Label</label>
+                                       <input type="text" name="text" value="" id="label_box">
+                                   </div>
+                                   <div class="edit">
+                                       <label for="help_box">Help</label>
+                                       <input type="text" name="text" value="" id="help_box">
+                                   </div>
+                                   <button type="button" name="button">Save</button>
+                               </div>
+                           </div></li>
+                           <li class="edit-textarea" style="display:none;"><div class="edit_textarea">
+                               <p>TextArea settings</p>
+                               <div class="">
+                                   <div class="edit">
+                                       <label for="title_area">Title</label>
+                                       <input type="text" name="text" value="" id="title_area">
+                                   </div>
+                                   <div class="edit">
+                                       <label for="mapp_area">Mapping</label>
+                                       <input type="text" name="text" value="" id="mapp_area">
+                                   </div>
+                                   <div class="edit">
+                                       <label for="label_area">Label</label>
+                                       <input type="text" name="text" value="" id="label_area">
+                                   </div>
+                                   <div class="edit">
+                                       <label for="help_area">Help</label>
+                                       <input type="text" name="text" value="" id="help_area">
+                                   </div>
+                                   <button type="button" name="button">Save</button>
+                               </div>
+                           </div></li>
+                           <li class="edit-number" style="display:none;"><div class="edit_number">
+                               <p>Number settings</p>
+                               <div class="">
+                                   <div class="edit">
+                                       <label for="title_number">Title</label>
+                                       <input type="text" name="text" value="" id="title_number">
+                                   </div>
+                                   <div class="edit">
+                                       <label for="mapp_number">Mapping</label>
+                                       <input type="text" name="text" value="" id="mapp_number">
+                                   </div>
+                                   <div class="edit">
+                                       <label for="label_number">Label</label>
+                                       <input type="text" name="text" value="" id="label_number">
+                                   </div>
+                                   <div class="edit">
+                                       <label for="help_number">Help</label>
+                                       <input type="text" name="text" value="" id="help_number">
+                                   </div>
+                                   <button type="button" name="button">Save</button>
+                               </div>
+                           </div></li>
+                           <li class="edit-decimal" style="display:none;"><div class="edit_decimal">
+                               <p>Decimal settings</p>
+                               <div class="">
+                                   <div class="edit">
+                                       <label for="title_decimal">Title</label>
+                                       <input type="text" name="text" value="" id="title_decimal">
+                                   </div>
+                                   <div class="edit">
+                                       <label for="mapp_decimal">Mapping</label>
+                                       <input type="text" name="text" value="" id="mapp_decimal">
+                                   </div>
+                                   <div class="edit">
+                                       <label for="label_decimal">Label</label>
+                                       <input type="text" name="text" value="" id="label_decimal">
+                                   </div>
+                                   <div class="edit">
+                                       <label for="help_decimal">Help</label>
+                                       <input type="text" name="text" value="" id="help_decimal">
+                                   </div>
+                                   <button type="button" name="button">Save</button>
+                               </div>
+                           </div></li>
+                           <li class="edit-html" style="display:none;"><div class="edit_html">
+                               <p>HTML settings</p>
+                               <div class="">
+                                   <div class="edit">
+                                       <label for="title_html">Title</label>
+                                       <input type="text" name="text" value="" id="title_html">
+                                   </div>
+                                   <div class="edit">
+                                       <label for="mapp_html">Mapping</label>
+                                       <input type="text" name="text" value="" id="mapp_html">
+                                   </div>
+                                   <div class="edit">
+                                       <label for="label_html">Label</label>
+                                       <input type="text" name="text" value="" id="label_html">
+                                   </div>
+                                   <div class="edit">
+                                       <label for="help_html">Help</label>
+                                       <input type="text" name="text" value="" id="help_html">
+                                   </div>
+                                   <button type="button" name="button">Save</button>
+                               </div>
+                           </div></li>
+                           <li class="edit-checkbox" style="display:none;"><div class="edit_checkbox">
+                               <p>Checkbox settings</p>
+                               <div class="">
+                                   <div class="edit">
+                                       <label for="title_check">Title</label>
+                                       <input type="text" name="text" value="" id="title_check">
+                                   </div>
+                                   <div class="edit">
+                                       <label for="mapp_check">Mapping</label>
+                                       <input type="text" name="text" value="" id="mapp_check">
+                                   </div>
+                                   <div class="edit">
+                                       <label for="label_check">Label</label>
+                                       <input type="text" name="text" value="" id="label_check">
+                                   </div>
+                                   <div class="edit">
+                                       <label for="help_check">Help</label>
+                                       <input type="text" name="text" value="" id="help_check">
+                                   </div>
+                                   <button type="button" name="button">Save</button>
+                               </div>
+                           </div></li>
+                           <li class="edit-drop" style="display:none;"><div class="edit_drop">
+                               <p>Dropdown settings</p>
+                               <p>List of selectable values</p>
+                               <div class="">
+                                   <div class="edit">
+                                       <label for="title_drop">Title</label>
+                                       <input type="text" name="text" value="" id="title_drop">
+                                   </div>
+                                   <div class="edit">
+                                       <label for="mapp_drop">Mapping</label>
+                                       <input type="text" name="text" value="" id="mapp_drop">
+                                   </div>
+                                   <div class="edit">
+                                       <label for="label_drop">Label</label>
+                                       <input type="text" name="text" value="" id="label_drop">
+                                   </div>
+                                   <div class="edit">
+                                       <label for="help_drop">Help</label>
+                                       <input type="text" name="text" value="" id="help_drop">
+                                   </div>
+                                   <button type="button" name="button">Save</button>
+                               </div>
+                           </div></li>
+                           <li class="edit-date" style="display:none;"><div class="edit_date">
+                               <p>Datepicker settings</p>
+                               <div class="">
+                                   <div class="edit">
+                                       <label for="title_date">Title</label>
+                                       <input type="text" name="text" value="" id="title_date">
+                                   </div>
+                                   <div class="edit">
+                                       <label for="mapp_date">Mapping</label>
+                                       <input type="text" name="text" value="" id="mapp_date">
+                                   </div>
+                                   <div class="edit">
+                                       <label for="label_date">Label</label>
+                                       <input type="text" name="text" value="" id="label_date">
+                                   </div>
+                                   <div class="edit">
+                                       <label for="help_date">Help</label>
+                                       <input type="text" name="text" value="" id="help_date">
+                                   </div>
+                                   <button type="button" name="button">Save</button>
+                               </div>
+                           </div></li>
+                           <li class="edit-radio" style="display:none;"><div class="edit_radio">
+                               <p>Radiobutton settings</p>
+                               <div class="">
+                                   <div class="edit">
+                                       <label for="title_radio">Title</label>
+                                       <input type="text" name="text" value="" id="title_radio">
+                                   </div>
+                                   <div class="edit">
+                                       <label for="mapp_radio">Mapping</label>
+                                       <input type="text" name="text" value="" id="mapp_radio">
+                                   </div>
+                                   <div class="edit">
+                                       <label for="label_radio">Label</label>
+                                       <input type="text" name="text" value="" id="label_radio">
+                                   </div>
+                                   <div class="edit">
+                                       <label for="help_radio">Help</label>
+                                       <input type="text" name="text" value="" id="help_radio">
+                                   </div>
+                                   <button type="button" name="button">Save</button>
+                               </div>
+                           </div></li>
+                           <li>Translations</li>
+                       </ul>
+                   </aside>
+               </div>
+           </div>
 
 
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <h4 class="panel-title">
-                                            <a data-toggle="collapse" data-parent="#droppable-accordion" href="#collapse-fieldgroups">Fieldgroups</a>
-                                        </h4>
-                                    </div>
-                                    <div id="collapse-fieldgroups" class="panel-collapse collapse">
-                                        <div class="panel-body" id="fieldgroup-widgets">
-                                            .. field groups
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <h4 class="panel-title">
-                                            <a data-toggle="collapse" data-parent="#droppable-accordion" href="#collapse-controls">Controls</a>
-                                        </h4>
-                                    </div>
-                                    <div id="collapse-controls" class="panel-collapse collapse">
-                                        <div class="panel-body" id="control-widgets">
-                                            .. controls
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <h4 class="panel-title">
-                                            <a data-toggle="collapse" data-parent="#droppable-accordion" href="#collapse-depositories">Depositories</a>
-                                        </h4>
-                                    </div>
-                                    <div id="collapse-depositories" class="panel-collapse collapse">
-                                        <div class="panel-body">
-                                            <div class="list-group" id="depository-widgets">
-                                                <!-- Depository -> Container -->
-                                                <div class="list-group-item ui-draggable ui-draggable-handle grid-stack-item" data-widget-type="container">
-                                                    <i class="fa fa-square-o" aria-hidden="true"></i> &nbsp; <span class="fieldname">Container</span>
-                                                    <div class="push-right btn-toolbar field-options">
-                                                        <!-- Depository Options -->
-
-                                                    </div>
-                                                </div>
-                                                <!-- Depository -> Block -->
-                                                <div class="list-group-item ui-draggable ui-draggable-handle ui-sortable-handle" data-widget-type="block">
-                                                    <i class="fa fa-table" aria-hidden="true"></i> &nbsp; <span class="fieldname">Block</span>
-                                                    <div class="push-right btn-toolbar field-options">
-                                                        <!-- Depository Options -->
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- BLOCK GRID -->
-                        <div class="col-md-8 col-xs-10">
-                            <div class="row">
-                                <div id="sortable-blocks" class="col-md-12" style="min-height:600px;">
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-2 col-xs-10">
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <script>
-                (function ($) {
-                    var depositories = [];
-                    /* depository = {
-                     name: 'Nada',
-                     containers: [{
-                     id: 0,
-                     x: 5,
-                     y: 3,
-                     controls: [{
-                     id: -,
-                     type: -,
-                     order: -,
-                     mapping: -
-                     }]
-                     ]
-                     }
-                     */
-
-                    var initDesigner = function () {
-
-                        /* Dragging Depository Widget (BLOCK) */
-                        $('#depository-widgets .list-group-item[data-widget-type=block]').draggable({
-                            cursor: 'move',
-                            helper: 'clone',
-                            zIndex: 100,
-                            connectToSortable: '#sortable-blocks',
-                            revert: 'invalid',
-                            scroll: false
-                        });
-
-                        /* Dragging Depository Widget (CONTAINER) */
-                        $('#depository-widgets .list-group-item[data-widget-type=container]').draggable({
-                            cursor: 'move',
-                            helper: 'clone',
-                            zIndex: 100,
-                            revert: 'invalid',
-                            scroll: false
-                        });
-
-                        /* Dropping Depository Widget (BLOCK) */
-                        $('#sortable-blocks').sortable({
-                            update: function (event, ui) {
-                                if (ui.item) {
-                                    $(ui.item).dropBlock();
-                                }
-                            }
-                        });
-
-                        /* Dropping Depository Widget (CONTAINER) */
-                        $("#sortable-blocks div[data-widget-type=block]").droppable({
-                            drop: function (event, ui) {
-                                $(ui.item).dropContainer();
-                            }
-                        });
-
-                        console.log('loaded');
-                    }
-
-                    /* Prepare Depository -> Block widget on drop */
-                    $.fn.dropBlock = function () {
-                        /* Initialize our grid */
-                        var block = $(this);
-
-                        $(block).empty().addClass('block-widget grid-stack').removeAttr('style');
-
-                        block.gridstack({
-                            width: 12,
-                            float:false,
-                            acceptWidgets: '.grid-stack-item'
-                        });
-                    }
-
-                    /* Prepare Depository -> Container widget on drop */
-                    $.fn.dropContainer = function () {
-                        /*<div data-gs-y="0" data-gs-width="2" data-gs-height="2" class="grid-stack-item ui-draggable ui-resizable ui-resizable-autohide" data-gs-x="10">
-                         <div class="grid-stack-item-content ui-draggable-handle">
-                         </div>
-                         <div>
-                         </div>
-                         <div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90; display: none;"></div></div>
-                         */
-                    }
-
-                    initDesigner();
-                }(jQuery));
-            </script>
-        </div>
+       </div>
     </div>
     <div class="tab-navigation">
         <div class="tab-container row noselect panelNav">
@@ -430,7 +528,17 @@
 
 <div id="modal-container" class="modal fade hidden-print" style="overflow: hidden;" tabindex="-1" role="dialog">
 </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/plugins/CSSPlugin.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/easing/EasePack.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenLite.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
+
+
+
 <script src="/lib/pageguide/pageguide.js"></script>
 <script src="/js/global/layout.js"></script>
+<script src="/js/app.js"></script>
 </body>
 </html>
