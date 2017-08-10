@@ -2,53 +2,15 @@
 function myFunction() {
     document.getElementById("dropdown-menu").classList.toggle("show");
 }
-window.onclick = function(event) {
 
-    if (!event.target.matches('.dropbtn')) {
-
-        var dropdowns = document.getElementsByClassName("dropdown-content");
-        var i;
-        for (i = 0; i < dropdowns.length; i++) {
-            var openDropdown = dropdowns[i];
-            if (openDropdown.classList.contains('show')) {
-                openDropdown.classList.remove('show');
-            }
-        }
-    }
-};
 function myFunctionTwo() {
     document.getElementById("dropdown-menu-two").classList.toggle("show");
 }
-window.onclick = function(event) {
 
-    if (!event.target.matches('.dropbtn-two')) {
-
-        var dropdown = document.getElementsByClassName("dropdown-content-two");
-        var i;
-        for (i = 0; i < dropdown.length; i++) {
-            var openDropdowns = dropdown[i];
-            if (openDropdowns.classList.contains('show')) {
-                openDropdowns.classList.remove('show');
-            }
-        }
-    }
-};
 function myFunctionThree() {
     document.getElementById("dropdown-menu-three").classList.toggle("show");
 }
-window.onclick = function(event) {
-    if (!event.target.matches('.dropbtn-three')) {
 
-        var dropdown2 = document.getElementsByClassName("dropdown-content-three");
-        var i;
-        for (i = 0; i < dropdown2.length; i++) {
-            var openDropdown2 = dropdown2[i];
-            if (openDropdown2.classList.contains('show')) {
-                openDropdown2.classList.remove('show');
-            }
-        }
-    }
-};
 
 function allowDrop(ev) {
     ev.preventDefault();
@@ -57,11 +19,15 @@ function drag(ev) {
     ev.dataTransfer.setData("text", ev.target.id);
 }
 var id = 0;
+var block_id = 100;
+var get_block;
 
 function drop(ev) {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("text");
 
+    var x = ev.pageX - this.offsetLeft;
+    var y = ev.pageY - this.offsetTop;
 
     // Create GRID
     var width  = 80;
@@ -99,22 +65,24 @@ function drop(ev) {
         var get_frame = element.closest("div[id]").id;
 
         if(data ==='drag1' && get_frame === 'frame' ){
-            //element.classList.add("container-fluid","row");
+            block_id = block_id + 1;
 
-            $html =`<div class='block_area'>
-             <div class="block">
-             <div class="title"><span class='block-title'>Block Title</span>
-            </div>
-             </div>
-             </div>`;
-            $('#frame').append($html);
+            element.classList.add("block_area");
+            element.id = block_id;
+            element.innerHTML =
+             "<div class='block'>" +
+             "<div class='title'><span class='block-title'>Block Title</span>" +
+             "</div>" +
+             "</div>";
+
+            $('#frame').append(element);
 
             return element;
         }
 
         else if(data === 'drag2' && element.parentNode.classList.contains("block")) {
             id = id +1;
-
+            get_block = element.closest("div[id]").id;
             element.classList.add("cards");
             element.style.transform = 'translate3d(80px, 80px, 0px)';
             element.id = id;
@@ -179,54 +147,54 @@ function drop(ev) {
             "<div class='right col s2'><span class='glyphicon glyphicon-cog html'></span>" +
             "<span class='glyphicon glyphicon-remove'></span></div>";
 
-        var check_box = `<div class='col s8'><form action="#">
-            <p>
-              <input type="checkbox" id="test5" />
-              <label for="test5">Red</label>
-            </p>
-            <p>
-              <input type="checkbox" id="test6" />
-              <label for="test6">Yellow</label>
-            </p></form></div>
-            <div class='right col s2'><span class='glyphicon glyphicon-cog check'></span>
-            <span class='glyphicon glyphicon-remove'></span></div>`;
+        var check_box = "<div class='col s8'><form action='#'>" +
+            "<p>" +
+            "<input type='checkbox' id='test5' />" +
+            "<label for='test5'>Red</label>" +
+            "</p>" +
+            "<p>" +
+            "<input type='checkbox' id='test6' />" +
+            "<label for='test6'>Yellow</label>" +
+            "</p></form></div>" +
+            "<div class='right col s2'><span class='glyphicon glyphicon-cog check'></span>" +
+            "<span class='glyphicon glyphicon-remove'></span></div>";
 
-        var datapicker =  `<div class="col s8"><input type="text" class="datepicker"><label>Datepicker</label></div>
-        <div class='right col s2'><span class='glyphicon glyphicon-cog date'></span>
-        <span class='glyphicon glyphicon-remove'></span></div>`;
+        var datapicker =  "<div class='col s8'><input type='text' class='datepicker'><label>Datepicker</label></div>" +
+        "<div class='right col s2'><span class='glyphicon glyphicon-cog date'></span>" +
+        "<span class='glyphicon glyphicon-remove'></span></div>";
 
-        var dropdown = `<div class="input-field col s8">
-          <select>
-            <option value="" disabled selected>Choose your option</option>
-            <option value="1">Option 1</option>
-            <option value="2">Option 2</option>
-            <option value="3">Option 3</option>
-          </select>
-          <label>Materialize Select</label>
-        </div>
-        <div class='right col s2'><span class='glyphicon glyphicon-cog text_box'></span>
-        <span class='glyphicon glyphicon-remove'></span></div>`;
+        var dropdown = "<div class='input-field col s8'>" +
+            "<select>" +
+            "<option value='' disabled selected>Choose your option</option>" +
+            "<option value='1'>Option 1</option>" +
+            "<option value='2'>Option 2</option>" +
+            "<option value='3'>Option 3</option>" +
+            "</select>" +
+            "<label>Materialize Select</label>" +
+            "</div>" +
+            "<div class='right col s2'><span class='glyphicon glyphicon-cog text_box'></span>" +
+            "<span class='glyphicon glyphicon-remove'></span></div>";
 
-        var radiobutton=`<div class='col s8'><form action="#">
-            <p>
-              <input name="group1" type="radio" id="test1" />
-              <label for="test1">Red</label>
-            </p>
-            <p>
-              <input name="group1" type="radio" id="test2" />
-              <label for="test2">Yellow</label>
-            </p>
-            <p>
-              <input class="with-gap" name="group1" type="radio" id="test3"  />
-              <label for="test3">Green</label>
-            </p>
-            <p>
-              <input name="group1" type="radio" id="test4" />
-              <label for="test4">Brown</label>
-            </p>
-          </form></div>
-          <div class='right col s2'><span class='glyphicon glyphicon-cog radio'></span>
-          <span class='glyphicon glyphicon-remove'></span></div>`;
+        var radiobutton="<div class='col s8'><form action='#'>" +
+            "<p>" +
+            "<input name='group1' type='radio' id='test1' />" +
+            "<label for='test1'>Red</label>" +
+            "</p>" +
+            "<p>" +
+            "<input name='group1' type='radio' id='test2' />" +
+            "<label for='test2'>Yellow</label>" +
+            "</p>" +
+            "<p>" +
+            "<input class='with-gap' name='group1' type='radio' id='test3' />" +
+            "<label for='test3'>Green</label>" +
+            "</p>" +
+            "<p>" +
+            "<input name='group1' type='radio' id='test4' />" +
+            "<label for='test4'>Brown</label>" +
+            "</p>" +
+            "</form></div>" +
+            "<div class='right col s2'><span class='glyphicon glyphicon-cog radio'></span>" +
+            "<span class='glyphicon glyphicon-remove'></span></div>";
 
         var lookup="";
         var grid="";
@@ -356,7 +324,7 @@ function drop(ev) {
         }
         if(element.parentNode.id ==='frame'){
             id = id + 1;
-            element.classList.add("container-fluid","row");
+            element.classList.add("block_area");
             element.innerHTML ="<div class='block'><div class='title'><span class='block-title'>Block Title</span>" +
                 "<div class='cards' id="+ id +">" +
                 "<div class='title_card'>" +
@@ -382,9 +350,9 @@ function drop(ev) {
 
 $('#frame').on('mousedown','.block',function(){
     var frame = $("#frame");
-    var container = $(".block");
+    var container = $("#" + get_block);
     var box = $("#" + id);
-
+    console.log(container);
     var snap   = 40;
     var snapX = 80;
 
