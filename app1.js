@@ -117,7 +117,7 @@ function drop(ev) {
              element.id = id;
 
              element.innerHTML =
-               "<div><span class='card-title'>Card Title</span>" +
+               "<div class='title_card'>" +
                    "<div class='right'>" +
                    "<span class='glyphicon glyphicon-pencil g-card'></span>" +
                    "<span class='glyphicon glyphicon-trash'></span></div>" +
@@ -164,119 +164,109 @@ function drop(ev) {
         //Create templates
 
 
-        var text_box = "<div class='items-fields'>" +
+        var text_box = "<div class='items-fields input-field col s8'>" +
             "<label for='text_box'>Text</label>" +
-            "<input  type='text'>" +
-            "<div class='right'>" +
-            "<span class='glyphicon glyphicon-cog text_box'></span>" +
-            "<span class='glyphicon glyphicon-remove'></span></div>" +
-            "</div>";
+            "<input  type='text' class='validate' id='text_box'></div>" +
+            "<div class='right col s2'><span class='glyphicon glyphicon-cog text_box'></span>" +
+            "<span class='glyphicon glyphicon-remove'></span></div>";
 
-        var text_area ="<div class='items-fields'>" +
+        var text_area ="<div class='items-fields input-field col s8'>" +
             "<label for='textarea'>Textarea</label>" +
-            "<textarea class='textarea'></textarea>" +
-            "<div class='right'>" +
-            "<span class='glyphicon glyphicon-cog text_area'></span>" +
-            "<span class='glyphicon glyphicon-remove'></span></div>" +
-            "</div>";
-        var html_editor="<div class='items-fields'>" +
-            "<label for='textarea'>HTML</label>" +
-            "<textarea class='html'></textarea>" +
-            "<div class='right'>" +
-            "<span class='glyphicon glyphicon-cog html'></span>" +
-            "<span class='glyphicon glyphicon-remove'></span></div>" +
-            "</div>";
+            "<textarea class='materialize-textarea'></textarea></div>" +
+            "<div class='right col s2'><span class='glyphicon glyphicon-cog text_area'></span>" +
+            "<span class='glyphicon glyphicon-remove'></span></div>";
 
-        var check_box = "<div class='items-fields'>" +
-            "<input type='checkbox'/>" +
-            "<label for='test'>Test</label>" +
-            "<div class='right'>" +
-            "<span class='glyphicon glyphicon-cog check'></span>" +
-            "<span class='glyphicon glyphicon-remove'></span></div>" +
-            "</div>";
-        var datapicker = "<div class='items-fields'>" +
-            "<input type='date' class='datepicker'>" +
-            "<div class='right'>" +
-            "<span class='glyphicon glyphicon-cog date'></span>" +
-            "<span class='glyphicon glyphicon-remove'></span></div>" +
-            "</div>";
-        var dropdown = "<div class='dropdown items-fields'>"+
-            "<button class='btn btn-info dropdown-toggle' type='button' data-toggle='dropdown'>Dropdown Example"+
-            "<span class='caret'></span></button>"+
-            "<ul class='dropdown-menu'>" +
-            "<li><a href='#'>HTML</a></li>" +
-            "<li><a href='#'>CSS</a></li>" +
-            "<li><a href='#'>JavaScript</a></li>" +
-            "</ul>" +
-            "<div class='right'>" +
-            "<span class='glyphicon glyphicon-cog drop'></span>" +
-            "<span class='glyphicon glyphicon-remove'></span></div>" +
-            "</div>";
+        var html_editor="<div class='items-fields input-field col s8'>" +
+            "<label for='html'>HTML Editor</label>" +
+            "<textarea class='materialize-textarea'></textarea></div>" +
+            "<div class='right col s2'><span class='glyphicon glyphicon-cog html'></span>" +
+            "<span class='glyphicon glyphicon-remove'></span></div>";
 
-        var radiobutton="<div class='items-fields'>" +
-            "<input name='group' type='radio'/>"+
-            "<label for='test'>Test</label>" +
-            "<div class='right'>" +
-            "<span class='glyphicon glyphicon-cog radio'></span>" +
-            "<span class='glyphicon glyphicon-remove'></span></div>" +
-            "</div>";
+        var check_box = `<div class='col s8'><form action="#">
+            <p>
+              <input type="checkbox" id="test5" />
+              <label for="test5">Red</label>
+            </p>
+            <p>
+              <input type="checkbox" id="test6" />
+              <label for="test6">Yellow</label>
+            </p></form></div>
+            <div class='right col s2'><span class='glyphicon glyphicon-cog check'></span>
+            <span class='glyphicon glyphicon-remove'></span></div>`;
+
+        var datapicker =  `<div class="col s8"><input type="text" class="datepicker"><label>Datepicker</label></div>
+        <div class='right col s2'><span class='glyphicon glyphicon-cog date'></span>
+        <span class='glyphicon glyphicon-remove'></span></div>`;
+
+       var dropdown = `<div class="input-field col s8">
+          <select>
+            <option value="" disabled selected>Choose your option</option>
+            <option value="1">Option 1</option>
+            <option value="2">Option 2</option>
+            <option value="3">Option 3</option>
+          </select>
+          <label>Materialize Select</label>
+        </div>
+        <div class='right col s2'><span class='glyphicon glyphicon-cog text_box'></span>
+        <span class='glyphicon glyphicon-remove'></span></div>`;
+
+        var radiobutton=`<div class='col s8'><form action="#">
+            <p>
+              <input name="group1" type="radio" id="test1" />
+              <label for="test1">Red</label>
+            </p>
+            <p>
+              <input name="group1" type="radio" id="test2" />
+              <label for="test2">Yellow</label>
+            </p>
+            <p>
+              <input class="with-gap" name="group1" type="radio" id="test3"  />
+              <label for="test3">Green</label>
+            </p>
+            <p>
+              <input name="group1" type="radio" id="test4" />
+              <label for="test4">Brown</label>
+            </p>
+          </form></div>
+          <div class='right col s2'><span class='glyphicon glyphicon-cog radio'></span>
+          <span class='glyphicon glyphicon-remove'></span></div>`;
+
         var lookup="";
         var grid="";
 
-        var label="<div class='items-fields'>" +
+        var label="<div class='items-fields col s8'>" +
             "<label>Label</label>" +
-            "<div class='right'>" +
-            "<span class='glyphicon glyphicon-cog label'></span>" +
-            "<span class='glyphicon glyphicon-remove'></span></div>" +
-            "</div>";
+            "</div>" +
+            "<div class='right col s2'><span class='glyphicon glyphicon-cog label'></span>" +
+            "<span class='glyphicon glyphicon-remove'></span></div>";
 
-        var field_number = "<div class='items-fields'>"+
+        var field_number = "<div class='items-fields col s8'>"+
             "<label for='num'>Number</label>" +
-            "<input type='number' name='num' min='1' max='5'>"+
-            "<div class='right'>" +
-            "<span class='glyphicon glyphicon-cog num'></span>" +
-            "<span class='glyphicon glyphicon-remove'></span></div>" +
-            "</div>";
-        var field_decimal = "<div class='items-fields'>"+
-        "<label for='decimal'>Decimal</label>" +
-        "<input type='number' required name='decimal' min='0' value='0' step='.01'>"+
-        "<div class='right'>" +
-        "<span class='glyphicon glyphicon-cog decimal'></span>" +
-        "<span class='glyphicon glyphicon-remove'></span></div>" +
-        "</div>";
+            "<input type='number' name='num' min='1' max='5'>" +
+            "</div>" +
+            "<div class='right col s2'><span class='glyphicon glyphicon-cog num'></span>" +
+            "<span class='glyphicon glyphicon-remove'></span></div>";
 
-        var group_field = "<div class='items-fields'>" +
-            "<label for='text_box'>Text</label>" +
-            "<input  type='text'>" +
-            "<div class='right'>" +
-            "<span class='glyphicon glyphicon-cog text_box'></span>" +
+        var field_decimal = "<div class='items-fields col s8'>"+
+        "<label for='decimal'>Decimal</label>" +
+        "<input type='number' required name='decimal' min='0' value='0' step='.01'>" +
+        "</div>" +
+        "<div class='right col s2'><span class='glyphicon glyphicon-cog decimal></span>" +
+        "<span class='glyphicon glyphicon-remove'></span></div>";
+
+        var group_field = "<div class='items-fields col s8'>" +
+        "<label for='text_box'>Text</label>" +
+        "<input  type='text' class='validate' id='text_box'>" +
+            "</div>" +
+            "<div class='right col s2'><span class='glyphicon glyphicon-cog text_box'></span>" +
             "<span class='glyphicon glyphicon-remove'></span></div>" +
-            "</div>"+
-            "<div class='items-fields'>" +
+            "<div class='items-fields col s8'>" +
             "<label for='textarea'>Textarea</label>" +
-            "<textarea class='textarea'></textarea>" +
-            "<div class='right'>" +
-            "<span class='glyphicon glyphicon-cog text_area'></span>" +
-            "<span class='glyphicon glyphicon-remove'></span></div>" +
-            "</div>"+
-            "<div class='items-fields'>" +
-            "<input type='date' class='datepicker'>" +
-            "<div class='right'>" +
-            "<span class='glyphicon glyphicon-cog date'></span>" +
-            "<span class='glyphicon glyphicon-remove'></span></div>" +
-            "</div>"+
-            "<div class='dropdown items-fields'>"+
-            "<button class='btn btn-info dropdown-toggle' type='button' data-toggle='dropdown'>Dropdown Example"+
-            "<span class='caret'></span></button>"+
-            "<ul class='dropdown-menu'>" +
-            "<li><a href='#'>HTML</a></li>" +
-            "<li><a href='#'>CSS</a></li>" +
-            "<li><a href='#'>JavaScript</a></li>" +
-            "</ul>" +
-            "<div class='right'>" +
-            "<span class='glyphicon glyphicon-cog drop'></span>" +
-            "<span class='glyphicon glyphicon-remove'></span></div>" +
-            "</div>";
+            "<textarea class='materialize-textarea'></textarea>" +
+            "</div>" +
+            "<div class='right col s2'><span class='glyphicon glyphicon-cog text_box'></span>" +
+            "<span class='glyphicon glyphicon-remove'></span></div>";
+
 
 
         var template;
@@ -456,7 +446,7 @@ $('#frame').on('mousedown','.block',function(){
 
   });
   function onDrag() {
-      
+
       pointX = this.startX;
       pointY = this.startY;
 
@@ -561,4 +551,13 @@ $(box).each(function() {
         $(".radio").click(function(){
         $(".edit-radio").show();
         });
+        $('.datepicker').pickadate({
+        selectMonths: true, // Creates a dropdown to control month
+        selectYears: 15, // Creates a dropdown of 15 years to control year,
+        today: 'Today',
+        clear: 'Clear',
+        close: 'Ok',
+        closeOnSelect: false // Close upon selecting a date,
+      });
+        $('select').material_select();
 });

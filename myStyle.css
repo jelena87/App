@@ -49,7 +49,7 @@ ul.dropdown-content, ul.dropdown-content-two, ul.dropdown-content-three {
   color: #000;
 }
 label {
-  color: #000;
+  color: #9e9e9e;
   padding-right: 15px;
 }
 input, textarea {
@@ -68,12 +68,13 @@ input, textarea {
   margin-top: 10px;
 }
 span {
-  color: #000;
+  color: #9e9e9e;
   margin-right: 5px;
 }
 .right {
   display: inline-block;
   float: right;
+  margin-top: 15px;
 }
 
 .edit {
@@ -101,7 +102,7 @@ button {
 .cards {
   width: 400px;
   min-height: 100px;
-  background: darkslategray;
+  background: #fff;
   position: relative;
   border: 1px solid #ccc;
   padding: 15px;
@@ -117,7 +118,3 @@ textarea {
 
 .cards > div:first-child {
   border-bottom: 1px solid #fff;
-
-
-
-
