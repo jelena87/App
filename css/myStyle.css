@@ -192,4 +192,13 @@ textarea {
 .settings {
     padding-left: 0;
 }
-
+.caret {
+    display:none;
+}
+.content li>span {
+    font-size: 12px;
+    color: #26a69a;
+    display: block;
+    line-height: 22px;
+    padding: 0;
+}
