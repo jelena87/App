@@ -95,7 +95,7 @@ button {
 /* Vladan */
 
 .block_area {
-    margin-top: 0px;
+    margin-top: 0;
     margin-bottom: 40px
 }
 .blocks {
@@ -125,8 +125,8 @@ textarea {
 
 .resize-handle {
 //position: absolute;
-    width: 0px;
-    height: 0px;
+    width: 0;
+    height: 0;
 
     border-style: solid;
     border-width: 0 0 16px 16px;
@@ -169,8 +169,8 @@ textarea {
 }
 .resize-handle {
     position: absolute;
-    width: 0px;
-    height: 0px;
+    width: 0;
+    height: 0;
     margin-top: -616px;
     margin-left: 585px;
     border-style: solid;
@@ -179,8 +179,8 @@ textarea {
 }
 .resize-box {
     position: absolute;
-    width: 0px;
-    height: 0px;
+    width: 0;
+    height: 0;
     margin-top: -226px;
     margin-left: 254px;
     border-style: solid;
@@ -217,6 +217,4 @@ textarea {
         width: 1670px;
     }
 
-
-    }
 }
