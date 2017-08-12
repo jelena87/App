@@ -17,7 +17,7 @@
     <link rel="stylesheet" type="text/css" href="/css/loadingSpinner.css" />
     <link rel="stylesheet" type="text/css" href="/css/popup.css" />
     <link rel="stylesheet" type="text/css" href="/lib/pageguide/pageguide.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
+
     <script src="/lib/jquery/dist/jquery.min.js"></script>
     <script src="/lib/jquery-validation/dist//jquery.validate.js"></script>
     <script src="/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
@@ -37,6 +37,7 @@
 
     <link rel="stylesheet" href="/css/formdesigner.css" />
     <link rel="stylesheet" href="/lib/gridstack/dist/gridstack.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
     <link rel="stylesheet" href="/css/myStyle.css"/>
 
     <script type="text/javascript" src="/lib/gridstack/dist/gridstack.js"></script>
@@ -44,8 +45,27 @@
 
 
     <!-- new added scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/TweenLite.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/utils/Draggable.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/plugins/CSSPlugin.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/easing/EasePack.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenLite.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
+
+
+
+    <script>
+
+        $(function () {
+
+            //then load the JavaScript file
+            $.getScript('/js/app.js');
+        });
+
+    </script>
+
+
+
 
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
@@ -700,16 +720,11 @@
 <div id="modal-container" class="modal fade hidden-print" style="overflow: hidden;" tabindex="-1" role="dialog">
 </div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/plugins/CSSPlugin.min.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/easing/EasePack.min.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenLite.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
+
 
 
 
 <script src="/lib/pageguide/pageguide.js"></script>
 <script src="/js/global/layout.js"></script>
-<script src="/js/app.js"></script>
 </body>
 </html>
