@@ -18,12 +18,15 @@
     var block_id = 100;
     var get_block;
 
+
     function drop(ev) {
         ev.preventDefault();
         var data = ev.dataTransfer.getData("text");
 
         // var x = ev.pageX - this.offsetLeft;
         // var y = ev.pageY - this.offsetTop;
+
+
 
         // Create GRID
         var width = 80;
@@ -36,7 +39,7 @@
             var x = (i * width) % (cols * width);
             $("<div grid-cell></div>").css({top: y, left: x}).prependTo(frame);
         }
-        ;
+
 
 
         var drag_depo = ['drag1', 'drag2'];
@@ -54,47 +57,43 @@
 
         if (isLeft === 'depositories') {
 
+
+
             //create elements in grid
             var element = document.createElement("div");
             ev.target.appendChild(element);
-
-
             var get_frame = element.closest("div[id]").id;
 
             if (data === 'drag1' && get_frame === 'frame') {
                 block_id = block_id + 1;
 
-                element.classList.add("block_area");
+                element.classList.add("row");
                 element.id = block_id;
                 element.innerHTML =
-                    "<div class='block'>" +
-                    "<div class='title'><span class='block-title'>Block Title</span>" +
-                    "</div>" +
+                    "<div class='block_area panel panel-default panel-body sortable'>" +
                     "</div>";
-
                 $('#frame').append(element);
 
                 return element;
             }
 
-            else if (data === 'drag2' && element.parentNode.classList.contains("block")) {
+            else if (data === 'drag2' && element.parentNode.classList.contains("block_area")) {
                 id = id + 1;
                 get_block = element.closest("div[id]").id;
-                element.classList.add("cards");
-                var x = ev.pageX - $("#" + get_block).offset().left;
-                var y = ev.pageY - $("#" + get_block).offset().top - 80;
-                element.style.transform = 'translate3d(' + x + 'px, ' + y + 'px, 0px)';
-                //element.style.transform = 'translate3d(80px, 80px, 0px)';
+
                 element.id = id;
+                element.classList.add("col-xs-4", "column", "sortable");
 
                 element.innerHTML =
-                    "<div class='title_card'>" +
-                    "<div class='right'>" +
-                    "<span class='glyphicon glyphicon-pencil g-card'></span>" +
-                    "<span class='glyphicon glyphicon-trash'></span></div>" +
-                    "</div>" +
-                    "<div class='card'>" +
+                    "<div class='blocks panel panel-default panel-body'>" +
+                        "<div class='title_card'>" +
+                        "<div class='right'>" +
+                        "<span class='glyphicon glyphicon-pencil g-card'></span>" +
+                        "<span class='glyphicon glyphicon-trash'></span></div>" +
+                        "</div>"+
+                        "</div>" +
                     "</div>";
+
 
                 return element;
             }
@@ -104,23 +103,24 @@
                 block_id = block_id + 1;
                 get_block = block_id;
 
-                element.classList.add("block_area");
+                element.classList.add("row");
                 element.id = block_id;
 
 
                 element.innerHTML =
-                    "<div class='block'><div class='title'><span class='block-title'>Block Title</span>" +
-                    "<div class='cards' id=" + id + ">" +
-                    "<div class='title_card'>" +
-                    "<div class='right'>" +
-                    "<span class='glyphicon glyphicon-pencil g-card'></span>" +
-                    "<span class='glyphicon glyphicon-trash'></span></div>" +
-                    "</div>" +
-                    "<div class='card'>" +
-                    "</div>" +
-                    "</div></div>";
-                $('#frame').append(element);
+                    "<div class='block_area panel panel-default panel-body sortable'>" +
+                        "<div class='col-xs-4 column sortable'>" +
+                            "<div class='blocks panel panel-default panel-body'>" +
+                                "<div class='title_card'>" +
+                                    "<div class='right'>" +
+                                    "<span class='glyphicon glyphicon-pencil g-card'></span>" +
+                                    "<span class='glyphicon glyphicon-trash'></span></div>" +
+                                "</div>"+
+                            "</div>" +
+                        "</div>" +
+                    "</div>";
 
+                $('#frame').append(element);
                 return element;
             }
             else {
@@ -308,42 +308,54 @@
                     break;
             }
 
-            if (element.parentNode.classList.contains("cards")) {
-                element.classList.add("field");
+            if (element.parentNode.classList.contains("blocks")) {
+
+                element.classList.add("block","clearfix","fields");
                 element.innerHTML = template;
                 return element;
 
             }
-            if (element.parentNode.classList.contains("block")) {
-                id = id + 1;
-                element.classList.add("cards");
-                element.id = id;
-                element.innerHTML = "<div class='title_card'>" +
-                    "<div class='right'>" +
-                    "<span class='glyphicon glyphicon-pencil g-card'></span>" +
-                    "<span class='glyphicon glyphicon-trash'></span></div>" +
-                    "</div>" +
-                    "<div class='card'>" +
-                    "<div class='field'>" + template + "</div></div>";
-                return element;
+            if (element.parentNode.classList.contains("block_area")) {
 
-            }
-            if (element.parentNode.id === 'frame') {
                 id = id + 1;
-                block_id = block_id + 1;
-                get_block = block_id;
-                element.classList.add("block_area");
-                element.id = block_id;
-                element.innerHTML = "<div class='block'><div class='title'><span class='block-title'>Block Title</span>" +
-                    "<div class='cards' id=" + id + ">" +
+                element.classList.add("col-xs-4" ,"column", "sortable");
+                element.id = id;
+                element.innerHTML =
+                    "<div class='blocks panel panel-default panel-body'>" +
                     "<div class='title_card'>" +
                     "<div class='right'>" +
                     "<span class='glyphicon glyphicon-pencil g-card'></span>" +
                     "<span class='glyphicon glyphicon-trash'></span></div>" +
+                    "</div>"+
+                    "<div class='block clearfix fields'>"+ template +"</div>" +
                     "</div>" +
-                    "<div class='card'>" +
-                    "<div class='field'>" + template + "</div></div>" +
-                    "</div></div></div>";
+                    "</div>" +
+                    "</div>";
+                return element;
+
+            }
+            if (element.closest("div[id]").id === 'frame') {
+                id = id + 1;
+                block_id = block_id + 1;
+                get_block = block_id;
+                element.classList.add("row");
+                element.id = block_id;
+                element.innerHTML =
+                    "<div class='block_area panel panel-default panel-body sortable'>" +
+                    "<div class='col-xs-4 column sortable' id=" + id + ">" +
+                    "<div class='blocks panel panel-default panel-body'>" +
+                    "<div class='title_card'>" +
+                    "<div class='right'>" +
+                    "<span class='glyphicon glyphicon-pencil g-card'></span>" +
+                    "<span class='glyphicon glyphicon-trash'></span></div>" +
+                    "</div>"+
+                    "<div class='block clearfix fields'>"+ template +"</div>" +
+                    "</div>" +
+                    "</div>" +
+                    "</div>" +
+                    "</div>" +
+                    "</div>";
+                $('#frame').append(element);
                 return element;
             }
             if (!element.parentNode.classList.contains("cards") && !element.parentNode.classList.contains("block") && element.parentNode.id != 'frame') {
@@ -357,111 +369,27 @@
     }
 
 
-    $('#frame').on('mousedown', '.block', function () {
-        var frame = $("#frame");
-        var container = $("#" + get_block);
-        var box = $("#" + id);
-        // console.log(container);
-        var snap = 40;
-        var snapX = 80;
+    $('#frame').on('mousedown', '.row', function () {
 
+        $(".row").sortable({
+            axis: "x",
+            items: ".column"
+        });
+        $("#frame").sortable({
+            axis: "y",
+            items: ".row",
+            placeholder: 'block-placeholder',
+            revert: 150
+        });
 
-        var droppables = $(".cards");
-
-        var overlapThreshold = 0;
-        var pointX = 0;
-        var pointY = 0;
-        Draggable.create(box, {
-            type: "x,y",
-            bounds: container,
-            //containment: ".block",
-
-            onDrag: onDrag,
-            onDragEnd: function (e) {
-
-                var i = droppables.length;
-
-
-                while (--i > 0) {
-
-                    if (this.hitTest(droppables[i], overlapThreshold)) {
-
-
-                        TweenLite.to(this.target, 0.5, {
-                            x: pointX,
-                            y: pointY
-                        });
-
-
-                    }
-                    else {
-                        //console.log('no overlap');
-
-                    }
-                }
-
-
-            }
+        // Block Controls
+        $(".blocks").sortable({
+            connectWith: '.blocks',
+            placeholder: 'block-placeholder',
+            revert: 50
 
         });
 
-        function onDrag() {
-
-            pointX = this.startX;
-            pointY = this.startY;
-
-            TweenLite.to(box, 0.5, {
-                x: Math.round(this.x / snapX) * snapX,
-                y: Math.round(this.y / snap) * snap,
-                ease: Back.easeOut.config(2)
-            });
-
-
-        }
-
-        // $( "#frame" ).sortable();
-
-        // Sortable block
-        $('#frame').sortable({
-            axis: 'y',
-            items: '.block_area'
-        });
-
-
-        /*$(container).each(function() {
-         var drag = $(this);
-         var handle = $("<div class='resize-handle'></div>").appendTo(drag);
-         TweenLite.set(handle, { top: drag.width(), left: drag.height() });
-
-
-
-         Draggable.create(handle, {
-         //type:"top,left",
-         onPress: function(e) {
-         e.stopPropagation(); // cancel drag
-         },
-         onDrag: function(e) {
-         TweenLite.set(this.target.parentNode, { width: this.x, height: this.y });
-         }
-         });
-         });
-         $(box).each(function() {
-         var drag = $(this);
-         var handle = $("<div class='resize-box'></div>").appendTo(drag);
-         TweenLite.set(handle, { top: drag.width(), left: drag.height() });
-
-
-
-         Draggable.create(handle, {
-         type:"top,left",
-         onPress: function(e) {
-         e.stopPropagation(); // cancel drag
-         },
-         onDrag: function(e) {
-         TweenLite.set(this.target.parentNode, { width: this.x, height: this.y });
-         }
-         });
-         });*/
 
 
         var classname = document.getElementsByClassName("glyphicon-trash");
@@ -469,10 +397,10 @@
 
 
         var myFunction = function () {
-            $(this).closest('.cards').remove();
+            $(this).closest('.column').remove();
         };
         var deleteField = function () {
-            $(this).closest('.field').remove();
+            $(this).closest('.fields').remove();
         };
 
 
