@@ -216,8 +216,8 @@
                <div class="row">
                    <aside class="col-lg-3 col-md-2">
                        <ul class="leftSidebar">
-                           <li class="activeLink"><a class="dropbtn-three" onclick="myFunction('dropdown-menu-three')">Fields</a></li>
-                           <ul class="dropdown-content-three" id="dropdown-menu-three">
+                           <li class="activeLink"><a class="dropbtn-three" onclick="myFunction('drop_fields')">Fields</a></li>
+                           <ul class="dropdown-content-three" id="drop_fields">
                                <li><p draggable="true" ondragstart="drag(event)" id="field_text">Text</p></li>
                                <li><p draggable="true" ondragstart="drag(event)" id="field_area">TextArea</p></li>
                                <li><p draggable="true" ondragstart="drag(event)" id="field_html">Html-Text</p></li>
@@ -231,42 +231,30 @@
                                <li><p draggable="true" ondragstart="drag(event)" id="field_reference_list">Referencelist to object</p></li>
                            </ul>
                            <li class="activeLink"><p draggable="true" ondragstart="drag(event)" id="group_field">Fieldgroups</p></li>
-                           <li class="activeLink"><a class="dropbtn-two" onclick="myFunction('dropdown-menu-two')">Controls</a></li>
-                           <ul class="dropdown-content-two" id="dropdown-menu-two">
-                               <li><p draggable="true" ondragstart="drag(event)" id="text_box">TextBox</p></li>
-                               <li><p draggable="true" ondragstart="drag(event)" id="text_area">TextArea</p></li>
-                               <li><p draggable="true" ondragstart="drag(event)" id="html_editor">Html-Editor</p></li>
-                               <li><p draggable="true" ondragstart="drag(event)" id="check_box">Checkbox</p></li>
-                               <li><p draggable="true" ondragstart="drag(event)" id="datapicker">Datepicker</p></li>
-                               <li><p draggable="true" ondragstart="drag(event)" id="dropdown">DropDown</p></li>
-                               <li><p draggable="true" ondragstart="drag(event)" id="radiobutton">Radiobutton</p></li>
-                               <li><p draggable="true" ondragstart="drag(event)" id="lookup">Lookup</p></li>
-                               <li><p draggable="true" ondragstart="drag(event)" id="grid">Grid</p></li>
-                               <li><p draggable="true" ondragstart="drag(event)" id="label">Label</p></li>
+                           <li class="activeLink"><a class="dropbtn-two" onclick="myFunction('drop_control')">Controls</a></li>
+                           <ul class="dropdown-content-two" id="drop_control">
+                               <li><p draggable="true" ondragstart="drag(event)" id="Textbox">TextBox</p></li>
+                               <li><p draggable="true" ondragstart="drag(event)" id="TextArea">TextArea</p></li>
+                               <li><p draggable="true" ondragstart="drag(event)" id="HtmlEditor">Html-Editor</p></li>
+                               <li><p draggable="true" ondragstart="drag(event)" id="Checkbox">Checkbox</p></li>
+                               <li><p draggable="true" ondragstart="drag(event)" id="Datepicker">Datepicker</p></li>
+                               <li><p draggable="true" ondragstart="drag(event)" id="Dropdown">DropDown</p></li>
+                               <li><p draggable="true" ondragstart="drag(event)" id="Radiobutton">Radiobutton</p></li>
+                               <li><p draggable="true" ondragstart="drag(event)" id="Lookup">Lookup</p></li>
+                               <li><p draggable="true" ondragstart="drag(event)" id="Grid">Grid</p></li>
+                               <li><p draggable="true" ondragstart="drag(event)" id="Label">Label</p></li>
                            </ul>
-                           <li class="activeLink"><a class="dropbtn" onclick="myFunction('dropdown-menu')">Depositories</a></li>
-                           <ul id="dropdown-menu" class="dropdown-content-two tasks-container js-dropzone">
+                           <li class="activeLink"><a class="dropbtn" onclick="myFunction('drop_depositories')">Depositories</a></li>
+                           <ul id="drop_depositories" class="dropdown-content-two tasks-container js-dropzone">
 
-                               <li><p draggable="true" ondragstart="drag(event)" id="drag1">Block</p></li>
-                               <li><p draggable="true" ondragstart="drag(event)" id="drag2">Card</p></li>
+                               <li><p draggable="true" ondragstart="drag(event)" id="Block">Block</p></li>
+                               <li><p draggable="true" ondragstart="drag(event)" id="Container">Card</p></li>
 
                            </ul>
                        </ul>
                    </aside>
 
-                   <div class="col-md-8 col-lg-7  grid-form" id="frame" ondrop="drop(event)" ondragover="allowDrop(event)">
-
-                       <div class="block" id="container" style="display:none;">
-                           <div class="cards">
-                               <div><span class='card-title'>Card Title</span>
-                                   <div class='right'>
-                                       <span class='glyphicon glyphicon-pencil'></span>
-                                       <span class='glyphicon glyphicon-trash'></span></div>
-                               </div>
-                               <div class='card'>
-                               </div>
-                           </div>
-                       </div>
+                   <div class="col-md-8 col-lg-7 grid-form block_wrap" data-response-id="0" id="frame" ondrop="drop(event)" ondragover="allowDrop(event)">
 
                    </div>
                    <aside class="settings  col-lg-2 col-md-2">
