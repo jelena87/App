@@ -388,15 +388,29 @@ $('#frame').on('mousedown', '.row', function () {
             var $const = cont.height();
             var $prev = cont.prev().height();
             var $next = cont.next().height();
-            console.log(cont.next().position().left)
+           
 
             var $const_width = cont.width();
 
             if(left_position === 0 && $const_width > 910){
                 cont.prevAll().height($prev);
                 cont.next().height($next);
+                return $const;
             }
-            
+            if(left_position === 0 && typeof cont.next().position().left !=='undefined' && cont.next().position().left !== 0  ){
+                cont.next().height($const);
+            }
+            if(typeof cont.prev().position().left !== undefined && cont.prev().position().left === 0){
+                cont.height($const);
+                cont.prev().height($prev);
+            }
+            if(typeof cont.prev().position().left !== undefined &&  cont.prev().position().left !== 0){
+                cont.height($prev);
+                if(typeof cont.next().position().left !=='undefined' && cont.next().position().left !== 0){
+                    cont.next().height($$const);
+                }
+            }
+
 
         }
     });
