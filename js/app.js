@@ -173,7 +173,7 @@ function drop(ev) {
 
         var $container_id = addElement('container', "Container", '', element2);
 
-        var el_id = $(this).attr('id');
+        let el_id = $(this).attr('id');
         resizeContainer(el_id);
 
         return element;
@@ -189,7 +189,8 @@ function drop(ev) {
     else if (data !== 'Block' && data !== 'Container' && element.parentNode.classList.contains("block_area")) {
         //add container
         let  $container_id = addElement('container', 'Container', '', element);
-
+        let el_id = $(this).attr('id');
+        resizeContainer(el_id);
         //create new element
         let element2 = document.createElement("div");
 
@@ -209,7 +210,8 @@ function drop(ev) {
         var element2 = document.createElement("div");
         $("#"+$block_id+" .block_area").append(element2);
         let  $container_id = addElement('container', 'Container', '', element2);
-
+        let el_id = $(this).attr('id');
+        resizeContainer(el_id);
         var element3 = document.createElement("div");
         $("#"+$container_id+" .blocks").append(element3);
 
@@ -333,9 +335,10 @@ function resizeContainer(id){
     cont.css("width",'auto');
     var $prev_width = cont.prev().width();
     var $prev_height = cont.prev().height();
+    console.log($prev_width);
 
     if($prev_width < 450){
-        var check = 920 - $prev_width;
+        var check = 928 - $prev_width;
         cont.css("width", check );
         cont.height($prev_height);
     }
@@ -371,6 +374,11 @@ $('#frame').on('mousedown', '.row', function () {
             var el_id = $(this).attr('id');
             var cont = $("#"+el_id);
             cont.removeClass("resize_card");
+        },
+        stop: function (event, ui) {
+            var el_id = $(this).attr('id');
+            var cont = $("#"+el_id);
+            resizeContainer(cont);
         }
     });
 
@@ -388,6 +396,9 @@ $('#frame').on('mousedown', '.row', function () {
             var $const = cont.height();
             var $prev = cont.prev().height();
             var $next = cont.next().height();
+
+            var $prev_position = cont.prev().position();
+            var $next_position = cont.next().position();
            
 
             var $const_width = cont.width();
@@ -397,19 +408,26 @@ $('#frame').on('mousedown', '.row', function () {
                 cont.next().height($next);
                 return $const;
             }
-            if(left_position === 0 && typeof cont.next().position().left !=='undefined' && cont.next().position().left !== 0  ){
+            if(left_position === 0 && typeof $next_position !=='undefined' && cont.next().position().left !== 0  ){
                 cont.next().height($const);
             }
-            if(typeof cont.prev().position().left !== undefined && cont.prev().position().left === 0){
+            if(typeof $prev_position !== 'undefined' && cont.prev().position().left === 0){
                 cont.height($const);
                 cont.prev().height($prev);
             }
-            if(typeof cont.prev().position().left !== undefined &&  cont.prev().position().left !== 0){
+            if(typeof $prev_position !== 'undefined' &&  cont.prev().position().left !== 0){
                 cont.height($prev);
-                if(typeof cont.next().position().left !=='undefined' && cont.next().position().left !== 0){
-                    cont.next().height($$const);
+                if(typeof $next_position !=='undefined' && cont.next().position().left !== 0){
+                    cont.next().height($const);
                 }
             }
+            if(typeof $prev_position !== 'undefined' && typeof $next_position !=='undefined' ){
+                if($prev_position.top === cont.position().top  && $next_position.top === cont.position().top){
+                    cont.next().height($const);
+                    cont.prev().height($const);
+                }
+            }
+
 
 
         }
