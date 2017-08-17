@@ -336,15 +336,19 @@ function resizeContainer(id){
     var $prev_width = cont.prev().width();
     var $prev_position = cont.prev().position();
     var $prev_height = cont.prev().height();
-    console.log($prev_width);
+
 
     if(typeof $prev_position !== 'undefined' && $prev_position.top === cont.position().top && $prev_width < 450){
         var check = 928 - $prev_width;
-        cont.css("width", check );
+        cont.css("width", check -8 );
         cont.height($prev_height);
     }else {
         cont.css('width', '100%');
     }
+
+
+
+
 }
 
 $('#frame').on('mousedown', '.row', function () {
@@ -375,11 +379,7 @@ $('#frame').on('mousedown', '.row', function () {
             var cont = $("#"+el_id);
             cont.removeClass("resize_card");
         }
-        // stop: function (event, ui) {
-        //     var el_id = $(this).attr('id');
-        //     var cont = $("#"+el_id);
-        //     resizeContainer(cont);
-        // }
+
     });
 
     $( ".field" ).resizable({
@@ -388,45 +388,64 @@ $('#frame').on('mousedown', '.row', function () {
             var el_id = $(this).closest('.column').attr('id');
             //container
             var cont = $("#"+el_id);
+            var block = cont.closest('.container');
             cont.addClass("resize_card");
 
-           var left_position = cont.position().left;
+            var left_position = cont.position().left;
+            var top_position = cont.position().top;
 
+            var get_siblings = cont.siblings();
 
-            var $const = cont.height();
-            var $prev = cont.prev().height();
-            var $next = cont.next().height();
+            //console.log(cont.attr('id'));
 
-            var $prev_position = cont.prev().position();
-            var $next_position = cont.next().position();
-           
+            $('.sortable', block).each(function () {
+                //`console.log($(this).position().top); //log every element found to console output
+            });
 
-            var $const_width = cont.width();
+            ///cont.children('.fields').each(function () {
+             //   console.log(this.position().top); // "this" is the current element in the loop
+           //});
+            // console.log(get_siblings);
+            // for(var i=0; i<get_siblings.length; i++){
+            //     console.log(get_siblings[i]);
+            //
+            //
+            // }
 
-            if(left_position === 0 && $const_width > 910){
-                cont.prevAll().height($prev);
-                cont.next().height($next);
-                return $const;
-            }
-            if(left_position === 0 && typeof $next_position !=='undefined' && cont.next().position().left !== 0  ){
-                cont.next().height($const);
-            }
-            if(typeof $prev_position !== 'undefined' && cont.prev().position().left === 0){
-                cont.height($const);
-                cont.prev().height($prev);
-            }
-            if(typeof $prev_position !== 'undefined' &&  cont.prev().position().left !== 0){
-                cont.height($prev);
-                if(typeof $next_position !=='undefined' && cont.next().position().left !== 0){
-                    cont.next().height($const);
-                }
-            }
-            if(typeof $prev_position !== 'undefined' && typeof $next_position !=='undefined' ){
-                if($prev_position.top === cont.position().top  && $next_position.top === cont.position().top){
-                    cont.next().height($const);
-                    cont.prev().height($const);
-                }
-            }
+            // var $const = cont.height();
+            // var $prev = cont.prev().height();
+            // var $next = cont.next().height();
+            //
+            // var $prev_position = cont.prev().position();
+            // var $next_position = cont.next().position();
+            //
+            //
+            // var $const_width = cont.width();
+            //
+            // if(left_position === 0 && $const_width > 910){
+            //     cont.prevAll().height($prev);
+            //     cont.next().height($next);
+            //     return $const;
+            // }
+            // if(left_position === 0 && typeof $next_position !=='undefined' && cont.next().position().left !== 0  ){
+            //     cont.next().height($const);
+            // }
+            // if(typeof $prev_position !== 'undefined' && cont.prev().position().left === 0){
+            //     cont.height($const);
+            //     cont.prev().height($prev);
+            // }
+            // if(typeof $prev_position !== 'undefined' &&  cont.prev().position().left !== 0){
+            //     cont.height($prev);
+            //     if(typeof $next_position !=='undefined' && cont.next().position().left !== 0){
+            //         cont.next().height($const);
+            //     }
+            // }
+            // if(typeof $prev_position !== 'undefined' && typeof $next_position !=='undefined' ){
+            //     if($prev_position.top === cont.position().top  && $next_position.top === cont.position().top){
+            //         cont.next().height($const);
+            //         cont.prev().height($const);
+            //     }
+            // }
 
 
 
