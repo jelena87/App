@@ -372,7 +372,8 @@ $('#frame').on('mousedown', '.row', function () {
 
 
     $(".column").resizable({
-        handles: "e, s",
+        handles: "n, e, s, w",
+        grid: 80,
         start: function (event, ui) {
             var el_id = $(this).attr('id');
             var cont = $("#"+el_id);
@@ -383,6 +384,7 @@ $('#frame').on('mousedown', '.row', function () {
 
     $( ".field" ).resizable({
         handles: " e, s",
+        grid: 80,
         stop: function( event, ui ) {
             var el_id = $(this).closest('.column').attr('id');
             //container
@@ -390,12 +392,23 @@ $('#frame').on('mousedown', '.row', function () {
             var block = cont.closest('.container');
             cont.addClass("resize_card");
 
-            var left_position = cont.position().left;
             var top_position = cont.position().top;
 
-            var get_siblings = cont.siblings();
 
-            //console.log(cont.attr('id'));
+            if(cont.width()<880 && cont.width()%80 > 1){
+
+                // var ostatak = cont.width()%80;
+                // console.log(ostatak);
+                // var count = 80 -  (cont.width()%80);
+                // console.log(count);
+                // var ukupna_sirina = cont.width();
+                // console.log(ukupna_sirina);
+                // cont.width(ukupna_sirina - ostatak + 80);
+                //
+                // //cont.width(cont.width()%80) + count);
+                // console.log((cont.width()%80) + count);
+            }
+
 
             $('.column', block).each(function () {
 
@@ -404,53 +417,6 @@ $('#frame').on('mousedown', '.row', function () {
                    $(this).height(cont.height());
                 }
             });
-
-            ///cont.children('.fields').each(function () {
-             //   console.log(this.position().top); // "this" is the current element in the loop
-           //});
-            // console.log(get_siblings);
-            // for(var i=0; i<get_siblings.length; i++){
-            //     console.log(get_siblings[i]);
-            //
-            //
-            // }
-
-            // var $const = cont.height();
-            // var $prev = cont.prev().height();
-            // var $next = cont.next().height();
-            //
-            // var $prev_position = cont.prev().position();
-            // var $next_position = cont.next().position();
-            //
-            //
-            // var $const_width = cont.width();
-            //
-            // if(left_position === 0 && $const_width > 910){
-            //     cont.prevAll().height($prev);
-            //     cont.next().height($next);
-            //     return $const;
-            // }
-            // if(left_position === 0 && typeof $next_position !=='undefined' && cont.next().position().left !== 0  ){
-            //     cont.next().height($const);
-            // }
-            // if(typeof $prev_position !== 'undefined' && cont.prev().position().left === 0){
-            //     cont.height($const);
-            //     cont.prev().height($prev);
-            // }
-            // if(typeof $prev_position !== 'undefined' &&  cont.prev().position().left !== 0){
-            //     cont.height($prev);
-            //     if(typeof $next_position !=='undefined' && cont.next().position().left !== 0){
-            //         cont.next().height($const);
-            //     }
-            // }
-            // if(typeof $prev_position !== 'undefined' && typeof $next_position !=='undefined' ){
-            //     if($prev_position.top === cont.position().top  && $next_position.top === cont.position().top){
-            //         cont.next().height($const);
-            //         cont.prev().height($const);
-            //     }
-            // }
-
-
 
         }
     });
