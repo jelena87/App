@@ -4,21 +4,28 @@ var controls_types = ['Block', 'Container', 'Textbox', 'TextArea', 'HtmlEditor',
 var id = 0;
 //Add element
 function addElement(type, id_name, parent_id, element){
+
     id = id + 1;
 
     //element backend type id value
     var data_control_type_id = controls_types.indexOf("" + id_name + "");
 
     var parent = $("#"+parent_id);
+
     var classes = ['block_wrap'];
+
+    element.id = id;
+    element.setAttribute('data_control_type_id',data_control_type_id);
+    element.innerHTML = getInnerHtml(id_name);
 
     if(type === 'block') {
 
-        classes.push("row");
+
+        classes.push("row","container");
 
     } else if(type === 'container') {
 
-        classes.push("col-xs-4","column", "sortable" );
+        classes.push("column", "sortable" );
 
     } else if(type === 'control') {
 
@@ -29,9 +36,7 @@ function addElement(type, id_name, parent_id, element){
         element.classList.add(classes[i]);
     }
 
-    element.id = id;
-    element.setAttribute('data_control_type_id',data_control_type_id)
-    element.innerHTML = getInnerHtml(id_name);
+
 
     parent.append(element);
 
@@ -39,6 +44,7 @@ function addElement(type, id_name, parent_id, element){
 }
 function myFunction(geeter) {
     var get_id = geeter;
+
     document.getElementById(get_id).classList.toggle("show");
 }
 
@@ -133,23 +139,14 @@ function drag(ev) {
 function drop(ev) {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("text");
-    //console.log(data);
-    // Create GRID
-    var width = 80;
-    var height = 40;
-    var rows = 27;
-    var cols = 12;
 
-    // for (var i = 0; i < rows * cols; i++) {
-    //     let y = Math.floor(i / cols) * height;
-    //     let x = (i * width) % (cols * width);
-    //     $("<div grid-cell></div>").css({top: y, left: x}).prependTo(frame);
-    // }
 
     //Create elements in grid
     var element = document.createElement("div");
     ev.target.appendChild(element);
     var get_frame = element.closest("div[id]").id;
+
+
 
     //Allow drop block in grid
     if (data === 'Block' && get_frame === 'frame') {
@@ -159,6 +156,8 @@ function drop(ev) {
     else if (data === 'Container' && element.parentNode.classList.contains("block_area")) {
 
         addElement('container', 'Container', '', element);
+        var el_id = $(this).attr('id');
+
 
     }
     //Allow drop container in grid
@@ -176,7 +175,7 @@ function drop(ev) {
     //Allow drop control & fields in container
     else if (data !== 'Block' && data !== 'Container' && element.parentNode.classList.contains("blocks")) {
 
-        let $control_id = addElement('control', data, '',element)
+        let $control_id = addElement('control', data, '',element);
         return element;
 
     }
@@ -325,9 +324,7 @@ $('#frame').on('mousedown', '.row', function () {
 
     $(".block_area").sortable({
         items: ".column",
-        connectWith: '.block_area',
-        container: '.block_area',
-        tolerance: 'pointer'
+        revert: 50
     });
     $("#frame").sortable({
         axis: "y",
@@ -343,36 +340,35 @@ $('#frame').on('mousedown', '.row', function () {
         revert: 50
     });
 
-    //Field Resize
-    // $( ".validate" ).resizable({
-    //     handles:'n,s,e, w'
-    // });
-    $(".field").resizable({
-       // handles:'n,s'
+
+    $(".column").resizable({
+        handles: "e, s"
     });
-    // $(".validate").resizable({
-    //     resize: function(event, ui) {
-    //         ui.size.height = ui.originalSize.height;
-    //     }
-    // });
 
-        // $.each($('.column'), function() {
-        //     var height = $(this).height();
-        //     console.log(height);
-        //
-        // });
+    $( ".field" ).resizable({
+        handles: " e, s",
+        stop: function( event, ui ) {
+            var el_id = $(this).closest('.column').attr('id');
+            //container
+            var cont = $("#"+el_id);
+            cont.addClass("resize_card");
 
-   // alert($(this).prev().css('width'));
-  //  alert($(this).prev().css('height'));
-    // $(this).prev().each(function() {
-    //     alert($(this).outerHeight());
-    // });
-    // $('.column').siblings().each(function ()
-    // {
-    //     var height = $(this).height();
-    //     console.log(height);
-    // });
+           var left_position = cont.position().left;
 
+
+            var $const = cont.height();
+            var $prev = cont.prev().height();
+            var $next = cont.next().height();
+
+            var $const_width = cont.width();
+
+            if(left_position === 0 && $const_width > 910){
+                cont.prevAll().height($prev);
+                cont.next().height($next);
+            }
+
+        }
+    });
 
 
     var classname = $(".glyphicon-trash");

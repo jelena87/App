@@ -95,10 +95,9 @@ button {
     margin-bottom: 40px;
     overflow: auto;
     position: relative;
+    width: 100%;
 }
-.blocks {
-    margin-bottom: 0;
-}
+
 
 .cards {
     width: 400px;
@@ -135,12 +134,14 @@ textarea {
 
 .block_area {
     min-height: 120px;
-    width: 960px;
+    width: 100%;
     max-width: 960px;
     left: 0;
     position: relative;
     background-color: #f1f1f1;
     padding: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;.column
 }
 .block {
     /*height: 320px;*/
@@ -257,7 +258,7 @@ textarea {
 .blocks {
     margin-bottom: 0;
     min-height: 74px;
-    /*max-height: 315px;*/
+    height: 100%;
 }
 
 .panel {
@@ -287,8 +288,10 @@ textarea {
     background-color: #FFF;
 }
 .column {
-    padding: 2px 3px;
+    padding: 5px 3px;
     display: inline-table;
+    width: 100%;
+    margin-bottom: 5px;
 }
 .row {
     margin-bottom: 0;
@@ -303,7 +306,7 @@ textarea {
 .fields {
      /*max-height: 40px;*/
      padding: 0;
-     margin: 0 !important;
+     margin-top:2px;
  }
 label {
     font-size: 12px;
@@ -322,4 +325,10 @@ textarea.materialize-textarea {
 }
 .panel-body {
     padding: 10px;
+}
+.resize_card {
+    width: auto !important;
+}
+.container {
+    width: 960px;
 }
