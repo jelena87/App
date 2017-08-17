@@ -334,15 +334,15 @@ function resizeContainer(id){
     var cont = $("#"+id);
     cont.css("width",'auto');
     var $prev_width = cont.prev().width();
+    var $prev_position = cont.prev().position();
     var $prev_height = cont.prev().height();
     console.log($prev_width);
 
-    if($prev_width < 450){
+    if(typeof $prev_position !== 'undefined' && $prev_position.top === cont.position().top && $prev_width < 450){
         var check = 928 - $prev_width;
         cont.css("width", check );
         cont.height($prev_height);
-    }
-    if($prev_width > 900 &&  cont.position().left === 0){
+    }else {
         cont.css('width', '100%');
     }
 }
@@ -374,12 +374,12 @@ $('#frame').on('mousedown', '.row', function () {
             var el_id = $(this).attr('id');
             var cont = $("#"+el_id);
             cont.removeClass("resize_card");
-        },
-        stop: function (event, ui) {
-            var el_id = $(this).attr('id');
-            var cont = $("#"+el_id);
-            resizeContainer(cont);
         }
+        // stop: function (event, ui) {
+        //     var el_id = $(this).attr('id');
+        //     var cont = $("#"+el_id);
+        //     resizeContainer(cont);
+        // }
     });
 
     $( ".field" ).resizable({
