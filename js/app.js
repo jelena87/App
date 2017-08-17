@@ -156,7 +156,10 @@ function drop(ev) {
     else if (data === 'Container' && element.parentNode.classList.contains("block_area")) {
 
         addElement('container', 'Container', '', element);
+
         var el_id = $(this).attr('id');
+        resizeContainer(el_id);
+
 
 
     }
@@ -169,6 +172,9 @@ function drop(ev) {
         $("#"+$block_id+" .block_area").append(element2);
 
         var $container_id = addElement('container', "Container", '', element2);
+
+        var el_id = $(this).attr('id');
+        resizeContainer(el_id);
 
         return element;
     }
@@ -320,6 +326,24 @@ var group_field = "<div class='items-fields'>" +
     "</div>" ;
 
 
+
+function resizeContainer(id){
+
+    var cont = $("#"+id);
+    cont.css("width",'auto');
+    var $prev_width = cont.prev().width();
+    var $prev_height = cont.prev().height();
+
+    if($prev_width < 450){
+        var check = 920 - $prev_width;
+        cont.css("width", check );
+        cont.height($prev_height);
+    }
+    if($prev_width > 900 &&  cont.position().left === 0){
+        cont.css('width', '100%');
+    }
+}
+
 $('#frame').on('mousedown', '.row', function () {
 
     $(".block_area").sortable({
@@ -342,7 +366,12 @@ $('#frame').on('mousedown', '.row', function () {
 
 
     $(".column").resizable({
-        handles: "e, s"
+        handles: "e, s",
+        start: function (event, ui) {
+            var el_id = $(this).attr('id');
+            var cont = $("#"+el_id);
+            cont.removeClass("resize_card");
+        }
     });
 
     $( ".field" ).resizable({
@@ -359,6 +388,7 @@ $('#frame').on('mousedown', '.row', function () {
             var $const = cont.height();
             var $prev = cont.prev().height();
             var $next = cont.next().height();
+            console.log(cont.next().position().left)
 
             var $const_width = cont.width();
 
@@ -366,9 +396,11 @@ $('#frame').on('mousedown', '.row', function () {
                 cont.prevAll().height($prev);
                 cont.next().height($next);
             }
+            
 
         }
     });
+
 
 
     var classname = $(".glyphicon-trash");
