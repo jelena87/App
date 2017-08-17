@@ -337,7 +337,6 @@ function resizeContainer(id){
     var $prev_position = cont.prev().position();
     var $prev_height = cont.prev().height();
 
-
     if(typeof $prev_position !== 'undefined' && $prev_position.top === cont.position().top && $prev_width < 450){
         var check = 928 - $prev_width;
         cont.css("width", check -8 );
@@ -398,8 +397,12 @@ $('#frame').on('mousedown', '.row', function () {
 
             //console.log(cont.attr('id'));
 
-            $('.sortable', block).each(function () {
-                //`console.log($(this).position().top); //log every element found to console output
+            $('.column', block).each(function () {
+
+                var get_position = $(this).position().top;
+                if(top_position === get_position){
+                   $(this).height(cont.height());
+                }
             });
 
             ///cont.children('.fields').each(function () {
