@@ -35,37 +35,30 @@
         var defaultSteps = [{"target": "#topbar_user","content": "Die Benutzereinstellungen","direction": "bottom"},{"target": "#navbar_work","content": "Arbeit!","direction": "right"},{"target": "#topbar_language","content": "Hier kann man die Sprache anpassen","direction": "bottom"}];
     </script>
 
-    <link rel="stylesheet" href="/css/formdesigner.css" />
     <link rel="stylesheet" href="/lib/gridstack/dist/gridstack.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
-    <link rel="stylesheet" href="/css/myStyle.css"/>
+    <link rel="stylesheet" href="/lib/materialize/dist/css/materialize.css">
+    <link rel="stylesheet" href="/css/formdesigner.css" />
+    <link rel="stylesheet" href="./css/myStyle.css"/>
+
 
     <script type="text/javascript" src="/lib/gridstack/dist/gridstack.js"></script>
     <script type="text/javascript" src="/lib/gridstack/dist/gridstack.jQueryUI.js"></script>
+    <script type="text/javascript" src="/lib/materialize/dist/js/materialize.js"></script>
 
-
-    <!-- new added scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/utils/Draggable.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/plugins/CSSPlugin.min.js"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/easing/EasePack.min.js"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenLite.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
-
-
-
-    <script>
-
-        $(function () {
-
-            //then load the JavaScript file
-            $.getScript('/js/app.js');
-        });
-
+    <script type="text/javascript">
+        var blockJsonObj = '[]'; //For json data
+        var containerJsonObj = '[]'; //For json data
+        var controlJsonObj = '[]'; //For json data
     </script>
 
-
-
+    <script>
+        $(function () {
+            var s = document.createElement("script");
+            s.type = "text/javascript";
+            s.src = "/js/app.js";
+            $("body").prepend(s);
+        });
+    </script>
 
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
@@ -74,7 +67,7 @@
 </head>
 <body>
 <div id="applicationoverlay">
-    <input name="__RequestVerificationToken" type="hidden" value="CfDJ8B-ouK7tKdxHjbyarnKZI72vkiSiif9GqWD1sAECDDOsmA-EzrhB1ab_a8km_Us37GblxW8QiL1aiv3n8RRh-Z1TrYl_71kAX6TkSdrLbnGs_vkaiVVmjXYjrZmmhqM4Jy0KgorbL4nf0aIk107FrEEBdagvlAv-lZ2Yg6lbEpRBkLrqYAeh19hHY_mb8usgcQ" />
+    <input name="__RequestVerificationToken" type="hidden" value="CfDJ8B-ouK7tKdxHjbyarnKZI72Yxogy4sKjvB69pe00Le_w2ZurhLwLZ2MzS67H02MQv9ySut_nYT8ZI0l_e9BK8RaJnEJYcP2pOzGtULQuhtEcn5XxE9ga-f9LDi1eR2x43cnjSYhQM5KaM_aI3wSG-4Qstwg8WkXOQ2p3A10XZsFIWpLL52W6zxKkOGwhaOISrw" />
     <div class="topbar noselect primarycolor">
         <div class="navbarbutton hoversecondary" onclick="onTopActionBarNavbarExpandButton()"><i class="fa fa-bars fa-rotate-180" aria-hidden="true"></i></div>
         <div class="topbartitleitem" id="applicationtitle"><img class="applicationlogo" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" /><p>LC Revolution</p></div>
@@ -209,450 +202,125 @@
         </div>
     </div>
     <div id="contentoverlay" class="contentoverlay">
-        <!-- Content goes here -->
-       <div class="content">
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <aside class="stickybar col-lg-3 col-md-3">
+                        <div class="card-1-formdesigner" id="control-draggables">
+                            <ul>
+                                <li class="card-header">
+                                    <a class="dropbtn-three card-header-text" onclick="myFunction('drop_fields')">Fields</a>
+                                </li>
+                                <ul class="dropdown-content-three style_menu" id="drop_fields">
+                                    <li>
+                                        <!-- Field types, draggable -->
+                                        <p draggable="true" data-type-id="Text" data-field-mapping-id="26" ondragstart="drag(event)" id="Textbox">
+                                            <span class="fa fa-commenting-o" aria-hidden="true"></span><span class="fieldname">Text Field</span>
 
-           <div class="container-fluid">
-               <div class="row">
-                   <aside class="col-lg-3 col-md-2">
-                       <ul class="leftSidebar">
-                           <li class="activeLink"><a class="dropbtn-three" onclick="myFunction('drop_fields')">Fields</a></li>
-                           <ul class="dropdown-content-three" id="drop_fields">
-                               <li><p draggable="true" ondragstart="drag(event)" id="field_text">Text</p></li>
-                               <li><p draggable="true" ondragstart="drag(event)" id="field_area">TextArea</p></li>
-                               <li><p draggable="true" ondragstart="drag(event)" id="field_html">Html-Text</p></li>
-                               <li><p draggable="true" ondragstart="drag(event)" id="field_number">Number</p></li>
-                               <li><p draggable="true" ondragstart="drag(event)" id="field_decimal">Decimal</p></li>
-                               <li><p draggable="true" ondragstart="drag(event)" id="field_checkbox">Checkbox</p></li>
-                               <li><p draggable="true" ondragstart="drag(event)" id="field_date">Date</p></li>
-                               <li><p draggable="true" ondragstart="drag(event)" id="field_drop_down">DropDown</p></li>
-                               <li><p draggable="true" ondragstart="drag(event)" id="field_radio_button">Radiobutton</p></li>
-                               <li><p draggable="true" ondragstart="drag(event)" id="field_reference">Reference to object</p></li>
-                               <li><p draggable="true" ondragstart="drag(event)" id="field_reference_list">Referencelist to object</p></li>
-                           </ul>
-                           <li class="activeLink"><p draggable="true" ondragstart="drag(event)" id="group_field">Fieldgroups</p></li>
-                           <li class="activeLink"><a class="dropbtn-two" onclick="myFunction('drop_control')">Controls</a></li>
-                           <ul class="dropdown-content-two" id="drop_control">
-                               <li><p draggable="true" ondragstart="drag(event)" id="Textbox">TextBox</p></li>
-                               <li><p draggable="true" ondragstart="drag(event)" id="TextArea">TextArea</p></li>
-                               <li><p draggable="true" ondragstart="drag(event)" id="HtmlEditor">Html-Editor</p></li>
-                               <li><p draggable="true" ondragstart="drag(event)" id="Checkbox">Checkbox</p></li>
-                               <li><p draggable="true" ondragstart="drag(event)" id="Datepicker">Datepicker</p></li>
-                               <li><p draggable="true" ondragstart="drag(event)" id="Dropdown">DropDown</p></li>
-                               <li><p draggable="true" ondragstart="drag(event)" id="Radiobutton">Radiobutton</p></li>
-                               <li><p draggable="true" ondragstart="drag(event)" id="Lookup">Lookup</p></li>
-                               <li><p draggable="true" ondragstart="drag(event)" id="Grid">Grid</p></li>
-                               <li><p draggable="true" ondragstart="drag(event)" id="Label">Label</p></li>
-                           </ul>
-                           <li class="activeLink"><a class="dropbtn" onclick="myFunction('drop_depositories')">Depositories</a></li>
-                           <ul id="drop_depositories" class="dropdown-content-two tasks-container js-dropzone">
+                                        </p>
+                                        <p draggable="true" data-type-id="Textbox" data-field-mapping-id="28" ondragstart="drag(event)" id="TextArea">
+                                            <span class="fa fa-font" aria-hidden="true"></span><span class="fieldname">Textbox Field</span>
+                                        </p>
+                                        <p draggable="true" data-type-id="HtmlText" data-field-mapping-id="29" ondragstart="drag(event)" id="HtmlEditor">
+                                            <span class="fa fa-code" aria-hidden="true"></span><span class="fieldname">HtmlText Field</span>
+                                        </p>
+                                        <p draggable="true" data-type-id="Text" data-field-mapping-id="33" ondragstart="drag(event)" id="Textbox">
+                                            <span class="fa fa-sort-numeric-desc" aria-hidden="true"></span><span class="fieldname">Decimal Field</span>
+                                        </span>
+                                        </p>
+                                        <p draggable="true" data-type-id="Text" data-field-mapping-id="27" ondragstart="drag(event)" id="Textbox">
+                                            <span class="fa fa-check" aria-hidden="true"></span><span class="fieldname">Checkbox Field</span>
+                                        </p>
+                                    </li>
+                                </ul>
+                                <li class="card-header">
+                                    <a class="dropbtn-three card-header-text" id="field_group" style="overflow: auto; height: 80vh" onclick="myFunction('drop_Fieldgroups')">Fieldgroups</a>
+                                </li>
+                                <ul class="dropdown-content-three style_menu " id="drop_Fieldgroups">
+                                    <li>
+                                        <!-- Field types, draggable -->
+                                        <p draggable="true" data-field-mapping-id="32" id="FieldGroup 1">
+                                            <span class="fa fa-list-alt" aria-hidden="true"></span><span class="fieldname">FieldGroup Field</span>
+                                        </p>
+                                    </li>
+                                </ul>
+                                <li class="card-header">
+                                    <a class="dropbtn-two card-header-text" onclick="myFunction('drop_control')">Controls</a>
+                                </li>
+                                <ul class="dropdown-content-two style_menu" id="drop_control">
+                                    <li>
+                                        <p draggable="true" ondragstart="drag(event)" id="Textbox">
+                                            <span class="fa fa-font" aria-hidden="true"></span><span class="fieldname">Textbox</span>
+                                        </p>
+                                        <p draggable="true" ondragstart="drag(event)" id="TextArea">
+                                            <span class="fa fa-commenting-o" aria-hidden="true"></span><span class="fieldname">Textarea</span>
+                                        </p>
+                                        <p draggable="true" ondragstart="drag(event)" id="HtmlEditor">
+                                            <span class="fa fa-code" aria-hidden="true"></span><span class="fieldname">HtmlEditor</span>
+                                        </p>
+                                        <p draggable="true" ondragstart="drag(event)" id="Checkbox">
+                                            <span class="fa fa-check" aria-hidden="true"></span><span class="fieldname">Checkbox</span>
+                                        </p>
+                                        <p draggable="true" ondragstart="drag(event)" id="Datepicker">
+                                            <span class="fa fa-calendar" aria-hidden="true"></span><span class="fieldname">Datepicker</span>
+                                        </p>
+                                        <p draggable="true" ondragstart="drag(event)" id="Dropdown">
+                                            <span class="fa fa-caret-square-o-down" aria-hidden="true"></span><span class="fieldname">Dropdown</span>
+                                        </p>
+                                        <p draggable="true" ondragstart="drag(event)" id="Radiobutton">
+                                            <span class="fa fa-dot-circle-o" aria-hidden="true"></span><span class="fieldname">Radiobutton</span>
+                                        </p>
+                                        <p draggable="true" ondragstart="drag(event)" id="Lookup">
+                                            <span class="fa fa-retweet" aria-hidden="true"></span><span class="fieldname">Lookup</span>
+                                        </p>
+                                        <p draggable="true" ondragstart="drag(event)" id="Grid">
+                                            <span class="fa fa-retweet" aria-hidden="true"></span><span class="fieldname">Grid</span>
+                                        </p>
+                                        <p draggable="true" ondragstart="drag(event)" id="Label">
+                                            <span class="fa fa-retweet" aria-hidden="true"></span><span class="fieldname">Label</span>
+                                        </p>
+                                    </li>
+                                </ul>
+                                <li class="card-header">
+                                    <a class="dropbtn card-header-text" onclick="myFunction('drop_depositories')">Depositories</a>
+                                </li>
+                                <ul id="drop_depositories" class="dropdown-content-two tasks-container js-dropzone style_menu">
+                                    <li>
+                                        <p draggable="true" ondragstart="drag(event)" id="Block">
+                                            <span class="fa fa-list-alt" aria-hidden="true"></span><span class="fieldname">Block</span>
+                                        </p>
 
-                               <li><p draggable="true" ondragstart="drag(event)" id="Block">Block</p></li>
-                               <li><p draggable="true" ondragstart="drag(event)" id="Container">Card</p></li>
+                                        <p draggable="true" ondragstart="drag(event)" id="Container">
+                                            <span class="fa fa-list-alt" aria-hidden="true"></span><span class="fieldname">Container</span>
+                                        </p>
+                                    </li>
+                                </ul>
+                            </ul>
+                        </div>
+                    </aside>
 
-                           </ul>
-                       </ul>
-                   </aside>
+                    <div class="col-md-7 col-lg-7 grid-form block_wrap" data-response-id="0" id="frame" ondrop="drop(event)" ondragover="allowDrop(event)">
 
-                   <div class="col-md-8 col-lg-7 grid-form block_wrap" data-response-id="0" id="frame" ondrop="drop(event)" ondragover="allowDrop(event)">
+                    </div>
+                    <aside class="stickybar col-md-2 col-lg-2">
+                        <!-- Change to formdesigner card -->
+                        <div class="card-1-formdesigner" id="control-settings">
+                            <div class="card-header">
+                                <p class="card-header-text">Settings</p>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
 
-                   </div>
-                   <aside class="settings  col-lg-2 col-md-2">
-                       <ul class="rightSidebar">
-                           <li>Settings</li>
-                           <li class="general-block" style="display:none;"><div class="edit_block">
-                               <p>General block settings</p>
-                               <div class="edit">
-                                   <label for="block-title">Block Title</label>
-                                   <input type="text" name="block-title" value="" required />
-                               </div>
-                               <div class="edit">
-                                   <label for="comment">Comment</label>
-                                   <textarea name="comment"></textarea>
-                               </div>
-                               <button type="button" name="button">Save</button>
-                           </div></li>
-                           <li class="general" style="display:none;"><div class="edit_card">
-                               <p>General card settings</p>
-                               <div class="edit">
-                                   <label for="card-title">Card Title</label>
-                                   <input type="text" name="card-title" value="" required />
-                               </div>
-                               <div class="edit">
-                                   <label for="comment">Comment</label>
-                                   <textarea name="comment"></textarea>
-                               </div>
-                               <button type="button" name="button">Save</button>
-                           </div></li>
-                           <li class="edit-text" style="display:none;"><div class="edit_textbox">
-                               <p>TextBox settings</p>
-                               <div class="">
-                                   <div class="edit">
-                                       <label for="title_box">Alias</label>
-                                       <input type="text" name="text" value="" id="title_box">
-                                   </div>
-                                   <div class="edit">
-                                       <div class="input-field col s12">
-                                           <select>
-                                               <option value="" disabled selected>Mapping</option>
-                                               <option value="1">Option 1</option>
-                                               <option value="2">Option 2</option>
-                                               <option value="3">Option 3</option>
-                                           </select>
-                                       </div>
-                                   </div>
-                                   <div class="edit">
-                                       <label for="label_box">Label</label>
-                                       <div class="input-field col s12">
-                                           <select>
-                                               <option value="" disabled selected>Choose</option>
-                                               <option value="1" selected>On</option>
-                                               <option value="2">Off</option>
-                                           </select>
-                                       </div>
-                                   </div>
-                                   <div class="edit">
-                                       <label for="help_box">Help</label>
-                                       <div class="input-field col s12">
-                                           <select>
-                                               <option value="" disabled selected>Choose</option>
-                                               <option value="1" selected>On</option>
-                                               <option value="2">Off</option>
-                                           </select>
-                                       </div>
-                                   </div>
-                                   <button type="button" name="button">Save</button>
-                               </div>
-                           </div></li>
-                           <li class="edit-textarea" style="display:none;"><div class="edit_textarea">
-                               <p>TextArea settings</p>
-                               <div class="">
-                                   <div class="edit">
-                                       <label for="title_area">Alias</label>
-                                       <input type="text" name="text" value="" id="title_area">
-                                   </div>
-                                   <div class="edit">
-                                       <div class="input-field col s12">
-                                           <select>
-                                               <option value="" disabled selected>Mapping</option>
-                                               <option value="1">Option 1</option>
-                                               <option value="2">Option 2</option>
-                                               <option value="3">Option 3</option>
-                                           </select>
-                                       </div>
-                                   </div>
-                                   <div class="edit">
-                                       <label for="label_area">Label</label>
-                                       <div class="input-field col s12">
-                                           <select>
-                                               <option value="" disabled selected>Choose</option>
-                                               <option value="1" selected>On</option>
-                                               <option value="2">Off</option>
-                                           </select>
-                                       </div>
-                                   </div>
-                                   <div class="edit">
-                                       <label for="help_area">Help</label>
-                                       <div class="input-field col s12">
-                                           <select>
-                                               <option value="" disabled selected>Choose</option>
-                                               <option value="1" selected>On</option>
-                                               <option value="2">Off</option>
-                                           </select>
-                                       </div>
-                                   </div>
-                                   <button type="button" name="button">Save</button>
-                               </div>
-                           </div></li>
-                           <li class="edit-number" style="display:none;"><div class="edit_number">
-                               <p>Number settings</p>
-                               <div class="">
-                                   <div class="edit">
-                                       <label for="title_number">Alias</label>
-                                       <input type="text" name="text" value="" id="title_number">
-                                   </div>
-                                   <div class="edit">
-                                       <div class="input-field col s12">
-                                           <select>
-                                               <option value="" disabled selected>Mapping</option>
-                                               <option value="1">Option 1</option>
-                                               <option value="2">Option 2</option>
-                                               <option value="3">Option 3</option>
-                                           </select>
-                                       </div>
-                                   </div>
-                                   <div class="edit">
-                                       <label for="label_number">Label</label>
-                                       <div class="input-field col s12">
-                                           <select>
-                                               <option value="" disabled selected>Choose</option>
-                                               <option value="1" selected>On</option>
-                                               <option value="2">Off</option>
-                                           </select>
-                                       </div>
-                                   </div>
-                                   <div class="edit">
-                                       <label for="help_number">Help</label>
-                                       <div class="input-field col s12">
-                                           <select>
-                                               <option value="" disabled selected>Choose</option>
-                                               <option value="1" selected>On</option>
-                                               <option value="2">Off</option>
-                                           </select>
-                                       </div>
-                                   </div>
-                                   <button type="button" name="button">Save</button>
-                               </div>
-                           </div></li>
-                           <li class="edit-decimal" style="display:none;"><div class="edit_decimal">
-                               <p>Decimal settings</p>
-                               <div class="">
-                                   <div class="edit">
-                                       <label for="title_decimal">Alias</label>
-                                       <input type="text" name="text" value="" id="title_decimal">
-                                   </div>
-                                   <div class="edit">
-                                       <div class="input-field col s12">
-                                           <select>
-                                               <option value="" disabled selected>Mapping</option>
-                                               <option value="1">Option 1</option>
-                                               <option value="2">Option 2</option>
-                                               <option value="3">Option 3</option>
-                                           </select>
-                                       </div>
-                                   </div>
-                                   <div class="edit">
-                                       <label for="label_decimal">Label</label>
-                                       <div class="input-field col s12">
-                                           <select>
-                                               <option value="" disabled selected>Choose</option>
-                                               <option value="1" selected>On</option>
-                                               <option value="2">Off</option>
-                                           </select>
-                                       </div>
-                                   </div>
-                                   <div class="edit">
-                                       <label for="help_decimal">Help</label>
-                                       <div class="input-field col s12">
-                                           <select>
-                                               <option value="" disabled selected>Choose</option>
-                                               <option value="1" selected>On</option>
-                                               <option value="2">Off</option>
-                                           </select>
-                                       </div>
-                                   </div>
-                                   <button type="button" name="button">Save</button>
-                               </div>
-                           </div></li>
-                           <li class="edit-html" style="display:none;"><div class="edit_html">
-                               <p>HTML settings</p>
-                               <div class="">
-                                   <div class="edit">
-                                       <label for="title_html">Alias</label>
-                                       <input type="text" name="text" value="" id="title_html">
-                                   </div>
-                                   <div class="edit">
-                                       <div class="input-field col s12">
-                                           <select>
-                                               <option value="" disabled selected>Mapping</option>
-                                               <option value="1">Option 1</option>
-                                               <option value="2">Option 2</option>
-                                               <option value="3">Option 3</option>
-                                           </select>
-                                       </div>
-                                   </div>
-                                   <div class="edit">
-                                       <label for="label_html">Label</label>
-                                       <div class="input-field col s12">
-                                           <select>
-                                               <option value="" disabled selected>Choose</option>
-                                               <option value="1" selected>On</option>
-                                               <option value="2">Off</option>
-                                           </select>
-                                       </div>
-                                   </div>
-                                   <div class="edit">
-                                       <label for="help_html">Help</label>
-                                       <div class="input-field col s12">
-                                           <select>
-                                               <option value="" disabled selected>Choose</option>
-                                               <option value="1" selected>On</option>
-                                               <option value="2">Off</option>
-                                           </select>
-                                       </div>
-                                   </div>
-                                   <button type="button" name="button">Save</button>
-                               </div>
-                           </div></li>
-                           <li class="edit-checkbox" style="display:none;"><div class="edit_checkbox">
-                               <p>Checkbox settings</p>
-                               <div class="">
-                                   <div class="edit">
-                                       <label for="title_check">Alias</label>
-                                       <input type="text" name="text" value="" id="title_check">
-                                   </div>
-                                   <div class="edit">
-                                       <div class="input-field col s12">
-                                           <select>
-                                               <option value="" disabled selected>Mapping</option>
-                                               <option value="1">Option 1</option>
-                                               <option value="2">Option 2</option>
-                                               <option value="3">Option 3</option>
-                                           </select>
-                                       </div>
-                                   </div>
-                                   <div class="edit">
-                                       <label for="label_check">Label</label>
-                                       <div class="input-field col s12">
-                                           <select>
-                                               <option value="" disabled selected>Choose</option>
-                                               <option value="1" selected>On</option>
-                                               <option value="2">Off</option>
-                                           </select>
-                                       </div>
-                                   </div>
-                                   <div class="edit">
-                                       <label for="help_check">Help</label>
-                                       <div class="input-field col s12">
-                                           <select>
-                                               <option value="" disabled selected>Choose</option>
-                                               <option value="1" selected>On</option>
-                                               <option value="2">Off</option>
-                                           </select>
-                                       </div>
-                                   </div>
-                                   <button type="button" name="button">Save</button>
-                               </div>
-                           </div></li>
-                           <li class="edit-drop" style="display:none;"><div class="edit_drop">
-                               <p>Dropdown settings</p>
-                               <p>List of selectable values</p>
-                               <div class="">
-                                   <div class="edit">
-                                       <label for="title_drop">Alias</label>
-                                       <input type="text" name="text" value="" id="title_drop">
-                                   </div>
-                                   <div class="edit">
-                                       <div class="input-field col s12">
-                                           <select>
-                                               <option value="" disabled selected>Mapping</option>
-                                               <option value="1">Option 1</option>
-                                               <option value="2">Option 2</option>
-                                               <option value="3">Option 3</option>
-                                           </select>
-                                       </div>
-                                   </div>
-                                   <div class="edit">
-                                       <label for="label_drop">Label</label>
-                                       <div class="input-field col s12">
-                                           <select>
-                                               <option value="" disabled selected>Choose</option>
-                                               <option value="1" selected>On</option>
-                                               <option value="2">Off</option>
-                                           </select>
-                                       </div>
-                                   </div>
-                                   <div class="edit">
-                                       <label for="help_drop">Help</label>
-                                       <div class="input-field col s12">
-                                           <select>
-                                               <option value="" disabled selected>Choose</option>
-                                               <option value="1" selected>On</option>
-                                               <option value="2">Off</option>
-                                           </select>
-                                       </div>
-                                   </div>
-                                   <button type="button" name="button">Save</button>
-                               </div>
-                           </div></li>
-                           <li class="edit-date" style="display:none;"><div class="edit_date">
-                               <p>Datepicker settings</p>
-                               <div class="">
-                                   <div class="edit">
-                                       <label for="title_date">Alias</label>
-                                       <input type="text" name="text" value="" id="title_date">
-                                   </div>
-                                   <div class="edit">
-                                       <div class="input-field col s12">
-                                           <select>
-                                               <option value="" disabled selected>Mapping</option>
-                                               <option value="1">Option 1</option>
-                                               <option value="2">Option 2</option>
-                                               <option value="3">Option 3</option>
-                                           </select>
-                                       </div>
-                                   </div>
-                                   <div class="edit">
-                                       <label for="label_date">Label</label>
-                                       <div class="input-field col s12">
-                                           <select>
-                                               <option value="" disabled selected>Choose</option>
-                                               <option value="1" selected>On</option>
-                                               <option value="2">Off</option>
-                                           </select>
-                                       </div>
-                                   </div>
-                                   <div class="edit">
-                                       <label for="help_date">Help</label>
-                                       <div class="input-field col s12">
-                                           <select>
-                                               <option value="" disabled selected>Choose</option>
-                                               <option value="1" selected>On</option>
-                                               <option value="2">Off</option>
-                                           </select>
-                                       </div>
-                                   </div>
-                                   <button type="button" name="button">Save</button>
-                               </div>
-                           </div></li>
-                           <li class="edit-radio" style="display:none;"><div class="edit_radio">
-                               <p>Radiobutton settings</p>
-                               <div class="">
-                                   <div class="edit">
-                                       <label for="title_radio">Alias</label>
-                                       <input type="text" name="text" value="" id="title_radio">
-                                   </div>
-                                   <div class="edit">
-                                       <div class="input-field col s12">
-                                           <select>
-                                               <option value="" disabled selected>Mapping</option>
-                                               <option value="1">Option 1</option>
-                                               <option value="2">Option 2</option>
-                                               <option value="3">Option 3</option>
-                                           </select>
-                                       </div>
-                                   </div>
-                                   <div class="edit">
-                                       <label for="label_radio">Label</label>
-                                       <div class="input-field col s12">
-                                           <select>
-                                               <option value="" disabled selected>Choose</option>
-                                               <option value="1" selected>On</option>
-                                               <option value="2">Off</option>
-                                           </select>
-                                       </div>
-                                   </div>
-                                   <div class="edit">
-                                       <label for="help_radio">Help</label>
-                                       <div class="input-field col s12">
-                                           <select>
-                                               <option value="" disabled selected>Choose</option>
-                                               <option value="1" selected>On</option>
-                                               <option value="2">Off</option>
-                                           </select>
-                                       </div>
-                                   </div>
-                                   <button type="button" name="button">Save</button>
-                               </div>
-                           </div></li>
-                           <li>Translations</li>
-                       </ul>
-                   </aside>
-               </div>
-           </div>
-
-
-       </div>
+                                    <form id="settings-form" name="settings-form" class="form-horizontal" methods="POST">
+                                        <!-- Settings form controls -->
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="tab-navigation">
         <div class="tab-container row noselect panelNav">
@@ -707,11 +375,6 @@
 
 <div id="modal-container" class="modal fade hidden-print" style="overflow: hidden;" tabindex="-1" role="dialog">
 </div>
-
-
-
-
-
 <script src="/lib/pageguide/pageguide.js"></script>
 <script src="/js/global/layout.js"></script>
 </body>
