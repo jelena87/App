@@ -336,3 +336,6 @@ textarea.materialize-textarea {
 .fields {
     background-color: #fdfdfd;
 }
+.fields_container{
+    width: 100% !important;
+}

@@ -344,11 +344,27 @@ function resizeContainer(id){
     }else {
         cont.css('width', '100%');
     }
-
-
-
-
 }
+
+function checkSiblings(elem) {
+
+    var block = elem.closest('.container');
+    var top_position = elem.position().top;
+
+
+    $('.column', block).each(function () {
+        var get_position = $(this).position().top;
+
+        if (top_position === get_position) {
+
+            $(this).height(elem.height());
+
+        }
+
+    });
+
+};
+
 
 $('#frame').on('mousedown', '.row', function () {
 
@@ -377,7 +393,55 @@ $('#frame').on('mousedown', '.row', function () {
         start: function (event, ui) {
             var el_id = $(this).attr('id');
             var cont = $("#"+el_id);
+
             cont.removeClass("resize_card");
+
+            var top_position = cont.position().top;
+
+
+
+
+            if(cont.find(".fields").length > 0){
+
+                var $check = $(this).find('.fields');
+                console.log($check);
+
+                $check.each(function () {
+                    var set =$(this).width() - 17;
+                    var $get_w = $(this).find('.field');
+
+                    if($get_w.width() === set){
+                        $get_w.addClass("fields_container");
+                        $get_w.parent().addClass("fields_container");
+
+                    }
+                    else{
+                        $get_w.removeClass("fields_container");
+                        $get_w.parent().removeClass("fields_container");
+                    }
+
+
+                });
+
+
+                // $check.each(function () {
+                //
+                //     if (($parentWidth - $displayarea) < 50){
+                //         console.log('test');
+                //         cont.children().children().children().children().children().addClass('fields_container');
+                //         cont.children().children().children().children().addClass('fields_container');
+                //     }
+                //
+                //  });
+            }
+
+        },
+        stop: function (event, ui) {
+
+            var el_id = $(this).attr('id');
+            var cont = $("#"+el_id);
+            checkSiblings(cont);
+
         }
 
     });
@@ -385,38 +449,18 @@ $('#frame').on('mousedown', '.row', function () {
     $( ".field" ).resizable({
         handles: " e, s",
         grid: 80,
+        start: function(event,ui){
+            $(this).removeClass('fields_container');
+            $(this).parent().removeClass('fields_container');
+        },
         stop: function( event, ui ) {
             var el_id = $(this).closest('.column').attr('id');
-            //container
             var cont = $("#"+el_id);
-            var block = cont.closest('.container');
             cont.addClass("resize_card");
 
-            var top_position = cont.position().top;
+            checkSiblings(cont);
 
 
-            if(cont.width()<880 && cont.width()%80 > 1){
-
-                // var ostatak = cont.width()%80;
-                // console.log(ostatak);
-                // var count = 80 -  (cont.width()%80);
-                // console.log(count);
-                // var ukupna_sirina = cont.width();
-                // console.log(ukupna_sirina);
-                // cont.width(ukupna_sirina - ostatak + 80);
-                //
-                // //cont.width(cont.width()%80) + count);
-                // console.log((cont.width()%80) + count);
-            }
-
-
-            $('.column', block).each(function () {
-
-                var get_position = $(this).position().top;
-                if(top_position === get_position){
-                   $(this).height(cont.height());
-                }
-            });
 
         }
     });
