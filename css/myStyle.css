@@ -298,19 +298,22 @@ ul.dropdown-content, ul.dropdown-content-two, ul.dropdown-content-three {
     padding: 0;
     margin: 0 5px 0 0;
 }
-/*.ui-resizable-e {*/
-    /*cursor: e-resize;*/
-    /*width: 20px;*/
-    /*right: -15px;*/
-    /*top: 0;*/
-    /*height: 100%;*/
-/*}*/
+
 .ui-wrapper {
     padding-top: 12px;
     padding-bottom: 10px !important;
     padding-right: 0 !important;
 }
-
+/* Settings */
+.form-group {
+    padding-bottom: 20px;
+}
+.input-group button {
+    width: 100%;
+}
+#settings_form {
+    padding: 5px 3px;
+}
 
 /* === End simular formdesgner === */
 

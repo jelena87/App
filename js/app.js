@@ -541,7 +541,13 @@ function drop(ev) {
     //Allow drop control & fields in container
     else if (data !== 'Block' && data !== 'Container' && element.parentNode.classList.contains("blocks")) {
         element.setAttribute('data-field-mapping-id', field_mapping_id);
-        let $control_id = addElement('control', data, '', element)
+        let $control_id = addElement('control', data, '', element);
+
+      
+        var cont = $("#"+ $control_id).closest('.column').attr('id');
+        var send_element = $("#"+ cont);
+        checkSiblings(send_element);
+
         return element;
 
     }
@@ -695,9 +701,6 @@ function resizeContainer(id){
     var padding_right = parseInt(card.css('padding-right'), 10);
 
 
-
-
-
      var block = card.parent().width() - (padding_left + padding_right)*2 ;
      var $prev_width = card.prev().width();
      var $prev_position = card.prev().position();
@@ -732,6 +735,10 @@ function checkSiblings(elem) {
 
         }
     })
+
+}
+
+function onDropCheck(element){
 
 }
 
@@ -771,8 +778,9 @@ $('#frame').on('mousedown', '.row', function () {
 
     $(".column").resizable({
         handles: "n, e, s, w",
-        //grid: 80,
+        grid: [ 20, 40 ],
         //containment: "parent",
+
         resize: function (event, ui) {
 
             var el_id = $(this).attr('id');
@@ -782,7 +790,7 @@ $('#frame').on('mousedown', '.row', function () {
                 $(this).resizable('widget').trigger('mouseup');
             }
 
-                cont.removeClass("resize_card");
+                //cont.removeClass("resize_card");
             // Check if container contain fields
             if(cont.find(".fields").length > 0){
 
@@ -815,7 +823,7 @@ $('#frame').on('mousedown', '.row', function () {
 
     $( ".field" ).resizable({
         handles: " e, s",
-        //grid: 80,
+        grid: [80,40],
         //containment: ".block_area",
         start: function(event,ui){
 
@@ -843,6 +851,8 @@ $('#frame').on('mousedown', '.row', function () {
 
         }
     });
+
+
 
 
 
