@@ -543,7 +543,7 @@ function drop(ev) {
         element.setAttribute('data-field-mapping-id', field_mapping_id);
         let $control_id = addElement('control', data, '', element);
 
-      
+
         var cont = $("#"+ $control_id).closest('.column').attr('id');
         var send_element = $("#"+ cont);
         checkSiblings(send_element);
@@ -778,7 +778,7 @@ $('#frame').on('mousedown', '.row', function () {
 
     $(".column").resizable({
         handles: "n, e, s, w",
-        grid: [ 20, 40 ],
+        grid: [ 80, 40 ],
         //containment: "parent",
 
         resize: function (event, ui) {
@@ -790,7 +790,7 @@ $('#frame').on('mousedown', '.row', function () {
                 $(this).resizable('widget').trigger('mouseup');
             }
 
-                //cont.removeClass("resize_card");
+                cont.removeClass("resize_card");
             // Check if container contain fields
             if(cont.find(".fields").length > 0){
 
