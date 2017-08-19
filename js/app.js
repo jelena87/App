@@ -728,28 +728,26 @@ $('#frame').on('mousedown', '.row', function () {
 
     $(".block_area").sortable({
         items: ".column",
-        revert: 50
+        connectWith: '.block_area',
+        revert: 150
     });
     $("#frame").sortable({
         axis: "y",
         items: ".row",
+        containment:'parent',
         placeholder: 'block-placeholder',
         revert: 150
     });
-    //
-    // //Block Controls
+
+    //Block Controls
     $(".blocks").sortable({
-        axis:"y",
-        connectWith: '.field',
-        placeholder: 'block-placeholder',
-        revert: 50
+        axis: "y",
+        items: '.items-fields',
+        connectWith: '.blocks'
+
+
     });
-    //Field Sortable
-    // $(".items-fields").sortable({
-    //     axis: "y",
-    //     connectWith: '.column',
-    //     revert: 50
-    // });
+
 
     $(".column").resizable({
         handles: "n, e, s, w",

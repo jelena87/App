@@ -59,10 +59,12 @@ ul.dropdown-content, ul.dropdown-content-two, ul.dropdown-content-three {
 .items-fields {
     margin: 0;
     display: block;
+    padding-bottom: 10px;
 }
 .field {
     margin-top: 10px;
     width: 100%;
+    margin-bottom: 0 !important;
 }
 .right {
     display: inline-block;
@@ -75,13 +77,7 @@ ul.dropdown-content, ul.dropdown-content-two, ul.dropdown-content-three {
 .title { height: 40px; }
 
 /* Block,Cards,Controls,Fields */
-.block_area {
-    margin-top: 0;
-    margin-bottom: 40px;
-    overflow: auto;
-    position: relative;
-    width: 100%;
-}
+
 .cards {
     width: 400px;
     min-height: 100px;
@@ -113,15 +109,16 @@ ul.dropdown-content, ul.dropdown-content-two, ul.dropdown-content-three {
     color: gray;
 }
 .block_area {
-    min-height: 120px;
+    margin-top: 0;
+    margin-bottom: 40px;
+    position: relative;
     width: 100%;
+    overflow: visible;
+    min-height: 120px;
     max-width: 960px;
     left: 0;
-    position: relative;
     background-color: #f1f1f1;
     padding: 0;
-    overflow-x: hidden;
-    overflow-y: hidden;
 }
 .cards {
     min-height: 75px;
@@ -180,7 +177,7 @@ ul.dropdown-content, ul.dropdown-content-two, ul.dropdown-content-three {
     padding: 15px;
     width: 100%;
 }
-.block:not(:first-child) { margin-top: 10px; }
+/*.block:not(:first-child) { margin-top: 10px; }*/
 
 .modifier {
     float: right;
@@ -244,6 +241,7 @@ ul.dropdown-content, ul.dropdown-content-two, ul.dropdown-content-three {
 .fields_container{ width: 100% !important;}
 .input-field label {
     height: auto;
+    margin-bottom: 0;;
 }
 /* === End for block, cards... === */
 
@@ -306,6 +304,13 @@ ul.dropdown-content, ul.dropdown-content-two, ul.dropdown-content-three {
     top: 0;
     height: 100%;
 }
+.ui-wrapper {
+    padding-top: 12px;
+    padding-bottom: 10px !important;
+    padding-right: 0 !important;
+}
+
+
 /* === End simular formdesgner === */
 
 /* Media Query's */
