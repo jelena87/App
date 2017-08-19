@@ -690,14 +690,19 @@ var group_field = "<div class='items-fields'>" +
 function resizeContainer(id){
 
     var card = $("#"+id);
-    var block = card.parent().width() - 6 ;
+
+    var padding_left = parseInt(card.css('padding-left'), 10);
+    var padding_right = parseInt(card.css('padding-right'), 10);
+
+
+    var block = card.parent().width() - (padding_left + padding_right) ;
     var $prev_width = card.prev().width();
     var $prev_position = card.prev().position();
     var $prev_height = card.prev().height();
 
-     card.css("width",'auto');
+    card.css("width",'auto');
 
-    //
+
      if(typeof $prev_position !== 'undefined' && $prev_position.top === card.position().top && $prev_width < (block/2)){
         var check = block - $prev_width;
         card.css("width", check );
@@ -721,10 +726,9 @@ function checkSiblings(elem) {
             $(this).height(elem.height());
 
         }
+    })
 
-    });
-
-};
+}
 
 
 $('#frame').on('mousedown', '.row', function () {
@@ -732,7 +736,11 @@ $('#frame').on('mousedown', '.row', function () {
     $(".block_area").sortable({
         items: ".column",
         connectWith: '.block_area',
-        revert: 150
+        revert: 150,
+        update: function( event, ui ) {
+            var element_id = $(this).parent().attr('id');
+            console.log(element_id);
+        }
     });
     $("#frame").sortable({
         axis: "y",
@@ -746,7 +754,11 @@ $('#frame').on('mousedown', '.row', function () {
     $(".blocks").sortable({
         axis: "y",
         items: '.items-fields',
-        connectWith: '.blocks'
+        connectWith: '.blocks',
+        update: function( event, ui ) {
+            var element_id = $(this).parent().attr('id');
+            console.log(element_id);
+        }
 
 
     });
@@ -777,11 +789,8 @@ $('#frame').on('mousedown', '.row', function () {
                         $get_w.removeClass("fields_container");
                         $get_w.parent().removeClass("fields_container");
                     }
-
                 });
             }
-
-
         },
 
         stop: function (event, ui) {
@@ -797,10 +806,12 @@ $('#frame').on('mousedown', '.row', function () {
     $( ".field" ).resizable({
         handles: " e, s",
         grid: 80,
-        containment: "parent",
-        resize: function(event,ui){
+        containment: ".block_area",
+        start: function(event,ui){
+
             $(this).removeClass('fields_container');
             $(this).parent().removeClass('fields_container');
+
 
 
         },
@@ -810,8 +821,6 @@ $('#frame').on('mousedown', '.row', function () {
             cont.addClass("resize_card");
 
             checkSiblings(cont);
-
-
 
         }
     });
