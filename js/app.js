@@ -689,18 +689,21 @@ var group_field = "<div class='items-fields'>" +
 
 function resizeContainer(id){
 
-    var cont = $("#"+id);
-    cont.css("width",'auto');
-    var $prev_width = cont.prev().width();
-    var $prev_position = cont.prev().position();
-    var $prev_height = cont.prev().height();
+    var card = $("#"+id);
+    var block = card.parent().width() - 6 ;
+    var $prev_width = card.prev().width();
+    var $prev_position = card.prev().position();
+    var $prev_height = card.prev().height();
 
-    if(typeof $prev_position !== 'undefined' && $prev_position.top === cont.position().top && $prev_width < 450){
-        var check = 928 - $prev_width;
-        cont.css("width", check -8 );
-        cont.height($prev_height);
+     card.css("width",'auto');
+
+    //
+     if(typeof $prev_position !== 'undefined' && $prev_position.top === card.position().top && $prev_width < (block/2)){
+        var check = block - $prev_width;
+        card.css("width", check );
+        card.height($prev_height);
     }else {
-        cont.css('width', '100%');
+        card.css('width', '100%');
     }
 }
 
@@ -758,7 +761,7 @@ $('#frame').on('mousedown', '.row', function () {
             var cont = $("#"+el_id);
 
             cont.removeClass("resize_card");
-
+            // Check if container contain fields
             if(cont.find(".fields").length > 0){
 
                 var $check = $(this).find('.fields');
@@ -777,6 +780,7 @@ $('#frame').on('mousedown', '.row', function () {
 
                 });
             }
+
 
         },
 

@@ -300,7 +300,7 @@ ul.dropdown-content, ul.dropdown-content-two, ul.dropdown-content-three {
 .ui-resizable-e {
     cursor: e-resize;
     width: 20px;
-    right: -10px;
+    right: -15px;
     top: 0;
     height: 100%;
 }
