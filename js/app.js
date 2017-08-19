@@ -710,9 +710,7 @@ function resizeContainer(id){
     card.css("width",'auto');
 
     if(typeof $prev_position !== 'undefined' && $prev_position.top === card.position().top && $prev_width < (block/2)){
-        console.log('test');
         var check = block - $prev_width;
-        console.log(check);
         card.css("width", check);
         card.height($prev_height);
     }else {
@@ -762,13 +760,14 @@ $('#frame').on('mousedown', '.row', function () {
         revert: 150
     });
 
-    //Block Controls
+    // Controls
     $(".blocks").sortable({
         axis: "y",
         items: '.items-fields',
         connectWith: '.blocks',
         update: function( event, ui ) {
             var element_id = $(this).parent().attr('id');
+
             console.log(element_id);
         }
 
@@ -778,7 +777,8 @@ $('#frame').on('mousedown', '.row', function () {
 
     $(".column").resizable({
         handles: "n, e, s, w",
-        grid: [ 80, 40 ],
+        grid: [ 50, 40 ],
+        cursor: 'move',
         //containment: "parent",
 
         resize: function (event, ui) {
@@ -788,6 +788,7 @@ $('#frame').on('mousedown', '.row', function () {
 
             if(ui.size.width >= cont.parent().width()){
                 $(this).resizable('widget').trigger('mouseup');
+                $(this).css("width","100%");
             }
 
                 cont.removeClass("resize_card");
@@ -823,7 +824,7 @@ $('#frame').on('mousedown', '.row', function () {
 
     $( ".field" ).resizable({
         handles: " e, s",
-        grid: [80,40],
+        grid: [40,40],
         //containment: ".block_area",
         start: function(event,ui){
 
@@ -837,6 +838,7 @@ $('#frame').on('mousedown', '.row', function () {
 
             if($column.width() === $column.parent().width()){
                 $(this).resizable('widget').trigger('mouseup');
+                $column.css("width","100%");
             }
 
 
@@ -851,6 +853,13 @@ $('#frame').on('mousedown', '.row', function () {
 
         }
     });
+
+    // //Draggable
+    // $( ".items-fields" ).draggable({
+    //     start: function( event, ui ) {
+    //         $(this).css('width','auto');
+    //     }
+    // });
 
 
 
