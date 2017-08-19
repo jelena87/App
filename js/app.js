@@ -752,6 +752,7 @@ $('#frame').on('mousedown', '.row', function () {
     $(".column").resizable({
         handles: "n, e, s, w",
         grid: 80,
+        containment: "parent",
         resize: function (event, ui) {
             var el_id = $(this).attr('id');
             var cont = $("#"+el_id);
@@ -792,6 +793,7 @@ $('#frame').on('mousedown', '.row', function () {
     $( ".field" ).resizable({
         handles: " e, s",
         grid: 80,
+        containment: "parent",
         resize: function(event,ui){
             $(this).removeClass('fields_container');
             $(this).parent().removeClass('fields_container');
