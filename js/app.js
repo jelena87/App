@@ -752,52 +752,33 @@ $('#frame').on('mousedown', '.row', function () {
     $(".column").resizable({
         handles: "n, e, s, w",
         grid: 80,
-        start: function (event, ui) {
+        resize: function (event, ui) {
             var el_id = $(this).attr('id');
             var cont = $("#"+el_id);
 
             cont.removeClass("resize_card");
 
-            var top_position = cont.position().top;
-
-
-
-
             if(cont.find(".fields").length > 0){
 
                 var $check = $(this).find('.fields');
 
-
                 $check.each(function () {
-                    var set =$(this).width() - 20;
+                    var set =$(this).width() ;
                     var $get_w = $(this).find('.field');
 
                     if($get_w.width() === set){
                         $get_w.addClass("fields_container");
                         $get_w.parent().addClass("fields_container");
-
-                    }
-                    else{
+                    } else{
                         $get_w.removeClass("fields_container");
                         $get_w.parent().removeClass("fields_container");
                     }
 
-
                 });
-
-
-                // $check.each(function () {
-                //
-                //     if (($parentWidth - $displayarea) < 50){
-                //         console.log('test');
-                //         cont.children().children().children().children().children().addClass('fields_container');
-                //         cont.children().children().children().children().addClass('fields_container');
-                //     }
-                //
-                //  });
             }
 
         },
+
         stop: function (event, ui) {
 
             var el_id = $(this).attr('id');
@@ -811,35 +792,11 @@ $('#frame').on('mousedown', '.row', function () {
     $( ".field" ).resizable({
         handles: " e, s",
         grid: 80,
-        start: function(event,ui){
+        resize: function(event,ui){
             $(this).removeClass('fields_container');
             $(this).parent().removeClass('fields_container');
 
-            // $(this).children().removeClass('fields_container');
-            // $(this).removeClass('fields_container');
-            // //  var el_id = $(this).closest('.column').attr('id');
-            // //  // var cont = $("#"+el_id).children('.fields');
-            // //  // console.log(cont);
-            // // // var block = cont.closest('.column');
-            // //  //var top_position = elem.position().top;
-            // //
-            // //
-            // //  $('.fields', cont).each(function () {
-            // //     console.log($('test'));
-            // //
-            // //  });
-            // //
-            // //
-            // //
-            // //  //var el_id = $(this).attr('.field');
-            // //  // var test = $(this).parent();
-            // //  // console.log(test);
-            // //  // //var cont = $("#"+el_id);
-            // //  // $(this).each(function () {
-            // //  //     //console.log($(this).children());
-            // //  //     $(this).children().removeClass('fields_container');
-            // //  //     $(this).removeClass('fields_container');
-            // //  // });
+
         },
         stop: function( event, ui ) {
             var el_id = $(this).closest('.column').attr('id');
