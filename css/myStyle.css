@@ -241,7 +241,8 @@ ul.dropdown-content, ul.dropdown-content-two, ul.dropdown-content-three {
 .fields_container{ width: 100% !important;}
 .input-field label {
     height: auto;
-    margin-bottom: 0;;
+    margin-bottom: 0;
+    position: relative;
 }
 /* === End for block, cards... === */
 
@@ -297,13 +298,13 @@ ul.dropdown-content, ul.dropdown-content-two, ul.dropdown-content-three {
     padding: 0;
     margin: 0 5px 0 0;
 }
-.ui-resizable-e {
-    cursor: e-resize;
-    width: 20px;
-    right: -15px;
-    top: 0;
-    height: 100%;
-}
+/*.ui-resizable-e {*/
+    /*cursor: e-resize;*/
+    /*width: 20px;*/
+    /*right: -15px;*/
+    /*top: 0;*/
+    /*height: 100%;*/
+/*}*/
 .ui-wrapper {
     padding-top: 12px;
     padding-bottom: 10px !important;

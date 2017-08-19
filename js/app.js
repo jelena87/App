@@ -695,17 +695,22 @@ function resizeContainer(id){
     var padding_right = parseInt(card.css('padding-right'), 10);
 
 
-    var block = card.parent().width() - (padding_left + padding_right) ;
-    var $prev_width = card.prev().width();
-    var $prev_position = card.prev().position();
-    var $prev_height = card.prev().height();
+
+
+
+     var block = card.parent().width() - (padding_left + padding_right)*2 ;
+     var $prev_width = card.prev().width();
+     var $prev_position = card.prev().position();
+     var $prev_height = card.prev().height();
+
 
     card.css("width",'auto');
 
-
-     if(typeof $prev_position !== 'undefined' && $prev_position.top === card.position().top && $prev_width < (block/2)){
+    if(typeof $prev_position !== 'undefined' && $prev_position.top === card.position().top && $prev_width < (block/2)){
+        console.log('test');
         var check = block - $prev_width;
-        card.css("width", check );
+        console.log(check);
+        card.css("width", check);
         card.height($prev_height);
     }else {
         card.css('width', '100%');
@@ -714,7 +719,7 @@ function resizeContainer(id){
 
 function checkSiblings(elem) {
 
-    var block = elem.closest('.container');
+    var block = elem.closest('._container');
     var top_position = elem.position().top;
 
 
@@ -766,13 +771,18 @@ $('#frame').on('mousedown', '.row', function () {
 
     $(".column").resizable({
         handles: "n, e, s, w",
-        grid: 80,
-        containment: "parent",
+        //grid: 80,
+        //containment: "parent",
         resize: function (event, ui) {
+
             var el_id = $(this).attr('id');
             var cont = $("#"+el_id);
 
-            cont.removeClass("resize_card");
+            if(ui.size.width >= cont.parent().width()){
+                $(this).resizable('widget').trigger('mouseup');
+            }
+
+                cont.removeClass("resize_card");
             // Check if container contain fields
             if(cont.find(".fields").length > 0){
 
@@ -805,12 +815,21 @@ $('#frame').on('mousedown', '.row', function () {
 
     $( ".field" ).resizable({
         handles: " e, s",
-        grid: 80,
-        containment: ".block_area",
+        //grid: 80,
+        //containment: ".block_area",
         start: function(event,ui){
+
+        },
+        resize: function(event,ui){
 
             $(this).removeClass('fields_container');
             $(this).parent().removeClass('fields_container');
+
+            var $column = $(this).closest(".column");
+
+            if($column.width() === $column.parent().width()){
+                $(this).resizable('widget').trigger('mouseup');
+            }
 
 
 

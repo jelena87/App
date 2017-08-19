@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/lib/x-editable/dist/jqueryui-editable/css/jqueryui-editable.css" rel="stylesheet" />
+    <link href="/css/style.css" rel="stylesheet" />
+    <link href="/lib/jquery-ui/themes/base/jquery-ui.min.css" rel="stylesheet" />
+    <link href="/lib/color-picker/color-picker.min.css" rel="stylesheet" />
+    <link href="/css/layout.css" rel="stylesheet" />
+    <link href="/lib/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link href="/lib/notifications/animate.css" rel="stylesheet" />
+    <link href="/css/notifications.css" rel="stylesheet" />
+    <link href="/css/smalllayout.css" rel="stylesheet" id="small" media="(max-width: 765px)">
+    <link rel="stylesheet" href="/lib/flag-icon-css/css/flag-icon.min.css" />
+    <link rel="stylesheet" href="/css/tabNavigation.css" />
+    <link rel="stylesheet" type="text/css" href="/css/loadingSpinner.css" />
+    <link rel="stylesheet" type="text/css" href="/css/popup.css" />
+    <link rel="stylesheet" type="text/css" href="/lib/pageguide/pageguide.css" />
+    <script src="/lib/jquery/dist/jquery.min.js"></script>
+    <script src="/lib/jquery-validation/dist//jquery.validate.js"></script>
+    <script src="/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    <script src="/lib/jquery-serialize/jquery.serialize-object.min.js"></script>
+    <script src="/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/lib/notifications/bootstrap-notify.min.js" async></script>
+    <script src="/lib/lodash/lodash.min.js"></script>
+    <script src="/js/global/localStorage.js"></script>
+    <script src="/js/global/notification.js" async></script>
+    <script src="/js/global/tabNavigation.js" async></script>
+    <script src="/js/Popups.js" async></script>
+    <script src="/lib/jquery-ui/jquery-ui.js"></script>
+    <script src="/lib/x-editable/dist/jqueryui-editable/js/jqueryui-editable.min.js"></script>
+    <script>
+        var defaultSteps = [{"target": "#topbar_user","content": "Die Benutzereinstellungen","direction": "bottom"},{"target": "#navbar_work","content": "Arbeit!","direction": "right"},{"target": "#topbar_language","content": "Hier kann man die Sprache anpassen","direction": "bottom"}];
+    </script>
+
+        <link rel="stylesheet" href="/lib/materialize/dist/css/materialize.css">
+        <link rel="stylesheet" href="/css/fieldmanager.css" />
+        
+
+        <script type="text/javascript" src="/lib/materialize/dist/js/materialize.js"></script>
+        <script>
+            $(document).ready(function() {
+                $('select').material_select();
+            });
+        </script>
+        <script src="/js/plugins/fieldmanager.js"></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta charset="UTF-8">
+    <style id='dynamiccolors'>.primarycolor{background-color:rgb(28,67,104); color: #dedede;}.secondarycolor{background-color:rgb(77,78,90); color: #dedede;}.themecolor{background-color:rgb(255,255,255); color: #666666;}.primarycolorhover:hover{background-color:#86b4df; color: #666666;}.hoverprimary:hover{background-color:rgb(28,67,104); color: #dedede;}.secondarycolorhover:hover{background-color:#adadb8; color:#666666;}.hoversecondary:hover{background-color:rgb(77,78,90); color: #dedede;}.themecolorhover: hover{ background-color#b3b3b3; color: #666666;}.activeprimary{border-right: 4px solid rgb(28,67,104); background-color:#adadb8; color: #666666;}.inputsecondaryfont{border-bottom: 1px solid #dedede;}.spinnerColorIeOnly{border-color: rgb(28,67,104); border-top-color: transparent;}.activeinputprimary:focus{border-bottom: 1px solid rgb(28,67,104);}.primarycolor:focus{background-color:rgb(28,67,104); color: #dedede;}.secondarycolor:focus{background-color:rgb(77,78,90); color: #dedede;}.themecolor:focus{background-color:rgb(255,255,255); color: #666666;}</style>
+</head>
+<body>
+    <div id="applicationoverlay">
+        <input name="__RequestVerificationToken" type="hidden" value="CfDJ8B-ouK7tKdxHjbyarnKZI73f8fiazXH3ARP5PpJ0mX4_fgQFkojN184tX9wHF8mtd05LH5SFpRdx9H69A4YJ0-W_RrM6EihRoRbVApJNZFOEgWYHQUFfPrp7mdsYKI4QNZLFRICHt--aVgut9dqNcXZqWAUR1X5D7Y_RWbebswEtlaIol2OK64MZZcYQn9Zntg" />
+        <div class="topbar noselect primarycolor">
+    <div class="navbarbutton hoversecondary" onclick="onTopActionBarNavbarExpandButton()"><i class="fa fa-bars fa-rotate-180" aria-hidden="true"></i></div>
+    <div class="topbartitleitem" id="applicationtitle"><img class="applicationlogo" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" /><p>LC Revolution</p></div>
+    <div class="topmenuitem topactionbaruser push-right hoversecondary dropdown-button" id="topbar_user">
+        <img class="userimage" src="http://lorempixel.com/output/people-q-c-400-400-1.jpg" />            <p class="clickabletoptext">Maximilian Mustermann</p>
+<i class="smallericonfont fa fa-caret-down fa-fw" aria-hidden="true"></i>
+        <div class="dropdown-content userdropdown secondarycolor" aria-hidden="true">
+            <div class="biguser secondarycolor hoversecondary">
+                <table>
+                    <tr>
+                        <td rowspan="2"><img class="biguserimage" src="http://lorempixel.com/output/people-q-c-400-400-1.jpg" /></td>
+                        <td>
+                                <span>Maximilian Mustermann</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                                <span class="smaller">mmustermann@muster.com</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <a href="#" class="splitter"><span></span></a>
+            <a href="#" class="secondarycolorhover secondarycolor"><i class="fa fa-pencil" aria-hidden="true"></i><span>Profil bearbeiten</span></a>
+            <a href="/Account/LogOut" class="secondarycolorhover secondarycolor"><i class="fa fa-power-off" aria-hidden="true"></i><span>Logout</span></a>
+        </div>
+    </div>
+    <div class="topmenuitem push-right hoversecondary pageguide-toggle-open" id="topbar_help"><i class="fa fa-question-circle-o fa-fw" aria-hidden="true"></i></div>
+    <div class="topmenuitem push-right hoversecondary dropdown-button" id="topbar_search">
+        <i class="fa fa-search fa-fw" aria-hidden="true"></i>
+        <div class="dropdown-content searchsidebar secondarycolor" aria-hidden="true">
+    <script>
+        $(document).ready(function ()
+        {
+            $('#searchbarinput').keypress(function (e)
+            {
+                if (e.which == 13)
+                {
+                    submitSearchForm();
+                    return false;
+                }
+            });
+        });
+        function submitSearchForm()
+        {
+            if (searchInputIsNotEmpty())
+            {
+                $.ajax({
+               type: "POST",
+               url: '/Search/Search',
+               contentType: "application/json; charset=utf-8",
+               data: { data: $('#searchbarinput').val() },
+               dataType: "json",
+               success: parseSearchData,
+               error: function() { alert('Failed to load results','danger'); }
+               });
+            }
+        }
+    </script>
+    <div class="searchform">
+        <input class="searchbarinput inputsecondaryfont secondarycolor" id="searchbarinput" type="text" placeholder="Suchen" />
+        <!--
+        -->
+        <div onclick="submitSearchForm()" class="searchbarsubmit secondarycolor secondarycolorhover dontclose" id="searchbarsubmit"><i class="fa fa-search" aria-hidden="true"></i></div>
+        <div class="searchbar-resultcount"><span></span></div>
+    </div>
+
+    <div class="searchresults">
+    </div>
+    <div class="searchsidebar-displayall secondarycolor secondarycolorhover"><i class="fa fa-caret-left" aria-hidden="true"></i></div>
+</div>
+    </div>
+    <div class="topmenuitem push-right hoversecondary dropdown-button" id="topbar_history">
+        <i class="fa fa-history fa-fw" aria-hidden="true"></i>
+        <div class="dropdown-content historysidebar secondarycolor" aria-hidden="true">
+    <script>
+        $(document).ready(function ()
+        {
+          $.ajax({
+               type: "POST",
+               url: '/History/History',
+               contentType: "application/json; charset=utf-8",
+               data: "",
+               dataType: "text",
+               success: parseHistoryData,
+               error: function() { alert('Failed to load results','danger'); }
+               });
+        });
+    </script>
+    <div class="historyresults">
+    </div>
+    <div class="historysidebar-displayall secondarycolor secondarycolorhover"><i class="fa fa-caret-left" aria-hidden="true"></i></div>
+</div>
+    </div>
+    <div class="topmenuitem push-right hoversecondary dropdown-button" id="topbar_language">
+        <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+        <div class="dropdown-content language-dropdown secondarycolor" aria-hidden="true">
+                        <a onclick="changeLanguage('de-de')" class="secondarycolor secondarycolorhover"><span class="flag-icon flag-icon-de dropdown-flags"></span><span>Deutsch</span></a>
+                        <a onclick="changeLanguage('en-us')" class="selected-dropdown secondarycolor secondarycolorhover"><span class="flag-icon flag-icon-us dropdown-flags"></span><span>Englisch</span><i class="fa fa-check language-check-icon" aria-hidden="true"></i></a>
+        </div>
+    </div>
+</div>
+        <div class="sidebar noselect secondarycolor" id=sidebar>
+    <div id="navbar_dashboard" class="sidebaritem secondarycolorhover " onclick="window.location='/MyDashboard'">
+        <i class="fa fa-bar-chart fa-fw" aria-hidden="true"></i>
+        <span>MyDashboard</span>
+    </div>
+    <div id="navbar_work" class="sidebaritem secondarycolorhover " onclick="window.location='/MyWork'">
+        <i class="fa fa-wrench fa-fw" aria-hidden="true"></i>
+        <span>MyWork</span>
+    </div>
+
+    <div class="splitter"></div>
+    <div id="navbar_config" class="sidebaritem secondarycolorhover " onclick="window.location='/MyConfig'">
+        <i class="fa fa-cog fa-fw" aria-hidden="true"></i>
+        <span>MyConfig</span>
+    </div>
+    <div class="splitter"></div>
+    <div id="navbar_config" class="sidebaritem secondarycolorhover " onclick="window.location='/MyForms'">
+        <i class="fa fa-cog fa-fw" aria-hidden="true"></i>
+        <span>MyForms</span>
+    </div>
+    <div class="splitter"></div>
+    <div id="navbar_config" class="sidebaritem secondarycolorhover " onclick="window.location='/template/list'">
+        <i class="fa fa-cog fa-fw" aria-hidden="true"></i>
+        <span>MyTemplates</span>
+    </div>
+    <div class="splitter push-bottom"></div>
+    <div id="navbar_adminconfig" class="sidebaritem push-bottom secondarycolorhover " onclick="window.location='/AdminConfig'">
+        <i class="fa fa-cog fa-fw" aria-hidden="true"></i>
+        <span>Administrator Settings</span>
+    </div>
+</div>
+        <div id="contentoverlay" class="contentoverlay">
+            <div class="content">
+                
+<div class="contentpanelWrapper" id="contentpanelWrapper">
+    <div class="contentpanel" id="contentpanel-1">
+        <div class="row">
+            <div class="col-md-3 col-lg-3 col-xs-11 col-sm-11">
+                <div class="card-1-fieldmanager">
+                    <div class="card-header">
+                        <p class="card-header-text col-xs-9">Field Types</p>
+                    </div>
+                    <div class="row" style="margin:15px;">
+
+                        <!-- Field types, draggable -->
+                        <div class="list-group" id="draggable-fieldtypes">
+                                    <div class="list-group-item ui-draggable ui-draggable-handle ui-sortable-handle" data-fieldtype="Text">
+                                        <span class="fa fa-font" aria-hidden="true"></span> &nbsp; <span class="fieldname">Text Field</span>
+                                        <div class="push-right btn-toolbar field-options">
+                                            <div class="btn-group" role="group" aria-label="Delete">
+                                                <button data-toggle="delete" class="btn primarycolor primarycolorhover btn-sm"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="list-group-item ui-draggable ui-draggable-handle ui-sortable-handle" data-fieldtype="Textbox">
+                                        <span class="fa fa-commenting-o" aria-hidden="true"></span> &nbsp; <span class="fieldname">Textbox Field</span>
+                                        <div class="push-right btn-toolbar field-options">
+                                            <div class="btn-group" role="group" aria-label="Delete">
+                                                <button data-toggle="delete" class="btn primarycolor primarycolorhover btn-sm"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="list-group-item ui-draggable ui-draggable-handle ui-sortable-handle" data-fieldtype="HtmlText">
+                                        <span class="fa fa-code" aria-hidden="true"></span> &nbsp; <span class="fieldname">HtmlText Field</span>
+                                        <div class="push-right btn-toolbar field-options">
+                                            <div class="btn-group" role="group" aria-label="Delete">
+                                                <button data-toggle="delete" class="btn primarycolor primarycolorhover btn-sm"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="list-group-item ui-draggable ui-draggable-handle ui-sortable-handle" data-fieldtype="Number">
+                                        <span class="fa fa-sort-numeric-asc" aria-hidden="true"></span> &nbsp; <span class="fieldname">Number Field</span>
+                                        <div class="push-right btn-toolbar field-options">
+                                            <div class="btn-group" role="group" aria-label="Delete">
+                                                <button data-toggle="delete" class="btn primarycolor primarycolorhover btn-sm"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="list-group-item ui-draggable ui-draggable-handle ui-sortable-handle" data-fieldtype="Decimal">
+                                        <span class="fa fa-sort-numeric-desc" aria-hidden="true"></span> &nbsp; <span class="fieldname">Decimal Field</span>
+                                        <div class="push-right btn-toolbar field-options">
+                                            <div class="btn-group" role="group" aria-label="Delete">
+                                                <button data-toggle="delete" class="btn primarycolor primarycolorhover btn-sm"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="list-group-item ui-draggable ui-draggable-handle ui-sortable-handle" data-fieldtype="Checkbox">
+                                        <span class="fa fa-check" aria-hidden="true"></span> &nbsp; <span class="fieldname">Checkbox Field</span>
+                                        <div class="push-right btn-toolbar field-options">
+                                            <div class="btn-group" role="group" aria-label="Delete">
+                                                <button data-toggle="delete" class="btn primarycolor primarycolorhover btn-sm"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="list-group-item ui-draggable ui-draggable-handle ui-sortable-handle" data-fieldtype="Date">
+                                        <span class="fa fa-calendar" aria-hidden="true"></span> &nbsp; <span class="fieldname">Date Field</span>
+                                        <div class="push-right btn-toolbar field-options">
+                                            <div class="btn-group" role="group" aria-label="Delete">
+                                                <button data-toggle="delete" class="btn primarycolor primarycolorhover btn-sm"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="list-group-item ui-draggable ui-draggable-handle ui-sortable-handle" data-fieldtype="Dropdown">
+                                        <span class="fa fa-caret-square-o-down" aria-hidden="true"></span> &nbsp; <span class="fieldname">Dropdown Field</span>
+                                        <div class="push-right btn-toolbar field-options">
+                                            <div class="btn-group" role="group" aria-label="Delete">
+                                                <button data-toggle="delete" class="btn primarycolor primarycolorhover btn-sm"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="list-group-item ui-draggable ui-draggable-handle ui-sortable-handle" data-fieldtype="Radiobutton">
+                                        <span class="fa fa-dot-circle-o" aria-hidden="true"></span> &nbsp; <span class="fieldname">Radiobutton Field</span>
+                                        <div class="push-right btn-toolbar field-options">
+                                            <div class="btn-group" role="group" aria-label="Delete">
+                                                <button data-toggle="delete" class="btn primarycolor primarycolorhover btn-sm"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="list-group-item ui-draggable ui-draggable-handle ui-sortable-handle" data-fieldtype="FieldGroup">
+                                        <span class="fa fa-list-alt" aria-hidden="true"></span> &nbsp; <span class="fieldname">FieldGroup Field</span>
+                                        <div class="push-right btn-toolbar field-options">
+                                            <div class="btn-group" role="group" aria-label="Delete">
+                                                <button data-toggle="delete" class="btn primarycolor primarycolorhover btn-sm"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="list-group-item ui-draggable ui-draggable-handle ui-sortable-handle" data-fieldtype="ReferenceToObject">
+                                        <span class="fa fa-retweet" aria-hidden="true"></span> &nbsp; <span class="fieldname">ReferenceToObject Field</span>
+                                        <div class="push-right btn-toolbar field-options">
+                                            <div class="btn-group" role="group" aria-label="Delete">
+                                                <button data-toggle="delete" class="btn primarycolor primarycolorhover btn-sm"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="list-group-item ui-draggable ui-draggable-handle ui-sortable-handle" data-fieldtype="ReferenceToObjectList">
+                                        <span class="fa fa-list" aria-hidden="true"></span> &nbsp; <span class="fieldname">ReferenceToObjectList Field</span>
+                                        <div class="push-right btn-toolbar field-options">
+                                            <div class="btn-group" role="group" aria-label="Delete">
+                                                <button data-toggle="delete" class="btn primarycolor primarycolorhover btn-sm"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-5 col-lg-5 col-xs-11 col-sm-11">
+                <div class="card-1-fieldmanager">
+                    <div class="card-header">
+                        <p class="card-header-text col-xs-9">Fields</p>
+                    </div>
+                    <div class="row" style="margin:15px;">
+
+                        <!-- Dragged and dropped fieldtype items -->
+                        <div class="list-group sortable-list" id="dropped-fieldtypes">
+                            <!-- Pre-populate on page-load with the existing fields -->
+                                        <div class="list-group-item" data-fieldtype="Text" d data-id="26">
+                                            <span class="fa fa-font" aria-hidden="true"></span> &nbsp; <span class="fieldname">Text 1</span>
+                                            <div class="push-right btn-toolbar field-options" style="display:none;" id="field-options-delete">
+                                                <div class="btn-group" role="group" aria-label="Delete">
+                                                    <button data-toggle="delete" class="waves-effect waves-light primarycolor primarycolorhover btn-xs"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="list-group-item" data-fieldtype="Textbox" d data-id="28">
+                                            <span class="fa fa-commenting-o" aria-hidden="true"></span> &nbsp; <span class="fieldname">Textbox 1</span>
+                                            <div class="push-right btn-toolbar field-options" style="display:none;" id="field-options-delete">
+                                                <div class="btn-group" role="group" aria-label="Delete">
+                                                    <button data-toggle="delete" class="waves-effect waves-light primarycolor primarycolorhover btn-xs"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="list-group-item" data-fieldtype="HtmlText" d data-id="29">
+                                            <span class="fa fa-code" aria-hidden="true"></span> &nbsp; <span class="fieldname">HtmlText 1</span>
+                                            <div class="push-right btn-toolbar field-options" style="display:none;" id="field-options-delete">
+                                                <div class="btn-group" role="group" aria-label="Delete">
+                                                    <button data-toggle="delete" class="waves-effect waves-light primarycolor primarycolorhover btn-xs"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="list-group-item" data-fieldtype="Number" d data-id="30">
+                                            <span class="fa fa-sort-numeric-asc" aria-hidden="true"></span> &nbsp; <span class="fieldname">Number 1</span>
+                                            <div class="push-right btn-toolbar field-options" style="display:none;" id="field-options-delete">
+                                                <div class="btn-group" role="group" aria-label="Delete">
+                                                    <button data-toggle="delete" class="waves-effect waves-light primarycolor primarycolorhover btn-xs"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="list-group-item" data-fieldtype="Decimal" d data-id="31">
+                                            <span class="fa fa-sort-numeric-desc" aria-hidden="true"></span> &nbsp; <span class="fieldname">Decimal 1</span>
+                                            <div class="push-right btn-toolbar field-options" style="display:none;" id="field-options-delete">
+                                                <div class="btn-group" role="group" aria-label="Delete">
+                                                    <button data-toggle="delete" class="waves-effect waves-light primarycolor primarycolorhover btn-xs"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="list-group-item" data-fieldtype="Text" d data-id="33">
+                                            <span class="fa fa-font" aria-hidden="true"></span> &nbsp; <span class="fieldname">Text 2</span>
+                                            <div class="push-right btn-toolbar field-options" style="display:none;" id="field-options-delete">
+                                                <div class="btn-group" role="group" aria-label="Delete">
+                                                    <button data-toggle="delete" class="waves-effect waves-light primarycolor primarycolorhover btn-xs"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="list-group-item" data-fieldtype="FieldGroup" d data-id="32">
+                                            <span class="fa fa-list-alt" aria-hidden="true"></span> &nbsp; <span class="fieldname">FieldGroup 1</span>
+                                            <div class="push-right btn-toolbar field-options" style="display:none;" id="field-options-delete">
+                                                <div class="btn-group" role="group" aria-label="Delete">
+                                                    <button data-toggle="delete" class="waves-effect waves-light primarycolor primarycolorhover btn-xs"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                                                </div>
+                                            </div>
+
+                                                    <div class="well field-group sortable-sub" data-groupid="32">
+                                                                <div class="list-group-item" data-fieldtype="Text" d data-id="34" data-groupid="32">
+                                                                    <span class="fa fa-font" aria-hidden="true"></span> &nbsp; <span class="fieldname">Text 2</span>
+                                                                    <div class="push-right btn-toolbar field-options">
+                                                                        <div class="btn-group" role="group" aria-label="Delete">
+                                                                            <button data-toggle="delete" class="btn primarycolor primarycolorhover btn-sm"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="list-group-item" data-fieldtype="Textbox" d data-id="35" data-groupid="32">
+                                                                    <span class="fa fa-commenting-o" aria-hidden="true"></span> &nbsp; <span class="fieldname">Textbox 2</span>
+                                                                    <div class="push-right btn-toolbar field-options">
+                                                                        <div class="btn-group" role="group" aria-label="Delete">
+                                                                            <button data-toggle="delete" class="btn primarycolor primarycolorhover btn-sm"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="list-group-item" data-fieldtype="Text" d data-id="36" data-groupid="32">
+                                                                    <span class="fa fa-font" aria-hidden="true"></span> &nbsp; <span class="fieldname">Text 3</span>
+                                                                    <div class="push-right btn-toolbar field-options">
+                                                                        <div class="btn-group" role="group" aria-label="Delete">
+                                                                            <button data-toggle="delete" class="btn primarycolor primarycolorhover btn-sm"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                    </div>
+                                        </div>
+                                        <div class="list-group-item" data-fieldtype="Text" d data-id="27">
+                                            <span class="fa fa-font" aria-hidden="true"></span> &nbsp; <span class="fieldname">Text 2</span>
+                                            <div class="push-right btn-toolbar field-options" style="display:none;" id="field-options-delete">
+                                                <div class="btn-group" role="group" aria-label="Delete">
+                                                    <button data-toggle="delete" class="waves-effect waves-light primarycolor primarycolorhover btn-xs"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-lg-3 col-xs-11 col-sm-11">
+                <div class="card-1-fieldmanager" id="field-settings" style="display:none;">
+                    <div class="card-header">
+                        <p class="card-header-text col-xs-9">Settings</p>
+                    </div>
+                    <div class="row" style="margin:15px !important;">
+                        <div class="col-md-12">
+
+                            <form id="settings-form" name="settings-form" class="form-horizontal" methods="POST">
+                                <!-- Settings form controls -->
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(function ()
+    {
+        $('#contentpanel').FieldManager();
+    });
+</script>
+            </div>
+        </div>
+        <div class="tab-navigation">
+            <div class="tab-container row noselect panelNav">
+                <div id="tab-1" class="col-xs-2 tab activetab">
+                    <table id="tabTable-1" class="tab-table primarycolor">
+                        <tr>
+                            <td class="tab-icon" id="tabIcon-1">
+                                <img src="http://www.lorempixel.com/200/200/" />
+                            </td>
+                            <td class="tab-text" id="tabText-1">
+                                Tab 1 von 3
+                            </td>
+                            <td class="tab-close" id="tabClose-1">
+                                <i class="fa fa-times"></i>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div id="tab-2" class="col-xs-2 tab ">
+                    <table id="tabTable-2" class="tab-table secondarycolor">
+                        <tr>
+                            <td class="tab-icon" id="tabIcon-2">
+                                <i class="fa fa-hand-rock-o"></i>
+                            </td>
+                            <td class="tab-text" id="tabText-2">
+                                Tab 2 von 3
+                            </td>
+                            <td class="tab-close" id="tabClose-2">
+                                <i class="fa fa-times"></i>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div id="tab-3" class="col-xs-2 tab ">
+                    <table id="tabTable-3" class="tab-table secondarycolor">
+                        <tr>
+                            <td class="tab-icon" id="tabIcon-3">
+                                <i class="fa fa-hand-paper-o"></i>
+                            </td>
+                            <td class="tab-text" id="tabText-3">
+                                Tab 3 von 3
+                            </td>
+                            <td class="tab-close" id="tabClose-3">
+                                <i class="fa fa-times"></i>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+</div>
+        </div>
+    </div>
+
+    <div id="modal-container" class="modal fade hidden-print" style="overflow: hidden;" tabindex="-1" role="dialog">
+    </div>
+    <script src="/lib/pageguide/pageguide.js"></script>
+    <script src="/js/global/layout.js"></script>
+</body>
+</html>
