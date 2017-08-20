@@ -517,7 +517,10 @@ function drop(ev) {
         addElement('container', 'Container', '', element);
 
         let el_id = $(this).attr('id');
-        resizeContainer(el_id);
+        let get_poz_y = event.offsetY;
+        resizeContainer(el_id,get_poz_y);
+
+
 
     }
 
@@ -533,7 +536,8 @@ function drop(ev) {
         var $container_id = addElement('container', "Container", '', element2);
 
         let el_id = $(this).attr('id');
-        resizeContainer(el_id);
+        let get_poz_y = event.offsetY;
+        resizeContainer(el_id,get_poz_y);
 
         return element;
     }
@@ -557,7 +561,8 @@ function drop(ev) {
         //add container
         let $container_id = addElement('container', 'Container', '', element);
         let el_id = $(this).attr('id');
-        resizeContainer(el_id);
+        let get_poz_y = event.offsetY;
+        resizeContainer(el_id,get_poz_y);
         //create new element
         let element2 = document.createElement("div");
 
@@ -580,7 +585,8 @@ function drop(ev) {
         $("#" + $block_id + " .block_area").append(element2);
         let $container_id = addElement('container', 'Container', '', element2);
         let el_id = $(this).attr('id');
-        resizeContainer(el_id);
+        let get_poz_y = event.offsetY;
+        resizeContainer(el_id,get_poz_y);
 
         var element3 = document.createElement("div");
         $("#" + $container_id + " .blocks").append(element3);
@@ -603,85 +609,153 @@ function drop(ev) {
 
 var block = "<div class='block_label'>" +
             "<label>Title</label>" +
+            "<div class='right delete_control'>" +
+            "<span class='glyphicon glyphicon-trash'></span>" +
+            "</div>" +
             "</div>"+
             "<div class='block_area panel panel-default panel-body sortable'>" +
             "</div>";
 
-var container = "<div class='blocks panel panel-default panel-body'>" + "</div>";
+var container = "<div class='blocks panel panel-default panel-body'>" +
+                "<div class='right delete_control'>" +
+                "<span class='glyphicon glyphicon-trash'></span>" +
+                "</div>" +
+                "</div>";
 
 //Fields&Controls
 
-var text_box = "<div class='items-fields input-field'>" +
-    "<label for='text'>Text</label>" +
-    "<input  type='text' class='validate field' disabled></div>";
+var text_box = "<div class='right delete_control'>" +
+            "<span class='glyphicon glyphicon-trash'></span>" +
+            "</div>" +
+            "<div class='items-fields input-field'>" +
+            "<label for='text'>Text</label>" +
+            "<input  type='text' class='validate field' disabled></div>";
 
-var text_area = "<div class='items-fields input-field'>" +
+var text_area = "<div class='right delete_control'>" +
+    "<span class='glyphicon glyphicon-trash'></span>" +
+    "</div>" +
+    "<div class='items-fields input-field'>" +
     "<label for='textarea'>Textarea</label>" +
     "<textarea class='materialize-textarea field' disabled></textarea></div>";
 
 
-var html_editor = "<div class='items-fields input-field'>" +
+var html_editor = "<div class='right delete_control'>" +
+    "<span class='glyphicon glyphicon-trash'></span>" +
+    "</div>" +
+    "<div class='items-fields input-field'>" +
     "<label for='html'>HTML Editor</label>" +
     "<textarea class='materialize-textarea field' disabled></textarea></div>";
 
 
-var check_box = "<div><form action='#'>" +
-    "<p>" +
-    "<input type='checkbox' class='field' id='test5' disabled/>" +
-    "<label for='test5'>Red</label>" +
-    "</p>" +
-    "</form></div>";
+var check_box = "<div class='right delete_control'>" +
+    "<span class='glyphicon glyphicon-trash'></span>" +
+    "</div>" +
+    "<div class='items-fields input-field'>" +
+    "<form action='#'>" +
+    "<input type='checkbox' class='input-field field' disabled />" +
+    "<label>Checkbox</label>" +
+    "</form>" +
+    "</div>";
 
 
-var datapicker = "<div><input type='text' class='datepicker field'><label>Datepicker</label></div>";
+var datapicker = "<div class='right delete_control'>" +
+    "<span class='glyphicon glyphicon-trash'></span>" +
+    "</div>" +
+    "<div>" +
+    "<label>Datepicker</label>" +
+    "<input type='text' class='datepicker field' disabled></div>";
 
 
-var dropdown = "<div class='input-field field'>" +
+var dropdown ="<div class='right delete_control'>" +
+    "<span class='glyphicon glyphicon-trash'></span>" +
+    "</div>" +
+    "<div class='items-fields field'>" +
+    "<label>Materialize Select</label>" +
     "<select>" +
     "<option value='' disabled selected>Choose your option</option>" +
     "<option value='1'>Option 1</option>" +
     "<option value='2'>Option 2</option>" +
     "<option value='3'>Option 3</option>" +
     "</select>" +
-    "<label>Materialize Select</label>" +
     "</div>";
 
-var radiobutton = "<div><form action='#' class='field'>" +
-    "<p>" +
-    "<input name='group1' type='radio' id='test1' />" +
-    "<label for='test1'>Red</label>" +
-    "</p>" +
-    "<p>" +
-    "<input name='group1' type='radio' id='test2' />" +
-    "<label for='test2'>Yellow</label>" +
-    "</p>" +
-    "<p>" +
-    "<input class='with-gap' name='group1' type='radio' id='test3' />" +
-    "<label for='test3'>Green</label>" +
-    "</p>" +
-    "<p>" +
-    "<input name='group1' type='radio' id='test4' />" +
-    "<label for='test4'>Brown</label>" +
-    "</p>" +
-    "</form></div>";
-var lookup = "";
-var grid = "";
+var radiobutton = "<div class='right delete_control'>" +
+    "<span class='glyphicon glyphicon-trash'></span>" +
+    "</div>" +
+    "<div class='items-fields input-field'>" +
+    "<form action='#' disabled>" +
+    "<input name='group1' type='radio'  />" +
+    "<label>Red</label>" +
+    "</br>" +
+    "<input name='group1' type='radio'/>" +
+    "<label>Yellow</label>" +
+    "</br>" +
+    "<input class='with-gap' name='group1' type='radio' />" +
+    "<label>Green</label>" +
+    "</br>" +
+    "<input name='group1' type='radio' />" +
+    "<label>Brown</label>" +
+    "</br>" +
+    "</form>"+
+    "</div>";
 
-var label = "<div class='items-fields'>" +
+var lookup = "<div class='right delete_control'>" +
+    "<span class='glyphicon glyphicon-trash'></span>" +
+    "</div>" +
+    "<div class='items-fields field'>" +
+    "<label>Lookup Select</label>" +
+    "<select disabled>" +
+    "<option value=''  selected>Choose your option</option>" +
+    "<option value='1'>Option 1</option>" +
+    "<option value='2'>Option 2</option>" +
+    "<option value='3'>Option 3</option>" +
+    "</select>" +
+    "</div>";
+var grid = "<div class='right delete_control'>" +
+    "<span class='glyphicon glyphicon-trash'></span>" +
+    "</div>" +
+    "<div class='items-fields field'>" +
+    "<table class='table' disabled>" +
+    "<thead>" +
+    "<tr>" +
+    "<th>State</th>" +
+    "<th>Area</th>" +
+    "<th>Country</th>" +
+    "<th>Location</th>" +
+    "</tr>" +
+    "</thead>" +
+    "<tbody>" +
+    "</tbody>" +
+    "</table>"
+    "</div>";
+
+var label = "<div class='right delete_control'>" +
+    "<span class='glyphicon glyphicon-trash'></span>" +
+    "</div>" +
+    "<div class='items-fields field'>" +
     "<label>Label</label>" +
     "</div>";
 
-var field_number = "<div class='items-fields'>" +
+var field_number = "<div class='right delete_control'>" +
+    "<span class='glyphicon glyphicon-trash'></span>" +
+    "</div>" +
+    "<div class='items-fields input-field field'>" +
     "<label for='num'>Number</label>" +
     "<input type='number' name='num' min='1' max='5'>" +
     "</div>";
 
-var field_decimal = "<div class='items-fields'>" +
+var field_decimal = "<div class='right delete_control'>" +
+    "<span class='glyphicon glyphicon-trash'></span>" +
+    "</div>" +
+    "<div class='items-fields input-field field'>" +
     "<label for='decimal'>Decimal</label>" +
     "<input type='number' required name='decimal' min='0' value='0' step='.01'>" +
     "</div>";
 
-var group_field = "<div class='items-fields'>" +
+var group_field = "<div class='right delete_control'>" +
+    "<span class='glyphicon glyphicon-trash'></span>" +
+    "</div>" +
+    "<div class='items-fields'>" +
     "<label for='text_box'>Text</label>" +
     "<input  type='text' class='validate' id='text_box'>" +
     "</div>" +
@@ -693,9 +767,11 @@ var group_field = "<div class='items-fields'>" +
     "</div>";
 
 
-function resizeContainer(id){
+function resizeContainer(id, position){
 
     var card = $("#"+id);
+
+
 
     var padding_left = parseInt(card.css('padding-left'), 10);
     var padding_right = parseInt(card.css('padding-right'), 10);
@@ -705,40 +781,47 @@ function resizeContainer(id){
      var $prev_width = card.prev().width();
      var $prev_position = card.prev().position();
      var $prev_height = card.prev().height();
+     var pos = position;
+
+     card.css("width",'auto');
 
 
-    card.css("width",'auto');
+    if(typeof $prev_position !== 'undefined' && pos > ($prev_position.top + $prev_height )) {
 
+        card.position().top = $prev_position.top + $prev_height + 1;
+        card.css('width', '100%');
+    }
     if(typeof $prev_position !== 'undefined' && $prev_position.top === card.position().top && $prev_width < (block/2)){
         var check = block - $prev_width;
         card.css("width", check);
         card.height($prev_height);
-    }else {
+    }
+    else {
         card.css('width', '100%');
     }
 }
 
 function checkSiblings(elem) {
 
-    var block = elem.closest('._container');
+    var block = elem.closest('.block_area');
     var top_position = elem.position().top;
-
 
     $('.column', block).each(function () {
         var get_position = $(this).position().top;
 
         if (top_position === get_position) {
-
-            $(this).height(elem.height());
+           if($(this).height() > elem.height()){
+               elem.height($(this).height());
+           }
+           else {
+               $(this).height(elem.height());
+           }
 
         }
     })
 
 }
 
-function onDropCheck(element){
-
-}
 
 
 $('#frame').on('mousedown', '.row', function () {
@@ -746,11 +829,7 @@ $('#frame').on('mousedown', '.row', function () {
     $(".block_area").sortable({
         items: ".column",
         connectWith: '.block_area',
-        revert: 150,
-        update: function( event, ui ) {
-            var element_id = $(this).parent().attr('id');
-            console.log(element_id);
-        }
+        revert: 150
     });
     $("#frame").sortable({
         axis: "y",
@@ -763,20 +842,13 @@ $('#frame').on('mousedown', '.row', function () {
     // Controls
     $(".blocks").sortable({
         axis: "y",
-        items: '.items-fields',
-        connectWith: '.blocks',
-        update: function( event, ui ) {
-            var element_id = $(this).parent().attr('id');
-
-            console.log(element_id);
-        }
-
-
+        items: '.block',
+        connectWith: '.blocks'
     });
 
 
     $(".column").resizable({
-        handles: "n, e, s, w",
+        handles: " e, s",
         grid: [ 50, 40 ],
         cursor: 'move',
         //containment: "parent",
@@ -810,14 +882,13 @@ $('#frame').on('mousedown', '.row', function () {
                     }
                 });
             }
-        },
 
+        },
         stop: function (event, ui) {
 
             var el_id = $(this).attr('id');
             var cont = $("#"+el_id);
             checkSiblings(cont);
-
         }
 
     });
@@ -841,27 +912,15 @@ $('#frame').on('mousedown', '.row', function () {
                 $column.css("width","100%");
             }
 
-
-
         },
         stop: function( event, ui ) {
             var el_id = $(this).closest('.column').attr('id');
             var cont = $("#"+el_id);
             cont.addClass("resize_card");
-
             checkSiblings(cont);
 
         }
     });
-
-    // //Draggable
-    // $( ".items-fields" ).draggable({
-    //     start: function( event, ui ) {
-    //         $(this).css('width','auto');
-    //     }
-    // });
-
-
 
 
 
