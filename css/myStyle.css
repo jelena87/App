@@ -639,50 +639,7 @@ ul.dropdown-content, ul.dropdown-content-two, ul.dropdown-content-three {
 
 /* === End simular formdesgner === */
 
-/* Media Query's */
-@media (min-width: 2000px) {
-    .container-fluid {
-        width: 1670px;
-    }
-}
 
-/* Media Query's */
-@media (min-width: 1900px) {
-    #control-draggables {
-        min-width: 245px;
-    }
-
-    #control-settings {
-        min-width: 370px;
-    }
-}
-
-
-
-@media (max-width: 768px) {
-    .grid-form {
-        min-height: 40vh;
-        height: auto;
-    }
-
-    .content {
-        padding-left: 5px;
-        padding-right: 5px;
-    }
-
-    .card-header-text {
-        font-size: 18px;
-    }
-
-    .affix {
-        position: static;
-    }
-    .column {
-        overflow: hidden;
-        display: inline-flex;
-    }
-
-}
 .delete_control {
     display: none;
     position: absolute;
@@ -742,7 +699,9 @@ table {
     height: 75px;
     margin: 0;
 }
-
+.temp_grid th{
+    padding: 17px 0;
+}
 .temp_label {
     margin: 0;
     height: 75px;
@@ -757,4 +716,49 @@ table {
     overflow-y: auto;
     margin-bottom: 15px;
     max-width: 250px;
+}
+/* New */
+
+@media (min-width: 2000px) {
+    .container-fluid {
+        width: 1670px;
+    }
+}
+
+/* Media Query's */
+@media (min-width: 1900px) {
+    #control-draggables {
+        min-width: 245px;
+    }
+
+    #control-settings {
+        min-width: 370px;
+    }
+}
+
+
+
+@media (max-width: 768px) {
+    .grid-form {
+        min-height: 40vh;
+        height: auto;
+    }
+
+    .content {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    .card-header-text {
+        font-size: 18px;
+    }
+
+    .affix {
+        position: static;
+    }
+    .column {
+        overflow: hidden;
+        display: inline-flex;
+    }
+
 }

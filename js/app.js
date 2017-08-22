@@ -822,7 +822,7 @@ var grid = "<div class=' delete_control'>" +
                 "<span class='glyphicon glyphicon-remove'></span>" +
            "</div>" +
            "<div class='temp_grid items-fields field col-md-12'>" +
-            "<table class='table' disabled>" +
+            "<table disabled>" +
                 "<thead>" +
                     "<tr>" +
                         "<th>State</th>" +
