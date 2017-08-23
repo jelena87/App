@@ -883,17 +883,12 @@ function resizeContainer(id, position) {
 
     var $prev_height = card.prev().height();
     var pos = position;
-    //console.log(pos);
-
     var number = 0;
 
     for(var i=0; i< card.prevAll().length; i++){
         var prevision = card.prevAll()[ i ];
-       // console.log(prevision);
         var get_element = $("#" + prevision.closest('div[id]').id) ;
-        console.log(get_element);
         var elem_poz = get_element.position().top;
-       // console.log(elem_poz);
         var elem_height = get_element.height();
 
         if(pos < (elem_poz + elem_height  )){
@@ -904,6 +899,7 @@ function resizeContainer(id, position) {
     }
 
     if(number <= 6){
+
         var number_of_columns = 12 - number;
         card.attr('data-number-of-columns', number_of_columns);
         var new_class = 'col-md-' + number_of_columns;
@@ -1016,7 +1012,7 @@ function sortableInitialize(obj) {
         });
     }
 }
-
+//window.resizeWidth = 0;
 function resizableInitialize(obj) {
 
     if (obj.hasClass('column')) {
@@ -1029,10 +1025,10 @@ function resizableInitialize(obj) {
 
                 var obj = $(this);
 
-
                 //Get direction of moving by width and handles 'e'
                 if ($(this).data('ui-resizable').axis === 'e') {
-                    var currentWidth = ui.size.width;
+
+                    var currentWidth = ui.size.width ;
                     var direction = (currentWidth > window.resizeWidth) ? 'right' : 'left';
                     window.resizeWidth = ui.size.width;
 
@@ -1070,10 +1066,12 @@ function resizableInitialize(obj) {
                         }
 
                     } else if (direction === 'left') {
-                        if (number_of_columns == 1) {
 
+                        if (number_of_columns == 1) {
+                            $(this).resizable('widget').trigger('mouseup');
                         } else {
                             number_of_columns = number_of_columns - 1;
+
                         }
                     }
 
