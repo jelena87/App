@@ -881,15 +881,30 @@ function resizeContainer(id, position) {
 
     var card = $("#" + id);
 
-    var prev_element_columns = parseInt(card.prev().attr('data-number-of-columns'));
-    var $prev_position = card.prev().position();
     var $prev_height = card.prev().height();
     var pos = position;
+    //console.log(pos);
 
+    var number = 0;
 
-    if (prev_element_columns > 0 && prev_element_columns <= 6 && pos < ($prev_position.top + $prev_height)) {
+    for(var i=0; i< card.prevAll().length; i++){
+        var prevision = card.prevAll()[ i ];
+       // console.log(prevision);
+        var get_element = $("#" + prevision.closest('div[id]').id) ;
+        console.log(get_element);
+        var elem_poz = get_element.position().top;
+       // console.log(elem_poz);
+        var elem_height = get_element.height();
 
-        var number_of_columns = 12 - prev_element_columns;
+        if(pos < (elem_poz + elem_height  )){
+            var columns = parseInt(get_element.attr('data-number-of-columns'));
+            number  = number + columns;
+
+        }
+    }
+
+    if(number <= 6){
+        var number_of_columns = 12 - number;
         card.attr('data-number-of-columns', number_of_columns);
         var new_class = 'col-md-' + number_of_columns;
 
@@ -898,8 +913,8 @@ function resizeContainer(id, position) {
         card.attr('data-class', new_class);
         card.height($prev_height);
         card.saveControlPosition();
-
     }
+
 }
 
 function checkSiblings(elem) {
